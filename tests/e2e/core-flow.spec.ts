@@ -1,16 +1,42 @@
 import { expect, test } from "@playwright/test";
 
+test("exposes installable PWA assets", async ({ request }) => {
+  const manifestResponse = await request.get("/manifest.webmanifest");
+  expect(manifestResponse.ok()).toBe(true);
+  const manifest = await manifestResponse.json();
+  expect(manifest).toMatchObject({
+    id: "./",
+    start_url: "./",
+    scope: "./",
+    display: "standalone",
+  });
+  expect(manifest.icons).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ sizes: "192x192", type: "image/png" }),
+      expect.objectContaining({ sizes: "512x512", type: "image/png" }),
+      expect.objectContaining({ purpose: "maskable" }),
+    ]),
+  );
+  const workerResponse = await request.get("/sw.js");
+  expect(workerResponse.ok()).toBe(true);
+  expect(await workerResponse.text()).toContain("insight-daily-v1");
+  expect((await request.get("/offline.html")).ok()).toBe(true);
+});
+
 test("browse, favorite, practice, market and archive", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText("DEMO 模式")).toBeVisible();
+  await expect(page.getByText(/真实来源模式|DEMO 模式/)).toBeVisible();
   await expect(
     page.getByRole("heading", { name: /看清变化的逻辑/ }),
   ).toBeVisible();
 
-  await page.getByRole("link", { name: /开始今日研判/ }).click();
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "演示议题",
-  );
+  await Promise.all([
+    page.waitForURL(/\/news\/news-/),
+    page.getByRole("link", { name: /开始今日研判/ }).click(),
+  ]);
+  const articleHeading = page.getByRole("heading", { level: 1 }).first();
+  await expect(articleHeading).toBeVisible();
+  const articleTitle = await articleHeading.textContent();
   await page.getByRole("button", { name: "收藏" }).click();
   await expect(page.getByRole("button", { name: "取消收藏" })).toBeVisible();
 
@@ -30,7 +56,9 @@ test("browse, favorite, practice, market and archive", async ({ page }) => {
   await expect(page.locator(".archive-card")).toHaveCount(3);
 
   await page.goto("/favorites/");
-  await expect(page.getByText(/演示议题/).first()).toBeVisible();
+  await expect(
+    page.getByText(articleTitle ?? "", { exact: true }).first(),
+  ).toBeVisible();
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "导出 JSON" }).click();
   await downloadPromise;

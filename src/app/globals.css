@@ -1497,6 +1497,57 @@ select {
   text-align: right;
 }
 
+.pwa-install-banner {
+  position: fixed;
+  z-index: 80;
+  right: 22px;
+  bottom: 22px;
+  width: min(540px, calc(100vw - 32px));
+  padding: 14px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 15px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  box-shadow: 0 18px 48px color-mix(in srgb, #081c15 18%, transparent);
+  backdrop-filter: blur(16px);
+}
+.pwa-install-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--accent-strong);
+  font:
+    700 20px Georgia,
+    "Songti SC",
+    serif;
+}
+.pwa-install-banner b {
+  font-size: 13px;
+}
+.pwa-install-banner p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+.pwa-install-actions,
+.pwa-ios-hint {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.pwa-ios-hint {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 650;
+}
+
 @media (max-width: 1100px) {
   .desktop-nav {
     display: none;
@@ -1593,6 +1644,18 @@ select {
     gap: 2px;
     color: var(--muted);
     font-size: 9px;
+  }
+  .pwa-install-banner {
+    right: 14px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    left: 14px;
+    width: auto;
+    padding: 12px;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .pwa-install-actions {
+    grid-column: 2;
+    justify-content: flex-end;
   }
   .demo-banner {
     align-items: flex-start;

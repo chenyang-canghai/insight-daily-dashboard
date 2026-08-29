@@ -12,9 +12,11 @@ import {
 export function MarketChart({
   values,
   label,
+  isDemo,
 }: {
   values: number[];
   label: string;
+  isDemo: boolean;
 }) {
   const data = values.map((value, index) => ({ index: index + 1, value }));
   return (
@@ -29,7 +31,7 @@ export function MarketChart({
           <Tooltip
             contentStyle={{ fontSize: 12, borderRadius: 8 }}
             formatter={(value) => [String(value), label]}
-            labelFormatter={() => "demo 趋势"}
+            labelFormatter={() => (isDemo ? "demo 趋势" : "行情序列")}
           />
           <Line
             type="monotone"

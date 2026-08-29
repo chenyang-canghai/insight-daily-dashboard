@@ -86,7 +86,9 @@ export function ExamPractice({ questions }: { questions: Question[] }) {
     <section className="practice-shell" aria-labelledby="practice-title">
       <div className="practice-head">
         <div>
-          <span className="eyebrow">今日行测 · 原创 demo</span>
+          <span className="eyebrow">
+            今日行测 · {question.is_demo ? "原创 demo" : "系统原创"}
+          </span>
           <h2 id="practice-title">
             第 {index + 1} 题 / 共 {questions.length} 题
           </h2>

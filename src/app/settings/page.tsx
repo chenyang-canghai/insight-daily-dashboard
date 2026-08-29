@@ -54,10 +54,14 @@ export default function SettingsPage() {
           </p>
         </article>
         <article className="setting-card">
-          <h2>手机端</h2>
+          <h2>安装到手机桌面</h2>
           <p>
-            360px 起支持单列阅读、底部主导航、横向影响链与 44px 触控目标。建议将
-            GitHub Pages 添加到手机桌面，获得接近应用的打开方式。
+            Android 使用 Chrome
+            打开本站，点击页面安装提示或浏览器菜单中的“安装应用”。iPhone 使用
+            Safari，点击“分享”→“添加到主屏幕”。安装后会以独立窗口打开。
+          </p>
+          <p>
+            首次联网访问后，应用会缓存必要界面和已阅读页面；离线内容可能不是最新日报，恢复网络后请重新打开以更新。
           </p>
         </article>
       </div>

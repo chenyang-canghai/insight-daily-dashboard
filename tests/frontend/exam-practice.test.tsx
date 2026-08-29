@@ -13,11 +13,14 @@ describe("ExamPractice", () => {
   });
 
   it("keeps the answer hidden until submission", async () => {
-    render(
-      <ExamPractice questions={latestDigest.exam.questions.slice(0, 1)} />,
-    );
+    const question = latestDigest.exam.questions[0];
+    if (!question) throw new Error("latest digest must include a question");
+    render(<ExamPractice questions={[question]} />);
     expect(screen.queryByText("正确答案")).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole("radio", { name: /底线/ }));
+    const answerIndex = Object.keys(question.options).indexOf(
+      question.correct_answer,
+    );
+    fireEvent.click(screen.getAllByRole("radio")[answerIndex]!);
     fireEvent.click(screen.getByRole("button", { name: "提交并查看解析" }));
     expect(await screen.findByText("回答正确，继续保持。")).toBeInTheDocument();
     expect(screen.getByText("正确答案")).toBeInTheDocument();

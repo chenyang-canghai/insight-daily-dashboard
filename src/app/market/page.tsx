@@ -10,8 +10,8 @@ export default function MarketPage() {
   const market = latestDigest.market;
   const total =
     (market.market_breadth.up ?? 0) +
-    (market.market_breadth.down ?? 0) +
-    (market.market_breadth.flat ?? 0);
+      (market.market_breadth.down ?? 0) +
+      (market.market_breadth.flat ?? 0) || 1;
   const candidate = market.research_candidate;
   return (
     <>
@@ -61,7 +61,11 @@ export default function MarketPage() {
                 <strong>{item.close.value?.toLocaleString()}</strong>
                 <small>{item.close.unit}</small>
               </div>
-              <MarketChart values={item.trend} label={item.name} />
+              <MarketChart
+                values={item.trend}
+                label={item.name}
+                isDemo={market.is_demo}
+              />
               <small>
                 {item.turnover.value?.toLocaleString()} {item.turnover.unit} ·{" "}
                 {item.close.source}

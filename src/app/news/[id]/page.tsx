@@ -166,7 +166,11 @@ export default async function NewsDetailPage({
             </h3>
             <p>置信度：{deepDive?.confidence ?? "未生成"}</p>
             <p>日报日期：{digest.date}</p>
-            <p>所有 demo 信息不可作为现实事实引用。</p>
+            <p>
+              {item.is_demo
+                ? "所有 demo 信息不可作为现实事实引用。"
+                : "结构化摘要不代替原文，具体事实、数字与适用范围请回到引用来源核验。"}
+            </p>
           </div>
         </aside>
       </div>

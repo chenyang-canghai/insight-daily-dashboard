@@ -16,8 +16,10 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "generate:demo": "node scripts/generate-demo.mjs",
+    "generate:pwa-icons": "node scripts/generate-pwa-icons.mjs",
     "validate:data": "node scripts/validate-data.mjs",
-    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm validate:data && pnpm build"
+    "validate:pwa": "node scripts/validate-pwa.mjs",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm validate:data && pnpm validate:pwa && pnpm build"
   },
   "dependencies": {
     "clsx": "^2.1.1",

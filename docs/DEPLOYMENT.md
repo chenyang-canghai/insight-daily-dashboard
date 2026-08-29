@@ -4,6 +4,7 @@
 
 - 本地局域网：双击桌面“知势看板”快捷方式，手机与电脑连接同一 Wi-Fi，并访问服务窗口显示的地址。电脑必须保持开机并运行服务。
 - GitHub Pages：完成下方部署后，手机可通过公网地址随时访问，不依赖本地电脑。收藏和错题仍保存在每台设备各自的 IndexedDB 中。
+- PWA 安装：Android Chrome 使用安装提示；iPhone Safari 使用“分享”→“添加到主屏幕”。Service Worker 的作用域跟随仓库 Base Path。
 
 ## 首次部署
 
@@ -15,6 +16,8 @@
 ## Base Path
 
 项目站点通常为 `https://USER.github.io/REPO/`，工作流把 `NEXT_PUBLIC_BASE_PATH` 设置为 `/REPO`；名为 `USER.github.io` 的站点使用空路径。Next.js 静态导出使用 `trailingSlash: true`。
+
+`manifest.webmanifest` 中的 `id`、`start_url`、`scope` 和快捷入口全部使用相对地址，避免把 PWA 安装到域名根路径。`sw.js` 从自身注册作用域推导仓库路径。GitHub Pages 无法为单个静态文件自定义响应头，因此注册时使用 `updateViaCache: none`，每次加载主动检查 Service Worker 更新。
 
 ## Secrets
 

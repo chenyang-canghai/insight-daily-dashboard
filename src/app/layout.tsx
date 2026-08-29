@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { MobileNav } from "@/components/mobile-nav";
+import { PwaManager } from "@/components/pwa-manager";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -13,6 +14,32 @@ export const metadata: Metadata = {
     "面向数字经济研究生的新闻研判、A 股复盘与国考/江西省考学习看板。",
   applicationName: "知势",
   manifest: `${basePath}/manifest.webmanifest`,
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "知势",
+  },
+  icons: {
+    icon: [
+      {
+        url: `${basePath}/icons/pwa-192.png`,
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: `${basePath}/icons/pwa-512.png`,
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: `${basePath}/icons/apple-touch-icon.png`,
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
@@ -37,6 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </main>
         <SiteFooter />
         <MobileNav />
+        <PwaManager />
       </body>
     </html>
   );

@@ -5,6 +5,9 @@ import { DemoBanner } from "@/components/demo-banner";
 import { archiveIndex } from "@/lib/data";
 export const metadata: Metadata = { title: "历史归档" };
 export default function ArchivePage() {
+  const demoCount = archiveIndex.entries.filter(
+    (entry) => entry.mode === "demo",
+  ).length;
   return (
     <>
       <DemoBanner />
@@ -13,8 +16,9 @@ export default function ArchivePage() {
           <span className="eyebrow">Archive</span>
           <h1>每日历史归档</h1>
           <p>
-            按日浏览新闻、市场复盘、研究标的、行测练习和申论积累。当前提供 3
-            天完整 demo。
+            按日浏览新闻、市场复盘、研究标的、行测练习和申论积累。当前提供
+            {archiveIndex.entries.length} 天完整归档，其中 {demoCount}{" "}
+            天为演示数据。
           </p>
         </div>
       </header>

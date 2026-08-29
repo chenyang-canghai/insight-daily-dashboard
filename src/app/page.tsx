@@ -18,8 +18,8 @@ export default function Home() {
   const { market, exam } = latestDigest;
   const breadthTotal =
     (market.market_breadth.up ?? 0) +
-    (market.market_breadth.down ?? 0) +
-    (market.market_breadth.flat ?? 0);
+      (market.market_breadth.down ?? 0) +
+      (market.market_breadth.flat ?? 0) || 1;
   return (
     <>
       <DemoBanner />
@@ -57,7 +57,12 @@ export default function Home() {
             <span className="eyebrow">Daily Brief</span>
             <h2 id="today-overview">今日一屏总览</h2>
           </div>
-          <p>先抓住最重要的信息，再决定往哪里深入。所有数字均为显式 demo。</p>
+          <p>
+            先抓住最重要的信息，再决定往哪里深入。
+            {latestDigest.is_demo
+              ? "当前为显式演示数据。"
+              : "真实来源内容均保留时间与引用边界。"}
+          </p>
         </div>
         <div className="overview-grid">
           <Link
@@ -74,7 +79,9 @@ export default function Home() {
           </Link>
           <Link href="/market/" className="overview-card">
             <span className="card-kicker">A 股市场温度</span>
-            <h3>{market.sentiment} · DEMO</h3>
+            <h3>
+              {market.sentiment} · {market.is_demo ? "DEMO" : "收盘复盘"}
+            </h3>
             <p>{market.status_note}</p>
             <div className="card-bottom">
               <span>最近交易日 {market.trading_date}</span>
@@ -157,7 +164,10 @@ export default function Home() {
                 <div className="index-card-head">
                   <div>
                     <h3>{item.name}</h3>
-                    <small>{item.code} · demo</small>
+                    <small>
+                      {item.code} ·{" "}
+                      {market.is_demo ? "demo" : item.close.source}
+                    </small>
                   </div>
                   <span
                     className={`market-value ${marketTone(item.change_pct.value)}`}
@@ -169,7 +179,11 @@ export default function Home() {
                   <strong>{item.close.value?.toLocaleString()}</strong>
                   <small>{item.close.unit}</small>
                 </div>
-                <MarketChart values={item.trend} label={item.name} />
+                <MarketChart
+                  values={item.trend}
+                  label={item.name}
+                  isDemo={market.is_demo}
+                />
               </article>
             ))}
           </div>
@@ -225,8 +239,10 @@ export default function Home() {
             </article>
             <aside className="risk-disclaimer">
               <ShieldAlert size={15} />{" "}
-              本内容仅用于学习、研究和信息整理，不构成任何投资建议。demo
-              数值不可用于决策。
+              本内容仅用于学习、研究和信息整理，不构成任何投资建议。
+              {market.is_demo
+                ? "demo 数值不可用于决策。"
+                : "公开行情仍需以上游最终口径核验。"}
             </aside>
           </div>
         </div>
