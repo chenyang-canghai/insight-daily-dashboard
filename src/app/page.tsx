@@ -1,324 +1,176 @@
 import {
   ArrowRight,
-  BookOpenCheck,
   ChartNoAxesCombined,
-  ShieldAlert,
+  ChevronDown,
+  ChevronRight,
+  Circle,
+  CircleCheckBig,
+  CircleDot,
+  NotebookTabs,
 } from "lucide-react";
 import Link from "next/link";
-import { DemoBanner } from "@/components/demo-banner";
-import { ExamPractice } from "@/components/exam-practice";
-import { MarketChart } from "@/components/market-chart";
-import { NewsCard } from "@/components/news-card";
 import { PersonalSnapshot } from "@/components/personal-snapshot";
-import { StatusStrip } from "@/components/status-strip";
 import { latestDigest } from "@/lib/data";
-import { marketTone, signed } from "@/lib/utils";
+
+function formatSignalTime(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  const parts = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+  const read = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((part) => part.type === type)?.value ?? "";
+  return `${read("month")}-${read("day")} ${read("hour")}:${read("minute")}`;
+}
 
 export default function Home() {
   const { market, exam } = latestDigest;
-  const breadthTotal =
-    (market.market_breadth.up ?? 0) +
-      (market.market_breadth.down ?? 0) +
-      (market.market_breadth.flat ?? 0) || 1;
+  const lead = latestDigest.news[0];
+  const signals = latestDigest.news.slice(0, 3);
+  const newsStatus = latestDigest.task_statuses.find(
+    (status) => status.module === "news",
+  );
+  const marketStatus = latestDigest.task_statuses.find(
+    (status) => status.module === "market",
+  );
+  const examTopics = Array.from(
+    new Set(exam.questions.slice(0, 3).map((item) => item.question_type)),
+  ).join(" · ");
+  const signalCategories = Array.from(
+    new Set(signals.map((item) => item.category)),
+  ).join("、");
+
+  if (!lead) return null;
+
   return (
-    <>
-      <DemoBanner />
-      <StatusStrip statuses={latestDigest.task_statuses} />
-
-      <section className="hero">
-        <div className="hero-grid">
-          <div>
-            <span className="eyebrow">{latestDigest.date} · 每日研判</span>
-            <h1>
-              看清变化的逻辑，
-              <br />
-              <em>积累判断的尺度。</em>
-            </h1>
-            <p className="hero-summary">{latestDigest.overview}</p>
-            <div className="hero-actions">
-              <Link
-                className="primary-button"
-                href={`/news/${latestDigest.news[0]?.id}/`}
-              >
-                开始今日研判 <ArrowRight size={17} />
-              </Link>
-              <Link className="secondary-button" href="/exam/">
-                进入今日练习 <BookOpenCheck size={17} />
-              </Link>
-            </div>
-          </div>
-          <PersonalSnapshot />
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="today-overview">
-        <div className="section-header">
-          <div>
-            <span className="eyebrow">Daily Brief</span>
-            <h2 id="today-overview">今日一屏总览</h2>
-          </div>
-          <p>
-            先抓住最重要的信息，再决定往哪里深入。
-            {latestDigest.is_demo
-              ? "当前为显式演示数据。"
-              : "真实来源内容均保留时间与引用边界。"}
-          </p>
-        </div>
-        <div className="overview-grid">
-          <Link
-            href={`/news/${latestDigest.news[0]?.id}/`}
-            className="overview-card primary"
+    <div className="editorial-home">
+      <div className="editorial-layout">
+        <div className="editorial-main">
+          <div
+            className="editorial-freshness"
+            aria-label={latestDigest.is_demo ? "演示数据提示" : "真实来源提示"}
           >
-            <span className="card-kicker">今日最重要议题</span>
-            <h3>{latestDigest.news[0]?.title}</h3>
-            <p>{latestDigest.news[0]?.why_it_matters}</p>
-            <div className="card-bottom">
-              <span>重要性 {latestDigest.news[0]?.importance_score}</span>
-              <span>阅读全文 →</span>
-            </div>
-          </Link>
-          <Link href="/market/" className="overview-card">
-            <span className="card-kicker">A 股市场温度</span>
-            <h3>
-              {market.sentiment} · {market.is_demo ? "DEMO" : "收盘复盘"}
-            </h3>
-            <p>{market.status_note}</p>
-            <div className="card-bottom">
-              <span>最近交易日 {market.trading_date}</span>
-              <ChartNoAxesCombined size={18} />
-            </div>
-          </Link>
-          <Link href="/exam/" className="overview-card">
-            <span className="card-kicker">今日公考计划</span>
-            <h3>{exam.questions.length} 道行测 + 1 道申论</h3>
-            <p>答案作答前隐藏，错题自动进入间隔复习。</p>
-            <div className="card-bottom">
-              <span>建议 25—35 分钟</span>
-              <BookOpenCheck size={18} />
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="news-heading">
-        <div className="section-header">
-          <div>
-            <span className="eyebrow">Global Signals</span>
-            <h2 id="news-heading">全球重点议题</h2>
+            <span aria-hidden="true" />
+            {latestDigest.is_demo ? "演示数据" : "真实来源"} ·{" "}
+            {newsStatus?.scheduled_time ?? "07:15"} 更新
           </div>
-          <Link className="section-link" href="/news/">
-            查看全部 8 条 <ArrowRight size={15} />
-          </Link>
-        </div>
-        <div className="news-grid">
-          {latestDigest.news.slice(0, 4).map((item, index) => (
-            <NewsCard key={item.id} item={item} featured={index === 0} />
-          ))}
-        </div>
-      </section>
 
-      <section className="section" aria-labelledby="deep-heading">
-        <div className="section-header">
-          <div>
-            <span className="eyebrow">Deep Dive</span>
-            <h2 id="deep-heading">三条逻辑链，而不是三段结论</h2>
-          </div>
-          <p>每条分析保留传导机制、时间维度、未知信息和证伪条件。</p>
-        </div>
-        <div className="deep-grid">
-          {latestDigest.deep_dives.map((dive, index) => (
-            <article className="deep-card" key={dive.id}>
-              <span className="deep-card-number">0{index + 1} / 03</span>
-              <h3>{dive.title}</h3>
-              <p>{dive.one_sentence}</p>
-              <div className="mini-chain">
-                {dive.impact_chain.slice(0, 3).map((step) => (
-                  <span key={step}>{step}</span>
-                ))}
-              </div>
+          <section className="editorial-lead" aria-labelledby="today-judgment">
+            <p className="editorial-label">今日判断</p>
+            <h1 id="today-judgment">{lead.title}</h1>
+            <p className="editorial-summary">
+              今日重点覆盖{signalCategories}
+              。先核对政策原文与数据口径，再观察执行进度、产业传导和就业影响，避免只凭标题下结论。
+            </p>
+            <div className="editorial-actions">
               <Link
-                className="text-link"
-                href={`/news/${dive.news_ids[0]}/#deep-dive`}
+                className="editorial-primary-action"
+                href={`/news/${lead.id}/`}
               >
-                展开分析 <ArrowRight size={14} />
+                开始今日研判 <ArrowRight size={20} aria-hidden="true" />
               </Link>
-            </article>
-          ))}
-        </div>
-      </section>
+              <ol className="editorial-workflow" aria-label="今日学习流程">
+                <li className="active">
+                  <CircleDot size={16} aria-hidden="true" />
+                  <span>研判</span>
+                  <ArrowRight size={16} aria-hidden="true" />
+                </li>
+                <li>
+                  <Circle size={14} aria-hidden="true" />
+                  <span>训练</span>
+                  <ArrowRight size={16} aria-hidden="true" />
+                </li>
+                <li>
+                  <Circle size={14} aria-hidden="true" />
+                  <span>收盘复盘</span>
+                </li>
+              </ol>
+            </div>
+          </section>
 
-      <section className="section" aria-labelledby="market-heading">
-        <div className="section-header">
-          <div>
-            <span className="eyebrow">A-Share Review</span>
-            <h2 id="market-heading">A 股市场与行业观察</h2>
-          </div>
-          <Link className="section-link" href="/market/">
-            完整市场复盘 <ArrowRight size={15} />
-          </Link>
-        </div>
-        <div className="market-layout">
-          <div className="market-grid">
-            {market.indices.map((item) => (
-              <article className="index-card" key={item.code}>
-                <div className="index-card-head">
-                  <div>
-                    <h3>{item.name}</h3>
+          <section className="signal-section" aria-labelledby="signals-heading">
+            <h2 id="signals-heading">三条重点信号</h2>
+            <div className="signal-list">
+              {signals.map((item, index) => (
+                <article className="signal-row" key={item.id}>
+                  <span className="signal-rank" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="signal-content">
+                    <div className="signal-title-line">
+                      <Link href={`/news/${item.id}/`}>
+                        <h3>{item.title}</h3>
+                      </Link>
+                      <span>{item.category}</span>
+                    </div>
+                    <p>{item.why_it_matters}</p>
                     <small>
-                      {item.code} ·{" "}
-                      {market.is_demo ? "demo" : item.close.source}
+                      {item.source_name}　{formatSignalTime(item.published_at)}
                     </small>
                   </div>
-                  <span
-                    className={`market-value ${marketTone(item.change_pct.value)}`}
+                  <Link
+                    className="signal-arrow"
+                    href={`/news/${item.id}/`}
+                    aria-label={`阅读：${item.title}`}
                   >
-                    {signed(item.change_pct.value)}
-                  </span>
-                </div>
-                <div className="index-value">
-                  <strong>{item.close.value?.toLocaleString()}</strong>
-                  <small>{item.close.unit}</small>
-                </div>
-                <MarketChart
-                  values={item.trend}
-                  label={item.name}
-                  isDemo={market.is_demo}
-                />
-              </article>
-            ))}
-          </div>
-          <div className="market-side">
-            <article className="data-card">
-              <h3>市场广度</h3>
-              <div className="breadth-bar">
-                <span
-                  className="up"
-                  style={{
-                    width: `${((market.market_breadth.up ?? 0) / breadthTotal) * 100}%`,
-                  }}
-                />
-                <span
-                  className="flat"
-                  style={{
-                    width: `${((market.market_breadth.flat ?? 0) / breadthTotal) * 100}%`,
-                  }}
-                />
-                <span
-                  className="down"
-                  style={{
-                    width: `${((market.market_breadth.down ?? 0) / breadthTotal) * 100}%`,
-                  }}
-                />
-              </div>
-              <div className="stat-row">
-                <div>
-                  <small>上涨</small>
-                  <strong className="market-value up">
-                    {market.market_breadth.up}
-                  </strong>
-                </div>
-                <div>
-                  <small>平盘</small>
-                  <strong>{market.market_breadth.flat}</strong>
-                </div>
-                <div>
-                  <small>下跌</small>
-                  <strong className="market-value down">
-                    {market.market_breadth.down}
-                  </strong>
-                </div>
-              </div>
-            </article>
-            <article className="data-card">
-              <h3>今日研究标的</h3>
-              <p>{market.research_candidate.name}</p>
-              <p>{market.research_candidate.selection_reason}</p>
-              <span className="category-label">
-                {market.research_candidate.conclusion}
-              </span>
-            </article>
-            <aside className="risk-disclaimer">
-              <ShieldAlert size={15} />{" "}
-              本内容仅用于学习、研究和信息整理，不构成任何投资建议。
-              {market.is_demo
-                ? "demo 数值不可用于决策。"
-                : "公开行情仍需以上游最终口径核验。"}
-            </aside>
-          </div>
+                    <ChevronRight size={21} aria-hidden="true" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+            <Link className="all-signals-link" href="/news/">
+              查看全部信号（{latestDigest.news.length} 条）
+              <ChevronDown size={18} aria-hidden="true" />
+            </Link>
+          </section>
         </div>
-      </section>
 
-      <section className="section" aria-labelledby="practice-home">
-        <div className="section-header">
-          <div>
-            <span className="eyebrow">Civil Service Exam</span>
-            <h2 id="practice-home">今日行测</h2>
-          </div>
-          <p>每题记录答案、用时和信心；错误答案自动进入错题本。</p>
-        </div>
-        <ExamPractice questions={exam.questions} />
-      </section>
+        <aside className="editorial-rail" aria-label="今日行动摘要">
+          <section className="rail-block rail-next">
+            <div className="rail-heading">
+              <CircleCheckBig size={23} aria-hidden="true" />
+              <h2>下一步</h2>
+            </div>
+            <h3>{exam.questions.length} 道行测 · 约 25 分钟</h3>
+            <p>{examTopics || "判断推理 · 资料分析"}</p>
+            <Link className="rail-primary-action" href="/exam/">
+              开始训练 <ArrowRight size={19} aria-hidden="true" />
+            </Link>
+          </section>
 
-      <section
-        className="section"
-        id="shenlun"
-        aria-labelledby="shenlun-heading"
-      >
-        <div className="section-header">
-          <div>
-            <span className="eyebrow">Shenlun Notes</span>
-            <h2 id="shenlun-heading">申论每日积累</h2>
-          </div>
-          <Link className="section-link" href="/exam/#shenlun">
-            查看完整学习卡 <ArrowRight size={15} />
-          </Link>
-        </div>
-        <div className="shenlun-grid">
-          {exam.shenlun.current_affairs.map((item) => (
-            <article className="material-card" key={item.title}>
-              <span className="category-label">{item.theme}</span>
-              <h3>{item.title}</h3>
-              <p>{item.event_summary}</p>
-              <ul>
-                {item.arguments.map((argument) => (
-                  <li key={argument}>{argument}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-          <article className="material-card micro-practice">
-            <span className="category-label">
-              每日微练习 · {exam.shenlun.micro_practice.type}
-            </span>
-            <h3>把问题概括成可执行的对策</h3>
-            <p>{exam.shenlun.micro_practice.material}</p>
+          <PersonalSnapshot />
+
+          <section className="rail-block">
+            <div className="rail-heading rail-heading-gold">
+              <ChartNoAxesCombined size={22} aria-hidden="true" />
+              <h2>
+                A 股 ·{" "}
+                {market.market_status === "closed" ? "非交易日" : "收盘复盘"}
+              </h2>
+            </div>
+            <p>{market.status_note}</p>
+            <Link className="rail-text-link" href="/market/">
+              {marketStatus?.scheduled_time ?? "18:25"} 后查看复盘
+              <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+          </section>
+
+          <section className="rail-block rail-tip">
+            <div className="rail-heading rail-heading-gold">
+              <NotebookTabs size={22} aria-hidden="true" />
+              <h2>今日提示</h2>
+            </div>
             <p>
-              <b>要求：</b>
-              {exam.shenlun.micro_practice.requirement} 字数上限{" "}
-              {exam.shenlun.micro_practice.word_limit} 字。
+              先研判，把握方向；再训练，巩固方法；最后收盘复盘，形成长期能力。
             </p>
-            <details className="answer-details">
-              <summary>完成后查看参考答案</summary>
-              <div>
-                <p>{exam.shenlun.micro_practice.reference_answer}</p>
-                <p>
-                  评分点：
-                  {exam.shenlun.micro_practice.scoring_points.join("、")}
-                </p>
-              </div>
-            </details>
-          </article>
-          <article className="material-card">
-            <span className="category-label">今日金句</span>
-            {exam.shenlun.golden_sentences.map((item) => (
-              <div className="expression-row" key={item.text}>
-                <b>{item.type}</b>
-                <p>{item.text}</p>
-              </div>
-            ))}
-          </article>
-        </div>
-      </section>
-    </>
+          </section>
+        </aside>
+      </div>
+    </div>
   );
 }

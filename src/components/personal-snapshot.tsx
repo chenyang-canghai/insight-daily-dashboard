@@ -1,7 +1,35 @@
 "use client";
 
+import { CalendarDays, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { exportUserData } from "@/lib/db";
+
+function toBeijingDay(value: Date) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(value);
+}
+
+function learningStreak(values: string[]) {
+  const days = new Set(
+    values
+      .map((value) => new Date(value))
+      .filter((value) => !Number.isNaN(value.getTime()))
+      .map(toBeijingDay),
+  );
+  const cursor = new Date();
+  if (!days.has(toBeijingDay(cursor))) cursor.setDate(cursor.getDate() - 1);
+  let streak = 0;
+  while (days.has(toBeijingDay(cursor))) {
+    streak += 1;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+  return streak;
+}
 
 export function PersonalSnapshot() {
   const [snapshot, setSnapshot] = useState({
@@ -17,9 +45,6 @@ export function PersonalSnapshot() {
         const recent = data.attempts.filter(
           (item) => new Date(item.createdAt).getTime() >= cutoff,
         );
-        const dates = new Set(
-          data.attempts.map((item) => item.createdAt.slice(0, 10)),
-        );
         const due = data.wrongAnswers.filter(
           (item) =>
             !item.mastered &&
@@ -34,34 +59,30 @@ export function PersonalSnapshot() {
               )
             : 0,
           wrongDue: due,
-          streak: dates.size,
+          streak: learningStreak(data.attempts.map((item) => item.createdAt)),
         });
       })
       .catch(() => undefined);
   }, []);
 
   return (
-    <div className="hero-aside" aria-label="个人学习摘要">
-      <div className="metric-tile">
-        <small>近 7 天答题</small>
-        <strong>{snapshot.attempts}</strong>
-        <span>当前浏览器</span>
+    <section className="rail-block personal-rail" aria-label="个人学习摘要">
+      <div className="rail-heading rail-heading-gold">
+        <CalendarDays size={22} aria-hidden="true" />
+        <h2>学习连胜</h2>
       </div>
-      <div className="metric-tile">
-        <small>正确率</small>
-        <strong>{snapshot.accuracy}%</strong>
-        <span>基于已提交题目</span>
-      </div>
-      <div className="metric-tile">
-        <small>待复习错题</small>
-        <strong>{snapshot.wrongDue}</strong>
-        <span>按 1/3/7/14/30 天</span>
-      </div>
-      <div className="metric-tile">
-        <small>学习日期</small>
-        <strong>{snapshot.streak}</strong>
-        <span>本地记录天数</span>
-      </div>
-    </div>
+      <strong className="learning-streak">
+        {snapshot.streak} <small>天</small>
+      </strong>
+      <p>
+        近 7 天完成 {snapshot.attempts} 题 · 正确率 {snapshot.accuracy}%
+      </p>
+      <Link className="rail-text-link" href="/exam/">
+        {snapshot.wrongDue
+          ? `${snapshot.wrongDue} 道错题待复习`
+          : "查看学习记录"}
+        <ChevronRight size={15} aria-hidden="true" />
+      </Link>
+    </section>
   );
 }

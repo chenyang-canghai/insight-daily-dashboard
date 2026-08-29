@@ -8,7 +8,7 @@
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "orientation": "any",
-  "background_color": "#f2f4f0",
+  "background_color": "#ffffff",
   "theme_color": "#14523f",
   "lang": "zh-CN",
   "categories": ["news", "education", "finance", "productivity"],

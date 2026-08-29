@@ -1,32 +1,37 @@
 "use client";
 
-import { Bookmark, CalendarDays, Search, Settings } from "lucide-react";
+import { Bookmark, Search } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { HeaderAccountMenu } from "@/components/header-account-menu";
 
 const nav = [
-  ["首页", "/"],
-  ["全球研判", "/news/"],
-  ["A 股复盘", "/market/"],
+  ["编辑部晨报", "/"],
   ["公考学习", "/exam/"],
+  ["研判库", "/news/"],
   ["历史归档", "/archive/"],
 ] as const;
 
 function beijingTime(date: Date) {
   return new Intl.DateTimeFormat("zh-CN", {
     timeZone: "Asia/Shanghai",
+    year: "numeric",
     month: "2-digit",
     day: "2-digit",
     weekday: "short",
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit",
     hour12: false,
-  }).format(date);
+  })
+    .format(date)
+    .replace(/\//g, "-")
+    .replace(/星期/, "周")
+    .replace(/(周.)\s*/, " ($1) ");
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [now, setNow] = useState("");
   useEffect(() => {
     const update = () => setNow(beijingTime(new Date()));
@@ -49,34 +54,44 @@ export function SiteHeader() {
         </Link>
         <nav className="desktop-nav" aria-label="主导航">
           {nav.map(([label, href]) => (
-            <Link key={href} href={href}>
+            <Link
+              key={href}
+              href={href}
+              className={
+                href === "/"
+                  ? pathname === "/"
+                    ? "active"
+                    : undefined
+                  : pathname.startsWith(href)
+                    ? "active"
+                    : undefined
+              }
+              aria-current={
+                (href === "/" && pathname === "/") ||
+                (href !== "/" && pathname.startsWith(href))
+                  ? "page"
+                  : undefined
+              }
+            >
               {label}
             </Link>
           ))}
         </nav>
         <div className="header-tools">
           <span className="beijing-clock" aria-label={`北京时间 ${now}`}>
-            <CalendarDays size={15} aria-hidden="true" />
-            {now || "北京时间"}
+            {now ? `${now} 北京时间` : "北京时间"}
           </span>
           <Link className="icon-button" href="/search/" aria-label="全局搜索">
-            <Search size={18} />
+            <Search size={22} />
           </Link>
           <Link
             className="icon-button hide-mobile"
             href="/favorites/"
             aria-label="收藏中心"
           >
-            <Bookmark size={18} />
+            <Bookmark size={22} />
           </Link>
-          <Link
-            className="icon-button hide-mobile"
-            href="/settings/"
-            aria-label="设置"
-          >
-            <Settings size={18} />
-          </Link>
-          <ThemeToggle />
+          <HeaderAccountMenu />
         </div>
       </div>
     </header>

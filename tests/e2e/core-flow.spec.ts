@@ -25,10 +25,8 @@ test("exposes installable PWA assets", async ({ request }) => {
 
 test("browse, favorite, practice, market and archive", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText(/真实来源模式|DEMO 模式/)).toBeVisible();
-  await expect(
-    page.getByRole("heading", { name: /看清变化的逻辑/ }),
-  ).toBeVisible();
+  await expect(page.getByText(/真实来源|演示数据/).first()).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
   await Promise.all([
     page.waitForURL(/\/news\/news-/),
