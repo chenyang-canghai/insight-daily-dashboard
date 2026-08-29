@@ -1,0 +1,466 @@
+{
+  "schema_version": "1.0.0",
+  "id": "exam-2026-08-28",
+  "date": "2026-08-28",
+  "generated_at": "2026-08-28T07:15:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "source_ids": [],
+  "content_hash": "9a31cb340ed43fef09a8afc95dae4b942e6c03149f6bf62602f2f3c1a7312b5c",
+  "generation_status": "demo",
+  "validation_errors": [],
+  "questions": [
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-08-28-1",
+      "date": "2026-08-28",
+      "generated_at": "2026-08-28T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "f1861969e3fd514bbcbab4c012208d49462ddb6f7740cb9bd2a4accdf1eb9bae",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "source_type": "original_demo",
+      "source_name": "知势原创 demo",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "question_type": "言语理解",
+      "difficulty": "基础",
+      "stem": "选择最适合填入句中的词语：公共数据开发既要提高利用效率，也要守住安全____。",
+      "material": null,
+      "options": {
+        "A": "底线",
+        "B": "速度",
+        "C": "形式",
+        "D": "规模"
+      },
+      "correct_answer": "A",
+      "explanation": "‘守住’通常与‘底线’搭配，且与安全治理语义一致。",
+      "fastest_method": "先看固定搭配‘守住底线’，再核对语境。",
+      "traps": [
+        "只看到‘效率’而误选速度"
+      ],
+      "suggested_seconds": 60,
+      "tags": [
+        "言语理解",
+        "原创",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-08-28-2",
+      "date": "2026-08-28",
+      "generated_at": "2026-08-28T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "f7abd1d4dcc92ea2196f9c20fc5fdfa197488221c6f065e1478a60bd08e3f337",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "source_type": "original_demo",
+      "source_name": "知势原创 demo",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "question_type": "判断推理",
+      "difficulty": "中等",
+      "stem": "所有通过校验的数据都可发布；有些采集数据未通过校验。由此一定能推出什么？",
+      "material": null,
+      "options": {
+        "A": "所有采集数据都不可发布",
+        "B": "有些采集数据不能据此确认可发布",
+        "C": "未通过校验的数据一定错误",
+        "D": "可发布数据都来自采集"
+      },
+      "correct_answer": "B",
+      "explanation": "规则只给出通过校验是可发布的充分条件，未通过并不等于一定错误，但其发布资格不能由该规则确认。",
+      "fastest_method": "把充分条件写成：通过校验→可发布，不能逆推。",
+      "traps": [
+        "把充分条件误当必要条件"
+      ],
+      "suggested_seconds": 60,
+      "tags": [
+        "判断推理",
+        "原创",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-08-28-3",
+      "date": "2026-08-28",
+      "generated_at": "2026-08-28T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "9a5815d409d742c7943b7c67533abb48de045c93f0265968fd24efbe1bc37551",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "source_type": "original_demo",
+      "source_name": "知势原创 demo",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "question_type": "数量关系",
+      "difficulty": "中等",
+      "stem": "某学习计划原定每天 8 题，连续 5 天共完成 50 题。平均每天比原计划多多少题？",
+      "material": null,
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "B",
+      "explanation": "实际平均为 50÷5=10 题，比 8 题多 2 题。",
+      "fastest_method": "总量除以天数，再与计划作差。",
+      "traps": [
+        "把总增量 10 题当成每天增量"
+      ],
+      "suggested_seconds": 90,
+      "tags": [
+        "数量关系",
+        "原创",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-08-28-4",
+      "date": "2026-08-28",
+      "generated_at": "2026-08-28T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "4fd94806fcfed70d38f7cb8376484e47bf6125aa034761d014fbf628e0495b64",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "source_type": "original_demo",
+      "source_name": "知势原创 demo",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "question_type": "资料分析",
+      "difficulty": "基础",
+      "stem": "某服务事项办理时长由 10 个工作日降至 6 个工作日，降幅为多少？",
+      "material": null,
+      "options": {
+        "A": "30%",
+        "B": "40%",
+        "C": "50%",
+        "D": "60%"
+      },
+      "correct_answer": "B",
+      "explanation": "降幅=(10-6)÷10=40%。基期是改革前的 10 个工作日。",
+      "fastest_method": "减少量 4 除以基期 10。",
+      "traps": [
+        "误用改革后的 6 作为分母"
+      ],
+      "suggested_seconds": 90,
+      "tags": [
+        "资料分析",
+        "原创",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-08-28-5",
+      "date": "2026-08-28",
+      "generated_at": "2026-08-28T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "1113b663500c10603e78283a1ca0c130fc6006968ba6dcdff6123292f37937b7",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "source_type": "original_demo",
+      "source_name": "知势原创 demo",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "question_type": "常识判断",
+      "difficulty": "中等",
+      "stem": "下列哪项最能体现依法行政中的程序正当？",
+      "material": null,
+      "options": {
+        "A": "只追求办理速度",
+        "B": "重大决策履行公众参与和合法性审查",
+        "C": "以内部口头通知替代公开规则",
+        "D": "对同类事项随意采用不同标准"
+      },
+      "correct_answer": "B",
+      "explanation": "公众参与、专家论证、风险评估和合法性审查是重大行政决策程序的重要组成。",
+      "fastest_method": "识别公开、参与、审查、留痕等程序关键词。",
+      "traps": [
+        "把效率等同于程序正当"
+      ],
+      "suggested_seconds": 60,
+      "tags": [
+        "常识判断",
+        "原创",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-08-28-6",
+      "date": "2026-08-28",
+      "generated_at": "2026-08-28T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "b40daf8c3ba9a8e0aa5f3c1bdfcc2aa3955de4ff76f98140a7e3f9fae0853a3d",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "source_type": "original_demo",
+      "source_name": "知势原创 demo",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "question_type": "判断推理",
+      "difficulty": "中等",
+      "stem": "如果行业需求改善且公司现金流同步改善，则研究逻辑增强。现只知道行业需求改善，可以判断什么？",
+      "material": null,
+      "options": {
+        "A": "逻辑必然增强",
+        "B": "公司现金流必然改善",
+        "C": "条件尚不充分，需要继续核验现金流",
+        "D": "逻辑必然失效"
+      },
+      "correct_answer": "C",
+      "explanation": "原命题要求两个条件同时满足，当前只满足其中一个，不能推出结论。",
+      "fastest_method": "把‘且’拆成两个必须同时核验的条件。",
+      "traps": [
+        "忽略合取条件中的第二项"
+      ],
+      "suggested_seconds": 60,
+      "tags": [
+        "判断推理",
+        "原创",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-08-28-7",
+      "date": "2026-08-28",
+      "generated_at": "2026-08-28T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "aca03666df7be8408284b96726e3fb501d880162fb1da37e6821a9e10e81b4ae",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "source_type": "original_demo",
+      "source_name": "知势原创 demo",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "question_type": "言语理解",
+      "difficulty": "基础",
+      "stem": "治理数字化不是简单把线下流程搬到线上，而是要以群众需求为起点重塑流程。该句主要强调什么？",
+      "material": null,
+      "options": {
+        "A": "增加线上入口数量",
+        "B": "数字化应推动以需求为导向的流程再造",
+        "C": "所有线下服务都应取消",
+        "D": "技术投入越多越好"
+      },
+      "correct_answer": "B",
+      "explanation": "转折后的‘以群众需求为起点重塑流程’是主旨。",
+      "fastest_method": "抓住‘不是……而是……’后的重点。",
+      "traps": [
+        "只复述前半句"
+      ],
+      "suggested_seconds": 60,
+      "tags": [
+        "言语理解",
+        "原创",
+        "demo"
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-08-28-8",
+      "date": "2026-08-28",
+      "generated_at": "2026-08-28T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "edf0a6d5d47795e13783389933c04d44360e69a2469537f8e7bd3bdcac3b0930",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "source_type": "original_demo",
+      "source_name": "知势原创 demo",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "question_type": "数量关系",
+      "difficulty": "中等",
+      "stem": "某项目三阶段权重为 20%、30%、50%，得分分别为 80、90、70，综合得分是多少？",
+      "material": null,
+      "options": {
+        "A": "76",
+        "B": "77",
+        "C": "78",
+        "D": "79"
+      },
+      "correct_answer": "C",
+      "explanation": "80×20%+90×30%+70×50%=16+27+35=78。",
+      "fastest_method": "分项得分乘权重后相加。",
+      "traps": [
+        "直接计算三个分数的算术平均"
+      ],
+      "suggested_seconds": 90,
+      "tags": [
+        "数量关系",
+        "原创",
+        "demo"
+      ],
+      "is_demo": true
+    }
+  ],
+  "shenlun": {
+    "schema_version": "1.0.0",
+    "id": "shenlun-2026-08-28",
+    "date": "2026-08-28",
+    "generated_at": "2026-08-28T07:15:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "source_ids": [
+      "demo-nanchang"
+    ],
+    "content_hash": "dd8cde1ca7fe86fb0e915cfdb43c5e3a8c80f0f20eb4e592fc5eed7f65ca8764",
+    "generation_status": "demo",
+    "validation_errors": [],
+    "current_affairs": [
+      {
+        "title": "数字政府的服务闭环",
+        "event_summary": "原创 demo：某地整合分散事项并建立反馈回访。",
+        "policy_background": "推进政务服务标准化、规范化、便利化。",
+        "theme": "数字政府",
+        "arguments": [
+          "技术赋能必须服务群众需求",
+          "数据共享要与安全责任同步"
+        ],
+        "case": "虚构案例，仅用于答题结构训练。",
+        "suitable_questions": [
+          "概括题",
+          "对策题"
+        ]
+      },
+      {
+        "title": "青年就业的能力与岗位匹配",
+        "event_summary": "原创 demo：高校、园区和企业共建实训清单。",
+        "policy_background": "就业优先与人才强省。",
+        "theme": "青年就业",
+        "arguments": [
+          "提高人才培养与产业需求的适配度",
+          "完善从实训到就业的服务链"
+        ],
+        "case": "虚构案例，仅用于答题结构训练。",
+        "suitable_questions": [
+          "分析题",
+          "综合题"
+        ]
+      },
+      {
+        "title": "县域产业数字化",
+        "event_summary": "原创 demo：为中小企业提供低门槛数字工具。",
+        "policy_background": "数字经济与实体经济深度融合。",
+        "theme": "江西发展",
+        "arguments": [
+          "降低中小企业转型门槛",
+          "以场景牵引技术落地"
+        ],
+        "case": "虚构案例，仅用于答题结构训练。",
+        "suitable_questions": [
+          "对策题",
+          "公文写作"
+        ]
+      }
+    ],
+    "golden_sentences": [
+      {
+        "type": "系统原创总结句",
+        "text": "治理的温度，体现在群众少跑的一段路、少填的一张表和更快得到的一次回应。"
+      },
+      {
+        "type": "政策规范表达",
+        "text": "以需求牵引场景开放，以场景促进技术迭代，以制度保障规范发展。"
+      },
+      {
+        "type": "系统原创总结句",
+        "text": "数字化不是给旧流程加一块屏幕，而是用公共价值重新审视每一个环节。"
+      }
+    ],
+    "standard_expressions": [
+      {
+        "plain": "大家办事比较麻烦",
+        "formal": "公共服务流程仍有优化空间",
+        "scenario": "政务服务、营商环境",
+        "example": "应围绕高频事项再造流程，减少重复提交和多头跑动。"
+      },
+      {
+        "plain": "部门之间数据对不上",
+        "formal": "跨部门数据标准与协同机制尚不健全",
+        "scenario": "数字政府、基层治理",
+        "example": "统一数据口径、责任边界和更新频率，提升协同治理能力。"
+      },
+      {
+        "plain": "年轻人找工作和企业招人都难",
+        "formal": "人才供给与产业需求存在结构性错配",
+        "scenario": "青年就业、先进制造",
+        "example": "推动课程、实训和岗位标准衔接，提高人岗匹配效率。"
+      }
+    ],
+    "case_material": {
+      "name": "南昌便民服务闭环（原创 demo）",
+      "time_place": "虚构时间，江西南昌",
+      "practice": "整合高频事项、建立一次告知和办后回访。",
+      "problem": "材料重复、跨部门协同慢。",
+      "result": "不提供虚构成效数字，仅演示案例字段。",
+      "lesson": "流程再造、数据协同和反馈纠偏缺一不可。",
+      "themes": [
+        "数字政府",
+        "营商环境",
+        "江西发展"
+      ],
+      "limitation": "非真实案例，不得作为事实引用。",
+      "source": {
+        "source_id": "demo-nanchang",
+        "source_name": "南昌市人民政府（结构演示）",
+        "url": "https://www.nc.gov.cn/",
+        "title": "官方站点主页（仅演示来源字段）",
+        "note": "案例内容为原创 demo，不对应具体项目"
+      }
+    },
+    "micro_practice": {
+      "type": "对策题",
+      "material": "某地上线多个政务小程序，但群众仍需反复提交同一材料；基层工作人员还要把线上数据手工录入不同系统。部分老年人不会使用智能手机，线下窗口却被大幅压缩。",
+      "requirement": "请概括问题并提出有针对性的改进建议。",
+      "word_limit": 300,
+      "reference_answer": "问题在于平台分散、数据标准不一、线上线下流程割裂以及特殊群体服务不足。应统一入口与数据标准，明确共享责任，推动后台系统互联和业务流程再造；保留必要线下窗口与帮办服务；建立群众反馈、运行监测和定期评估机制，持续纠偏。",
+      "scoring_points": [
+        "平台整合",
+        "数据共享",
+        "流程再造",
+        "特殊群体服务",
+        "反馈评估"
+      ],
+      "common_mistakes": [
+        "只提增加技术投入",
+        "对策与问题不对应",
+        "忽略线下兜底"
+      ],
+      "strong_expressions": [
+        "推动数据通、业务通、服务通",
+        "坚持线上提效与线下兜底并重"
+      ]
+    },
+    "weekly_essay": null,
+    "is_demo": true
+  },
+  "is_demo": true
+}

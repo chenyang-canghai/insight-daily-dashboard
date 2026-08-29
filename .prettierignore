@@ -1,0 +1,11 @@
+.next
+out
+node_modules
+.venv
+coverage
+playwright-report
+test-results
+data
+public/data
+pnpm-lock.yaml
+uv.lock

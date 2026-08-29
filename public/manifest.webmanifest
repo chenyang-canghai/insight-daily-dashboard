@@ -1,0 +1,11 @@
+{
+  "name": "知势 · 每日研判与公考学习看板",
+  "short_name": "知势",
+  "description": "新闻研判、A 股复盘与公考学习",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f2f4f0",
+  "theme_color": "#14523f",
+  "lang": "zh-CN",
+  "icons": []
+}

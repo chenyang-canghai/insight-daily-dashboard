@@ -1,0 +1,485 @@
+{
+  "schema_version": "1.0.0",
+  "id": "market-2026-08-27",
+  "date": "2026-08-27",
+  "generated_at": "2026-08-27T07:15:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "source_ids": [
+    "demo-market"
+  ],
+  "content_hash": "0ad1d5c7330bf748ae40196a74b7c44d9ceeb3a75547ad43e4315b0784ee05e0",
+  "generation_status": "demo",
+  "validation_errors": [],
+  "trading_date": "2026-08-27",
+  "market_status": "demo",
+  "status_note": "显式 demo 行情，仅用于页面和校验测试。",
+  "indices": [
+    {
+      "code": "000001",
+      "name": "上证指数",
+      "close": {
+        "value": 3000,
+        "unit": "点",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "change_pct": {
+        "value": -0.42,
+        "unit": "%",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "turnover": {
+        "value": 3500,
+        "unit": "亿元",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "trend": [
+        98,
+        99,
+        98.5,
+        100,
+        101,
+        100.4,
+        101.2
+      ]
+    },
+    {
+      "code": "399001",
+      "name": "深证成指",
+      "close": {
+        "value": 3420,
+        "unit": "点",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "change_pct": {
+        "value": 0,
+        "unit": "%",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "turnover": {
+        "value": 3760,
+        "unit": "亿元",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "trend": [
+        98.3,
+        99.3,
+        98.8,
+        100.3,
+        101.3,
+        100.7,
+        101.5
+      ]
+    },
+    {
+      "code": "399006",
+      "name": "创业板指",
+      "close": {
+        "value": 3840,
+        "unit": "点",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "change_pct": {
+        "value": 0.42,
+        "unit": "%",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "turnover": {
+        "value": 4020,
+        "unit": "亿元",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "trend": [
+        98.6,
+        99.6,
+        99.1,
+        100.6,
+        101.6,
+        101,
+        101.8
+      ]
+    },
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "close": {
+        "value": 4260,
+        "unit": "点",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "change_pct": {
+        "value": -0.42,
+        "unit": "%",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "turnover": {
+        "value": 4280,
+        "unit": "亿元",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "trend": [
+        98.9,
+        99.9,
+        99.4,
+        100.9,
+        101.9,
+        101.30000000000001,
+        102.10000000000001
+      ]
+    },
+    {
+      "code": "000905",
+      "name": "中证500",
+      "close": {
+        "value": 4680,
+        "unit": "点",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "change_pct": {
+        "value": 0,
+        "unit": "%",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "turnover": {
+        "value": 4540,
+        "unit": "亿元",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "trend": [
+        99.2,
+        100.2,
+        99.7,
+        101.2,
+        102.2,
+        101.60000000000001,
+        102.4
+      ]
+    },
+    {
+      "code": "000688",
+      "name": "科创50",
+      "close": {
+        "value": 5100,
+        "unit": "点",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "change_pct": {
+        "value": 0.42,
+        "unit": "%",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "turnover": {
+        "value": 4800,
+        "unit": "亿元",
+        "source": "demo-generator",
+        "data_time": "2026-08-27T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": true,
+        "missing": false,
+        "note": "demo 示例值，不对应真实行情"
+      },
+      "trend": [
+        99.5,
+        100.5,
+        100,
+        101.5,
+        102.5,
+        101.9,
+        102.7
+      ]
+    }
+  ],
+  "market_breadth": {
+    "up": 2860,
+    "down": 2100,
+    "flat": 140,
+    "limit_up": 62,
+    "limit_down": 8,
+    "median_change_pct": 0.18
+  },
+  "turnover": {
+    "value": 11680,
+    "unit": "亿元",
+    "source": "demo-generator",
+    "data_time": "2026-08-27T15:00:00+08:00",
+    "adjusted": false,
+    "realtime": false,
+    "estimated": true,
+    "missing": false,
+    "note": "demo 示例值，不对应真实行情"
+  },
+  "sentiment": "偏强",
+  "sentiment_basis": [
+    "demo：上涨家数与下跌家数之差",
+    "demo：全市场成交额变化",
+    "demo：市场中位数涨跌幅与涨跌停结构"
+  ],
+  "sectors": [
+    {
+      "name": "先进制造（demo）",
+      "change_pct": 1.8,
+      "heat_score": 78,
+      "driver_type": "demo",
+      "catalyst": "结构演示：政策与订单共振",
+      "chain": [
+        "设备",
+        "核心零部件",
+        "系统集成",
+        "终端应用"
+      ],
+      "sustainability": "需验证订单与现金流",
+      "watch_next": "成交额与板块上涨广度",
+      "invalidation": "只有少数样本上涨且无基本面验证",
+      "representatives": [
+        "不列真实公司，避免误导"
+      ],
+      "risk": "情绪透支"
+    },
+    {
+      "name": "数字基础设施（demo）",
+      "change_pct": 1.1,
+      "heat_score": 70,
+      "driver_type": "demo",
+      "catalyst": "结构演示：需求预期",
+      "chain": [
+        "算力芯片",
+        "服务器",
+        "数据中心",
+        "行业应用"
+      ],
+      "sustainability": "取决于利用率和商业化",
+      "watch_next": "资本开支与利用率",
+      "invalidation": "投入增长但收入和利用率不改善",
+      "representatives": [
+        "不列真实公司，避免误导"
+      ],
+      "risk": "重复建设"
+    },
+    {
+      "name": "绿色产业（demo）",
+      "change_pct": -0.6,
+      "heat_score": 54,
+      "driver_type": "demo",
+      "catalyst": "结构演示：供需再平衡",
+      "chain": [
+        "材料",
+        "设备",
+        "制造",
+        "运营"
+      ],
+      "sustainability": "需观察库存与价格",
+      "watch_next": "库存去化与盈利修复",
+      "invalidation": "价格继续下行且现金流恶化",
+      "representatives": [
+        "不列真实公司，避免误导"
+      ],
+      "risk": "产能过剩"
+    }
+  ],
+  "research_candidate": {
+    "code": "000000",
+    "name": "演示制造（非真实证券）",
+    "industry": "先进制造（demo）",
+    "selected": true,
+    "no_selection_reason": null,
+    "score": 73,
+    "score_breakdown": {
+      "行业景气度": 15,
+      "公司基本面质量": 19,
+      "估值合理性": 10,
+      "量价与关注度": 9,
+      "催化因素": 12,
+      "信息可靠性": 8,
+      "风险扣分": 0
+    },
+    "business_model": "演示企业通过设备销售与运维服务获得收入，仅用于展示研究报告字段。",
+    "selection_reason": "该标的不存在，不是推荐；用于演示基本面、估值、催化、风险和证伪条件如何同时呈现。",
+    "fundamentals": {
+      "营业收入趋势": "demo：连续三期温和增长",
+      "净利润趋势": "demo：波动",
+      "扣非净利润": "demo：与净利润方向一致",
+      "毛利率": "demo：24%",
+      "净利率": "demo：8%",
+      "ROE": "demo：10%",
+      "经营现金流": "demo：为正但低于净利润",
+      "资产负债率": "demo：46%",
+      "应收账款": "demo：需关注增速",
+      "存货": "demo：周转放缓",
+      "资本开支": "demo：扩产阶段",
+      "最近一期": "无真实期间"
+    },
+    "valuation": {
+      "PE": "demo：18x",
+      "PB": "demo：2.1x",
+      "PS": "demo：1.5x",
+      "历史分位": "demo：55%",
+      "可比公司": "未接入真实可比数据",
+      "边界": "周期和会计口径变化会降低横向可比性"
+    },
+    "technical_snapshot": {
+      "均线": "demo：位于20日线上方",
+      "成交量": "demo：温和放大",
+      "换手率": "demo：中性",
+      "波动率": "demo：中等",
+      "支撑压力": "仅作结构展示，不给出价格区间"
+    },
+    "catalysts": [
+      "demo：订单兑现",
+      "demo：产能利用率改善",
+      "demo：行业标准落地"
+    ],
+    "risks": [
+      "行业需求回落",
+      "客户集中度过高",
+      "现金流与利润背离",
+      "估值收缩",
+      "交易拥挤",
+      "政策节奏不及预期",
+      "demo 数据不可用于决策"
+    ],
+    "scenarios": {
+      "optimistic": "需求与现金流同步改善，且估值没有明显透支。",
+      "base": "订单平稳、盈利温和，维持跟踪。",
+      "pessimistic": "需求、回款或审计质量恶化，研究逻辑减弱。"
+    },
+    "invalidation_conditions": [
+      "真实数据无法支持示例假设",
+      "经营现金流持续恶化",
+      "核心客户或产品竞争力发生实质变化"
+    ],
+    "conclusion": "数据不足，暂不判断",
+    "data_as_of": "2026-08-27",
+    "citations": [
+      {
+        "source_id": "demo-market",
+        "source_name": "演示数据生成器",
+        "url": "https://www.sse.com.cn/",
+        "title": "上海证券交易所主页（仅演示来源字段）",
+        "note": "数值为 demo，不来自该站点"
+      }
+    ],
+    "is_demo": true
+  },
+  "data_quality": {
+    "status": "demo",
+    "completeness": 1,
+    "conflicts": [],
+    "notes": [
+      "全部数值为 demo",
+      "不可用于投资决策",
+      "正式模式会逐字段记录真实来源和单位"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "demo-market",
+      "source_name": "演示数据生成器",
+      "url": "https://www.sse.com.cn/",
+      "title": "上海证券交易所主页（仅演示来源字段）",
+      "note": "数值为 demo，不来自该站点"
+    }
+  ],
+  "is_demo": true
+}

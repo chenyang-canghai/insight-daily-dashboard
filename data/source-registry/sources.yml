@@ -1,0 +1,25 @@
+schema_version: "1.0.0"
+sources:
+  - id: akshare
+    name: AKShare
+    type: market_aggregator
+    url: https://akshare.akfamily.xyz/
+    priority: 20
+    enabled: false
+    allowed_fields: [index_daily, market_breadth, sector_snapshot, public_financials]
+    note: Optional. Software is MIT; upstream data terms still apply.
+  - id: baostock
+    name: BaoStock
+    type: market_provider
+    url: http://baostock.com/
+    priority: 30
+    enabled: false
+    allowed_fields: [daily_prices, financials]
+  - id: demo-generator
+    name: 知势 demo 生成器
+    type: demo
+    url: https://github.com/
+    priority: 999
+    enabled: true
+    allowed_fields: [demo_only]
+    note: Never treated as real-world evidence.

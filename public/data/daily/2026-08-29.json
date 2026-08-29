@@ -1,0 +1,1694 @@
+{
+  "schema_version": "1.0.0",
+  "id": "daily-2026-08-29",
+  "date": "2026-08-29",
+  "generated_at": "2026-08-29T07:15:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "source_ids": [
+    "demo-imf",
+    "demo-cac",
+    "demo-miit",
+    "demo-ndrc",
+    "demo-gov",
+    "demo-nanchang",
+    "demo-ecb",
+    "demo-csrc"
+  ],
+  "content_hash": "3d50a4ad5f6db750f33b4f187571267f06a6e80e02a39b9575c95a50c733f6b4",
+  "generation_status": "demo",
+  "validation_errors": [],
+  "title": "2026-08-29 每日研判与公考学习看板",
+  "overview": "今日内容为显式 demo：用 20—40 分钟完成 8 条议题浏览、3 条逻辑链拆解、A 股研究结构复盘和 8 道原创行测练习。",
+  "is_demo": true,
+  "task_statuses": [
+    {
+      "module": "exam",
+      "scheduled_time": "06:45",
+      "last_run": "2026-08-29T06:45:00+08:00",
+      "status": "demo",
+      "freshness": "demo",
+      "message": "原创 demo 已生成"
+    },
+    {
+      "module": "news",
+      "scheduled_time": "07:15",
+      "last_run": "2026-08-29T07:15:00+08:00",
+      "status": "demo",
+      "freshness": "demo",
+      "message": "结构演示内容，不是实时新闻"
+    },
+    {
+      "module": "market",
+      "scheduled_time": "18:25",
+      "last_run": "2026-08-29T18:25:00+08:00",
+      "status": "demo",
+      "freshness": "demo",
+      "message": "示例行情，不用于投资决策"
+    }
+  ],
+  "news": [
+    {
+      "schema_version": "1.0.0",
+      "id": "news-2026-08-29-01",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-imf"
+      ],
+      "content_hash": "04c0c1908d12b4f990389e94e2fe41a5aafaef5c5e29f4bd68ce03f7b33a1c75",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "title": "演示议题｜宏观政策如何通过预期与需求传导",
+      "category": "宏观经济",
+      "regions": [
+        "全球",
+        "中国"
+      ],
+      "published_at": "2026-08-29T06:05:00+08:00",
+      "collected_at": "2026-08-29T07:00:00+08:00",
+      "source_name": "国际货币基金组织（结构演示）",
+      "source_url": "https://www.imf.org/en/News",
+      "summary": "这是一条结构演示议题，用于展示如何把宏观政策拆成需求、预期、就业和市场反馈。它不对应某一篇实时新闻，也不引用具体经济数据；正式运行时必须由原始统计或政策文件替换。",
+      "why_it_matters": "训练从政策工具到居民和企业行为的完整推理链，避免只记结论。",
+      "importance_score": 80,
+      "reliability": "demo",
+      "tags": [
+        "宏观经济",
+        "政策传导",
+        "demo"
+      ],
+      "facts": [
+        "这是结构与交互演示内容，不陈述当日真实事件。"
+      ],
+      "inferences": [
+        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+      ],
+      "citations": [
+        {
+          "source_id": "demo-imf",
+          "source_name": "国际货币基金组织（结构演示）",
+          "url": "https://www.imf.org/en/News",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "related_items": [],
+      "reading_minutes": 3,
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "news-2026-08-29-02",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-cac"
+      ],
+      "content_hash": "8dbfd498c24eafcb318c25e88e3da1deeded88a8353764ef1c25573f75886118",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "title": "演示议题｜人工智能治理如何兼顾创新、安全与普惠",
+      "category": "人工智能",
+      "regions": [
+        "中国",
+        "全球"
+      ],
+      "published_at": "2026-08-29T07:09:00+08:00",
+      "collected_at": "2026-08-29T07:00:00+08:00",
+      "source_name": "国家互联网信息办公室（结构演示）",
+      "source_url": "https://www.cac.gov.cn/",
+      "summary": "本条用于演示人工智能治理分析框架：既关注技术扩散和产业效率，也审视数据、算法、就业和公共服务风险。内容为原创示例，不代表监管部门发布了新的政策文件。",
+      "why_it_matters": "与数字经济研究、公务员申论和产业观察三条学习主线同时相关。",
+      "importance_score": 81,
+      "reliability": "demo",
+      "tags": [
+        "人工智能",
+        "平台治理",
+        "安全",
+        "demo"
+      ],
+      "facts": [
+        "这是结构与交互演示内容，不陈述当日真实事件。"
+      ],
+      "inferences": [
+        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+      ],
+      "citations": [
+        {
+          "source_id": "demo-cac",
+          "source_name": "国家互联网信息办公室（结构演示）",
+          "url": "https://www.cac.gov.cn/",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "related_items": [],
+      "reading_minutes": 4,
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "news-2026-08-29-03",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-miit"
+      ],
+      "content_hash": "651b6825c74d02d8d7b0bf8748920da0273e03c710aded49444c2b750d4ba0fa",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "title": "演示议题｜半导体产业链韧性应如何观察",
+      "category": "半导体",
+      "regions": [
+        "中国",
+        "东亚"
+      ],
+      "published_at": "2026-08-29T06:13:00+08:00",
+      "collected_at": "2026-08-29T07:00:00+08:00",
+      "source_name": "工业和信息化部（结构演示）",
+      "source_url": "https://www.miit.gov.cn/",
+      "summary": "本条用设备、材料、设计、制造、封测和下游需求六个环节演示产业链分析。所有企业与行情信息均被省略，正式内容必须使用公告、财报或主管部门材料核验。",
+      "why_it_matters": "帮助区分长期能力建设、短期订单变化和市场情绪三种不同信号。",
+      "importance_score": 82,
+      "reliability": "demo",
+      "tags": [
+        "半导体",
+        "先进制造",
+        "产业链",
+        "demo"
+      ],
+      "facts": [
+        "这是结构与交互演示内容，不陈述当日真实事件。"
+      ],
+      "inferences": [
+        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+      ],
+      "citations": [
+        {
+          "source_id": "demo-miit",
+          "source_name": "工业和信息化部（结构演示）",
+          "url": "https://www.miit.gov.cn/",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "related_items": [],
+      "reading_minutes": 5,
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "news-2026-08-29-04",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-ndrc"
+      ],
+      "content_hash": "0eb8f80fbc06648515bad04f5e346538c6f97dc9b4985fe1568c8d402a1b47fe",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "title": "演示议题｜数据要素从资源到生产要素需要哪些制度条件",
+      "category": "数字经济",
+      "regions": [
+        "中国"
+      ],
+      "published_at": "2026-08-29T07:17:00+08:00",
+      "collected_at": "2026-08-29T07:00:00+08:00",
+      "source_name": "国家发展和改革委员会（结构演示）",
+      "source_url": "https://www.ndrc.gov.cn/",
+      "summary": "这是一条制度分析示例，围绕确权授权、合规流通、收益分配、安全治理和公共数据开发展开。示例不声称存在新的政策变动，正式日报需引用具体文件条款。",
+      "why_it_matters": "该主题既是数字经济专业核心问题，也是数字政府和营商环境常见申论方向。",
+      "importance_score": 83,
+      "reliability": "demo",
+      "tags": [
+        "数据要素",
+        "数字经济",
+        "制度建设",
+        "demo"
+      ],
+      "facts": [
+        "这是结构与交互演示内容，不陈述当日真实事件。"
+      ],
+      "inferences": [
+        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+      ],
+      "citations": [
+        {
+          "source_id": "demo-ndrc",
+          "source_name": "国家发展和改革委员会（结构演示）",
+          "url": "https://www.ndrc.gov.cn/",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "related_items": [],
+      "reading_minutes": 3,
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "news-2026-08-29-05",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-gov"
+      ],
+      "content_hash": "b6404966a219754c2e7713c10609ae669325cff57654a7779a9cdcea8c17c3b7",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "title": "演示议题｜政策落地为何需要目标、工具与反馈闭环",
+      "category": "中国政策",
+      "regions": [
+        "中国"
+      ],
+      "published_at": "2026-08-29T06:21:00+08:00",
+      "collected_at": "2026-08-29T07:00:00+08:00",
+      "source_name": "中国政府网（结构演示）",
+      "source_url": "https://www.gov.cn/zhengce/",
+      "summary": "本条演示政策解读时应区分目标、执行主体、政策工具、资金来源、评价指标和纠偏机制。它不对应特定会议或文件，不能作为现实政策事实引用。",
+      "why_it_matters": "把政策语言转成可观察指标，有助于申论论证和实际治理分析。",
+      "importance_score": 84,
+      "reliability": "demo",
+      "tags": [
+        "政策执行",
+        "公共治理",
+        "demo"
+      ],
+      "facts": [
+        "这是结构与交互演示内容，不陈述当日真实事件。"
+      ],
+      "inferences": [
+        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+      ],
+      "citations": [
+        {
+          "source_id": "demo-gov",
+          "source_name": "中国政府网（结构演示）",
+          "url": "https://www.gov.cn/zhengce/",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "related_items": [],
+      "reading_minutes": 4,
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "news-2026-08-29-06",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-nanchang"
+      ],
+      "content_hash": "1472fe5ccc74f18c1193d26302439bb5721fcb9acd83889a01026cd235ff5fa6",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "title": "演示议题｜南昌数字产业与公共服务如何形成协同",
+      "category": "江西发展",
+      "regions": [
+        "江西",
+        "南昌"
+      ],
+      "published_at": "2026-08-29T07:25:00+08:00",
+      "collected_at": "2026-08-29T07:00:00+08:00",
+      "source_name": "南昌市人民政府（结构演示）",
+      "source_url": "https://www.nc.gov.cn/",
+      "summary": "本条是本地化申论案例结构示例，围绕产业生态、人才服务、政务数据和中小企业数字化展开。没有使用真实项目名称、投资额或成效数字，正式内容必须逐项核验。",
+      "why_it_matters": "直接服务江西省考、南昌求职与区域数字经济研究。",
+      "importance_score": 85,
+      "reliability": "demo",
+      "tags": [
+        "江西发展",
+        "南昌",
+        "数字政府",
+        "demo"
+      ],
+      "facts": [
+        "这是结构与交互演示内容，不陈述当日真实事件。"
+      ],
+      "inferences": [
+        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+      ],
+      "citations": [
+        {
+          "source_id": "demo-nanchang",
+          "source_name": "南昌市人民政府（结构演示）",
+          "url": "https://www.nc.gov.cn/",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "related_items": [],
+      "reading_minutes": 5,
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "news-2026-08-29-07",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-ecb"
+      ],
+      "content_hash": "dd269c142674d7b126ea35f5255407d4ba10cb27c904374e5a6b4087e1120180",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "title": "演示议题｜国际政策变化如何影响贸易与企业预期",
+      "category": "国际时政",
+      "regions": [
+        "欧洲",
+        "全球"
+      ],
+      "published_at": "2026-08-29T06:29:00+08:00",
+      "collected_at": "2026-08-29T07:00:00+08:00",
+      "source_name": "欧洲中央银行（结构演示）",
+      "source_url": "https://www.ecb.europa.eu/press/html/index.en.html",
+      "summary": "本条用于演示国际政策事件的传导分析，依次观察汇率、融资成本、贸易订单、产业链调整和风险偏好。示例不包含任何现实政策决定或市场报价。",
+      "why_it_matters": "形成从国际事件到中国行业和普通就业者的多层影响意识。",
+      "importance_score": 86,
+      "reliability": "demo",
+      "tags": [
+        "国际时政",
+        "贸易",
+        "预期",
+        "demo"
+      ],
+      "facts": [
+        "这是结构与交互演示内容，不陈述当日真实事件。"
+      ],
+      "inferences": [
+        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+      ],
+      "citations": [
+        {
+          "source_id": "demo-ecb",
+          "source_name": "欧洲中央银行（结构演示）",
+          "url": "https://www.ecb.europa.eu/press/html/index.en.html",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "related_items": [],
+      "reading_minutes": 3,
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "news-2026-08-29-08",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-csrc"
+      ],
+      "content_hash": "3a47b839b506fed6c4f824de7f97c9b71ed3eff6cd41da3d3e6d437db463c4fe",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "title": "演示议题｜资本市场信息质量为何比短期预测更重要",
+      "category": "资本市场",
+      "regions": [
+        "中国"
+      ],
+      "published_at": "2026-08-29T07:33:00+08:00",
+      "collected_at": "2026-08-29T07:00:00+08:00",
+      "source_name": "中国证券监督管理委员会（结构演示）",
+      "source_url": "https://www.csrc.gov.cn/",
+      "summary": "本条说明研究应优先核对公告、财务口径、数据日期与风险事项，而不是依赖传闻和价格预测。示例不评价任何真实证券，也不构成投资建议。",
+      "why_it_matters": "建立以基本面、行业逻辑、信息质量和证伪条件为中心的研究习惯。",
+      "importance_score": 87,
+      "reliability": "demo",
+      "tags": [
+        "A股",
+        "信息披露",
+        "风险识别",
+        "demo"
+      ],
+      "facts": [
+        "这是结构与交互演示内容，不陈述当日真实事件。"
+      ],
+      "inferences": [
+        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+      ],
+      "citations": [
+        {
+          "source_id": "demo-csrc",
+          "source_name": "中国证券监督管理委员会（结构演示）",
+          "url": "https://www.csrc.gov.cn/",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "related_items": [],
+      "reading_minutes": 4,
+      "is_demo": true
+    }
+  ],
+  "deep_dives": [
+    {
+      "schema_version": "1.0.0",
+      "id": "deep-2026-08-29-1",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-imf"
+      ],
+      "content_hash": "0c2979a78ceda4f1cd07a93a57661ae728965f813483796cf50aff1b510557c6",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "news_ids": [
+        "news-2026-08-29-01"
+      ],
+      "title": "深度拆解｜宏观政策如何通过预期与需求传导",
+      "one_sentence": "用证据链理解“宏观政策如何通过预期与需求传导”，先确认事实，再讨论传导和边界。",
+      "background": "复杂公共议题通常由制度、技术、周期和参与者行为共同塑造，不应把单日变化解释成单一原因。此处只演示分析结构。",
+      "timeline": [
+        {
+          "time": "长期背景",
+          "label": "制度与产业条件逐步形成",
+          "status": "context"
+        },
+        {
+          "time": "当前观察",
+          "label": "等待可核验的政策、数据或公告",
+          "status": "demo"
+        },
+        {
+          "time": "后续变量",
+          "label": "用执行指标和结果数据检验判断",
+          "status": "watch"
+        }
+      ],
+      "stakeholders": [
+        "政府部门",
+        "市场主体",
+        "研究机构",
+        "普通居民"
+      ],
+      "mechanism": "先识别政策或技术改变了谁的成本与约束，再观察主体行为、行业扩散、金融定价和社会反馈；每一层都需要独立证据。",
+      "impact_chain": [
+        "事件或政策信号",
+        "主体成本与预期变化",
+        "行业供需重新配置",
+        "市场与公共服务反馈",
+        "对中国与普通人的潜在影响"
+      ],
+      "beneficiaries": [
+        "具备合规能力和长期投入能力的组织",
+        "能获得更高质量公共服务的群体"
+      ],
+      "pressured_groups": [
+        "依赖单一短期红利的主体",
+        "数据与治理基础薄弱的组织"
+      ],
+      "short_term": "关注政策文本、公告口径和首批执行信号，避免用价格波动替代事实。",
+      "medium_term": "观察投入是否转化为订单、效率、就业和公共服务改善。",
+      "long_term": "判断制度能力、人才结构和产业生态是否形成可持续积累。",
+      "unknowns": [
+        "现实事件尚未接入",
+        "关键量化指标尚未采集",
+        "参与方执行差异未知"
+      ],
+      "confidence": "demo",
+      "student_insights": [
+        "把专业概念翻译成可观察指标",
+        "区分事实、机制推断与价值判断",
+        "为申论积累问题—原因—对策结构"
+      ],
+      "shenlun_material": {
+        "theme": "宏观经济",
+        "expressions": [
+          "坚持发展和规范并重",
+          "以制度供给提升治理效能",
+          "形成目标明确、执行有力、反馈及时的工作闭环"
+        ],
+        "case": "本卡片为原创结构示例，正式案例需补充真实时间、地点、做法、成效和来源。",
+        "argument": "新技术或新制度只有转化为可感知的公共价值，才能实现发展质量与治理效能的统一。"
+      },
+      "citations": [
+        {
+          "source_id": "demo-imf",
+          "source_name": "国际货币基金组织（结构演示）",
+          "url": "https://www.imf.org/en/News",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "deep-2026-08-29-2",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-cac"
+      ],
+      "content_hash": "4241eaaee3c827d1ed57b7cbe02770d1da4caaa3e2d110477dd3ed1200874aec",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "news_ids": [
+        "news-2026-08-29-02"
+      ],
+      "title": "深度拆解｜人工智能治理如何兼顾创新、安全与普惠",
+      "one_sentence": "用证据链理解“人工智能治理如何兼顾创新、安全与普惠”，先确认事实，再讨论传导和边界。",
+      "background": "复杂公共议题通常由制度、技术、周期和参与者行为共同塑造，不应把单日变化解释成单一原因。此处只演示分析结构。",
+      "timeline": [
+        {
+          "time": "长期背景",
+          "label": "制度与产业条件逐步形成",
+          "status": "context"
+        },
+        {
+          "time": "当前观察",
+          "label": "等待可核验的政策、数据或公告",
+          "status": "demo"
+        },
+        {
+          "time": "后续变量",
+          "label": "用执行指标和结果数据检验判断",
+          "status": "watch"
+        }
+      ],
+      "stakeholders": [
+        "政府部门",
+        "市场主体",
+        "研究机构",
+        "普通居民"
+      ],
+      "mechanism": "先识别政策或技术改变了谁的成本与约束，再观察主体行为、行业扩散、金融定价和社会反馈；每一层都需要独立证据。",
+      "impact_chain": [
+        "事件或政策信号",
+        "主体成本与预期变化",
+        "行业供需重新配置",
+        "市场与公共服务反馈",
+        "对中国与普通人的潜在影响"
+      ],
+      "beneficiaries": [
+        "具备合规能力和长期投入能力的组织",
+        "能获得更高质量公共服务的群体"
+      ],
+      "pressured_groups": [
+        "依赖单一短期红利的主体",
+        "数据与治理基础薄弱的组织"
+      ],
+      "short_term": "关注政策文本、公告口径和首批执行信号，避免用价格波动替代事实。",
+      "medium_term": "观察投入是否转化为订单、效率、就业和公共服务改善。",
+      "long_term": "判断制度能力、人才结构和产业生态是否形成可持续积累。",
+      "unknowns": [
+        "现实事件尚未接入",
+        "关键量化指标尚未采集",
+        "参与方执行差异未知"
+      ],
+      "confidence": "demo",
+      "student_insights": [
+        "把专业概念翻译成可观察指标",
+        "区分事实、机制推断与价值判断",
+        "为申论积累问题—原因—对策结构"
+      ],
+      "shenlun_material": {
+        "theme": "人工智能",
+        "expressions": [
+          "坚持发展和规范并重",
+          "以制度供给提升治理效能",
+          "形成目标明确、执行有力、反馈及时的工作闭环"
+        ],
+        "case": "本卡片为原创结构示例，正式案例需补充真实时间、地点、做法、成效和来源。",
+        "argument": "新技术或新制度只有转化为可感知的公共价值，才能实现发展质量与治理效能的统一。"
+      },
+      "citations": [
+        {
+          "source_id": "demo-cac",
+          "source_name": "国家互联网信息办公室（结构演示）",
+          "url": "https://www.cac.gov.cn/",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "is_demo": true
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "deep-2026-08-29-3",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-miit"
+      ],
+      "content_hash": "f54018c180a7622c807b51f60e393e0f3da01c717544e9029b30b877f55ecdda",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "news_ids": [
+        "news-2026-08-29-03"
+      ],
+      "title": "深度拆解｜半导体产业链韧性应如何观察",
+      "one_sentence": "用证据链理解“半导体产业链韧性应如何观察”，先确认事实，再讨论传导和边界。",
+      "background": "复杂公共议题通常由制度、技术、周期和参与者行为共同塑造，不应把单日变化解释成单一原因。此处只演示分析结构。",
+      "timeline": [
+        {
+          "time": "长期背景",
+          "label": "制度与产业条件逐步形成",
+          "status": "context"
+        },
+        {
+          "time": "当前观察",
+          "label": "等待可核验的政策、数据或公告",
+          "status": "demo"
+        },
+        {
+          "time": "后续变量",
+          "label": "用执行指标和结果数据检验判断",
+          "status": "watch"
+        }
+      ],
+      "stakeholders": [
+        "政府部门",
+        "市场主体",
+        "研究机构",
+        "普通居民"
+      ],
+      "mechanism": "先识别政策或技术改变了谁的成本与约束，再观察主体行为、行业扩散、金融定价和社会反馈；每一层都需要独立证据。",
+      "impact_chain": [
+        "事件或政策信号",
+        "主体成本与预期变化",
+        "行业供需重新配置",
+        "市场与公共服务反馈",
+        "对中国与普通人的潜在影响"
+      ],
+      "beneficiaries": [
+        "具备合规能力和长期投入能力的组织",
+        "能获得更高质量公共服务的群体"
+      ],
+      "pressured_groups": [
+        "依赖单一短期红利的主体",
+        "数据与治理基础薄弱的组织"
+      ],
+      "short_term": "关注政策文本、公告口径和首批执行信号，避免用价格波动替代事实。",
+      "medium_term": "观察投入是否转化为订单、效率、就业和公共服务改善。",
+      "long_term": "判断制度能力、人才结构和产业生态是否形成可持续积累。",
+      "unknowns": [
+        "现实事件尚未接入",
+        "关键量化指标尚未采集",
+        "参与方执行差异未知"
+      ],
+      "confidence": "demo",
+      "student_insights": [
+        "把专业概念翻译成可观察指标",
+        "区分事实、机制推断与价值判断",
+        "为申论积累问题—原因—对策结构"
+      ],
+      "shenlun_material": {
+        "theme": "半导体",
+        "expressions": [
+          "坚持发展和规范并重",
+          "以制度供给提升治理效能",
+          "形成目标明确、执行有力、反馈及时的工作闭环"
+        ],
+        "case": "本卡片为原创结构示例，正式案例需补充真实时间、地点、做法、成效和来源。",
+        "argument": "新技术或新制度只有转化为可感知的公共价值，才能实现发展质量与治理效能的统一。"
+      },
+      "citations": [
+        {
+          "source_id": "demo-miit",
+          "source_name": "工业和信息化部（结构演示）",
+          "url": "https://www.miit.gov.cn/",
+          "title": "官方站点主页（仅用于演示来源字段）",
+          "published_at": "2026-08-29T06:30:00+08:00",
+          "note": "demo：不对应具体报道，不可作为现实事实引用"
+        }
+      ],
+      "is_demo": true
+    }
+  ],
+  "market": {
+    "schema_version": "1.0.0",
+    "id": "market-2026-08-29",
+    "date": "2026-08-29",
+    "generated_at": "2026-08-29T07:15:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "source_ids": [
+      "demo-market"
+    ],
+    "content_hash": "87a81321cd60034b331a4abf8ada02fa0e6b6cf188b884e9068a868c739782a8",
+    "generation_status": "demo",
+    "validation_errors": [],
+    "trading_date": "2026-08-28",
+    "market_status": "demo",
+    "status_note": "周六：不生成当日行情，展示最近 demo 交易日 2026-08-28。",
+    "indices": [
+      {
+        "code": "000001",
+        "name": "上证指数",
+        "close": {
+          "value": 3024,
+          "unit": "点",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "change_pct": {
+          "value": -0.26,
+          "unit": "%",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "turnover": {
+          "value": 3500,
+          "unit": "亿元",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "trend": [
+          98,
+          99,
+          98.5,
+          100,
+          101,
+          100.4,
+          101.2
+        ]
+      },
+      {
+        "code": "399001",
+        "name": "深证成指",
+        "close": {
+          "value": 3444,
+          "unit": "点",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "change_pct": {
+          "value": 0.16,
+          "unit": "%",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "turnover": {
+          "value": 3760,
+          "unit": "亿元",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "trend": [
+          98.3,
+          99.3,
+          98.8,
+          100.3,
+          101.3,
+          100.7,
+          101.5
+        ]
+      },
+      {
+        "code": "399006",
+        "name": "创业板指",
+        "close": {
+          "value": 3864,
+          "unit": "点",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "change_pct": {
+          "value": 0.58,
+          "unit": "%",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "turnover": {
+          "value": 4020,
+          "unit": "亿元",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "trend": [
+          98.6,
+          99.6,
+          99.1,
+          100.6,
+          101.6,
+          101,
+          101.8
+        ]
+      },
+      {
+        "code": "000300",
+        "name": "沪深300",
+        "close": {
+          "value": 4284,
+          "unit": "点",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "change_pct": {
+          "value": -0.26,
+          "unit": "%",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "turnover": {
+          "value": 4280,
+          "unit": "亿元",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "trend": [
+          98.9,
+          99.9,
+          99.4,
+          100.9,
+          101.9,
+          101.30000000000001,
+          102.10000000000001
+        ]
+      },
+      {
+        "code": "000905",
+        "name": "中证500",
+        "close": {
+          "value": 4704,
+          "unit": "点",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "change_pct": {
+          "value": 0.16,
+          "unit": "%",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "turnover": {
+          "value": 4540,
+          "unit": "亿元",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "trend": [
+          99.2,
+          100.2,
+          99.7,
+          101.2,
+          102.2,
+          101.60000000000001,
+          102.4
+        ]
+      },
+      {
+        "code": "000688",
+        "name": "科创50",
+        "close": {
+          "value": 5124,
+          "unit": "点",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "change_pct": {
+          "value": 0.58,
+          "unit": "%",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "turnover": {
+          "value": 4800,
+          "unit": "亿元",
+          "source": "demo-generator",
+          "data_time": "2026-08-28T15:00:00+08:00",
+          "adjusted": false,
+          "realtime": false,
+          "estimated": true,
+          "missing": false,
+          "note": "demo 示例值，不对应真实行情"
+        },
+        "trend": [
+          99.5,
+          100.5,
+          100,
+          101.5,
+          102.5,
+          101.9,
+          102.7
+        ]
+      }
+    ],
+    "market_breadth": {
+      "up": 2620,
+      "down": 2260,
+      "flat": 140,
+      "limit_up": 62,
+      "limit_down": 8,
+      "median_change_pct": 0.03999999999999998
+    },
+    "turnover": {
+      "value": 12040,
+      "unit": "亿元",
+      "source": "demo-generator",
+      "data_time": "2026-08-28T15:00:00+08:00",
+      "adjusted": false,
+      "realtime": false,
+      "estimated": true,
+      "missing": false,
+      "note": "demo 示例值，不对应真实行情"
+    },
+    "sentiment": "中性",
+    "sentiment_basis": [
+      "demo：上涨家数与下跌家数之差",
+      "demo：全市场成交额变化",
+      "demo：市场中位数涨跌幅与涨跌停结构"
+    ],
+    "sectors": [
+      {
+        "name": "先进制造（demo）",
+        "change_pct": 1.8,
+        "heat_score": 78,
+        "driver_type": "demo",
+        "catalyst": "结构演示：政策与订单共振",
+        "chain": [
+          "设备",
+          "核心零部件",
+          "系统集成",
+          "终端应用"
+        ],
+        "sustainability": "需验证订单与现金流",
+        "watch_next": "成交额与板块上涨广度",
+        "invalidation": "只有少数样本上涨且无基本面验证",
+        "representatives": [
+          "不列真实公司，避免误导"
+        ],
+        "risk": "情绪透支"
+      },
+      {
+        "name": "数字基础设施（demo）",
+        "change_pct": 1.1,
+        "heat_score": 70,
+        "driver_type": "demo",
+        "catalyst": "结构演示：需求预期",
+        "chain": [
+          "算力芯片",
+          "服务器",
+          "数据中心",
+          "行业应用"
+        ],
+        "sustainability": "取决于利用率和商业化",
+        "watch_next": "资本开支与利用率",
+        "invalidation": "投入增长但收入和利用率不改善",
+        "representatives": [
+          "不列真实公司，避免误导"
+        ],
+        "risk": "重复建设"
+      },
+      {
+        "name": "绿色产业（demo）",
+        "change_pct": -0.6,
+        "heat_score": 54,
+        "driver_type": "demo",
+        "catalyst": "结构演示：供需再平衡",
+        "chain": [
+          "材料",
+          "设备",
+          "制造",
+          "运营"
+        ],
+        "sustainability": "需观察库存与价格",
+        "watch_next": "库存去化与盈利修复",
+        "invalidation": "价格继续下行且现金流恶化",
+        "representatives": [
+          "不列真实公司，避免误导"
+        ],
+        "risk": "产能过剩"
+      }
+    ],
+    "research_candidate": {
+      "code": "000000",
+      "name": "演示制造（非真实证券）",
+      "industry": "先进制造（demo）",
+      "selected": true,
+      "no_selection_reason": null,
+      "score": 73,
+      "score_breakdown": {
+        "行业景气度": 15,
+        "公司基本面质量": 19,
+        "估值合理性": 10,
+        "量价与关注度": 9,
+        "催化因素": 12,
+        "信息可靠性": 8,
+        "风险扣分": 0
+      },
+      "business_model": "演示企业通过设备销售与运维服务获得收入，仅用于展示研究报告字段。",
+      "selection_reason": "该标的不存在，不是推荐；用于演示基本面、估值、催化、风险和证伪条件如何同时呈现。",
+      "fundamentals": {
+        "营业收入趋势": "demo：连续三期温和增长",
+        "净利润趋势": "demo：波动",
+        "扣非净利润": "demo：与净利润方向一致",
+        "毛利率": "demo：24%",
+        "净利率": "demo：8%",
+        "ROE": "demo：10%",
+        "经营现金流": "demo：为正但低于净利润",
+        "资产负债率": "demo：46%",
+        "应收账款": "demo：需关注增速",
+        "存货": "demo：周转放缓",
+        "资本开支": "demo：扩产阶段",
+        "最近一期": "无真实期间"
+      },
+      "valuation": {
+        "PE": "demo：18x",
+        "PB": "demo：2.1x",
+        "PS": "demo：1.5x",
+        "历史分位": "demo：55%",
+        "可比公司": "未接入真实可比数据",
+        "边界": "周期和会计口径变化会降低横向可比性"
+      },
+      "technical_snapshot": {
+        "均线": "demo：位于20日线上方",
+        "成交量": "demo：温和放大",
+        "换手率": "demo：中性",
+        "波动率": "demo：中等",
+        "支撑压力": "仅作结构展示，不给出价格区间"
+      },
+      "catalysts": [
+        "demo：订单兑现",
+        "demo：产能利用率改善",
+        "demo：行业标准落地"
+      ],
+      "risks": [
+        "行业需求回落",
+        "客户集中度过高",
+        "现金流与利润背离",
+        "估值收缩",
+        "交易拥挤",
+        "政策节奏不及预期",
+        "demo 数据不可用于决策"
+      ],
+      "scenarios": {
+        "optimistic": "需求与现金流同步改善，且估值没有明显透支。",
+        "base": "订单平稳、盈利温和，维持跟踪。",
+        "pessimistic": "需求、回款或审计质量恶化，研究逻辑减弱。"
+      },
+      "invalidation_conditions": [
+        "真实数据无法支持示例假设",
+        "经营现金流持续恶化",
+        "核心客户或产品竞争力发生实质变化"
+      ],
+      "conclusion": "数据不足，暂不判断",
+      "data_as_of": "2026-08-28",
+      "citations": [
+        {
+          "source_id": "demo-market",
+          "source_name": "演示数据生成器",
+          "url": "https://www.sse.com.cn/",
+          "title": "上海证券交易所主页（仅演示来源字段）",
+          "note": "数值为 demo，不来自该站点"
+        }
+      ],
+      "is_demo": true
+    },
+    "data_quality": {
+      "status": "demo",
+      "completeness": 1,
+      "conflicts": [],
+      "notes": [
+        "全部数值为 demo",
+        "不可用于投资决策",
+        "正式模式会逐字段记录真实来源和单位"
+      ]
+    },
+    "sources": [
+      {
+        "source_id": "demo-market",
+        "source_name": "演示数据生成器",
+        "url": "https://www.sse.com.cn/",
+        "title": "上海证券交易所主页（仅演示来源字段）",
+        "note": "数值为 demo，不来自该站点"
+      }
+    ],
+    "is_demo": true
+  },
+  "exam": {
+    "schema_version": "1.0.0",
+    "id": "exam-2026-08-29",
+    "date": "2026-08-29",
+    "generated_at": "2026-08-29T07:15:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "source_ids": [],
+    "content_hash": "472e472b1bb0b36583fa88bfcf8fdf29c3360d68a798851de910041005345b88",
+    "generation_status": "demo",
+    "validation_errors": [],
+    "questions": [
+      {
+        "schema_version": "1.0.0",
+        "id": "q-2026-08-29-1",
+        "date": "2026-08-29",
+        "generated_at": "2026-08-29T07:15:00+08:00",
+        "timezone": "Asia/Shanghai",
+        "source_ids": [],
+        "content_hash": "96a2ea0de7414728798eea65f6e355267f3fc854bd4061d944a9662f6d5b2b92",
+        "generation_status": "demo",
+        "validation_errors": [],
+        "source_type": "original_demo",
+        "source_name": "知势原创 demo",
+        "year": 2026,
+        "region": "通用",
+        "exam_type": "国考/江西省考能力训练",
+        "question_type": "言语理解",
+        "difficulty": "基础",
+        "stem": "选择最适合填入句中的词语：公共数据开发既要提高利用效率，也要守住安全____。",
+        "material": null,
+        "options": {
+          "A": "底线",
+          "B": "速度",
+          "C": "形式",
+          "D": "规模"
+        },
+        "correct_answer": "A",
+        "explanation": "‘守住’通常与‘底线’搭配，且与安全治理语义一致。",
+        "fastest_method": "先看固定搭配‘守住底线’，再核对语境。",
+        "traps": [
+          "只看到‘效率’而误选速度"
+        ],
+        "suggested_seconds": 60,
+        "tags": [
+          "言语理解",
+          "原创",
+          "demo"
+        ],
+        "is_demo": true
+      },
+      {
+        "schema_version": "1.0.0",
+        "id": "q-2026-08-29-2",
+        "date": "2026-08-29",
+        "generated_at": "2026-08-29T07:15:00+08:00",
+        "timezone": "Asia/Shanghai",
+        "source_ids": [],
+        "content_hash": "19a252c5a27c5c7a3bc54fa38b8bd5be5e90a538c5d5fcece46b8d67aaffc000",
+        "generation_status": "demo",
+        "validation_errors": [],
+        "source_type": "original_demo",
+        "source_name": "知势原创 demo",
+        "year": 2026,
+        "region": "通用",
+        "exam_type": "国考/江西省考能力训练",
+        "question_type": "判断推理",
+        "difficulty": "中等",
+        "stem": "所有通过校验的数据都可发布；有些采集数据未通过校验。由此一定能推出什么？",
+        "material": null,
+        "options": {
+          "A": "所有采集数据都不可发布",
+          "B": "有些采集数据不能据此确认可发布",
+          "C": "未通过校验的数据一定错误",
+          "D": "可发布数据都来自采集"
+        },
+        "correct_answer": "B",
+        "explanation": "规则只给出通过校验是可发布的充分条件，未通过并不等于一定错误，但其发布资格不能由该规则确认。",
+        "fastest_method": "把充分条件写成：通过校验→可发布，不能逆推。",
+        "traps": [
+          "把充分条件误当必要条件"
+        ],
+        "suggested_seconds": 60,
+        "tags": [
+          "判断推理",
+          "原创",
+          "demo"
+        ],
+        "is_demo": true
+      },
+      {
+        "schema_version": "1.0.0",
+        "id": "q-2026-08-29-3",
+        "date": "2026-08-29",
+        "generated_at": "2026-08-29T07:15:00+08:00",
+        "timezone": "Asia/Shanghai",
+        "source_ids": [],
+        "content_hash": "97fbcd828a4e8a1c7d5361fda786ad750f9ba0327c12243baa0508a39a2a6805",
+        "generation_status": "demo",
+        "validation_errors": [],
+        "source_type": "original_demo",
+        "source_name": "知势原创 demo",
+        "year": 2026,
+        "region": "通用",
+        "exam_type": "国考/江西省考能力训练",
+        "question_type": "数量关系",
+        "difficulty": "中等",
+        "stem": "某学习计划原定每天 8 题，连续 5 天共完成 50 题。平均每天比原计划多多少题？",
+        "material": null,
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
+        },
+        "correct_answer": "B",
+        "explanation": "实际平均为 50÷5=10 题，比 8 题多 2 题。",
+        "fastest_method": "总量除以天数，再与计划作差。",
+        "traps": [
+          "把总增量 10 题当成每天增量"
+        ],
+        "suggested_seconds": 90,
+        "tags": [
+          "数量关系",
+          "原创",
+          "demo"
+        ],
+        "is_demo": true
+      },
+      {
+        "schema_version": "1.0.0",
+        "id": "q-2026-08-29-4",
+        "date": "2026-08-29",
+        "generated_at": "2026-08-29T07:15:00+08:00",
+        "timezone": "Asia/Shanghai",
+        "source_ids": [],
+        "content_hash": "c44457eeaf4e9249f133a2c869fab022b767f446f76e9ed0e42e9db3f12d20c0",
+        "generation_status": "demo",
+        "validation_errors": [],
+        "source_type": "original_demo",
+        "source_name": "知势原创 demo",
+        "year": 2026,
+        "region": "通用",
+        "exam_type": "国考/江西省考能力训练",
+        "question_type": "资料分析",
+        "difficulty": "基础",
+        "stem": "某服务事项办理时长由 10 个工作日降至 6 个工作日，降幅为多少？",
+        "material": null,
+        "options": {
+          "A": "30%",
+          "B": "40%",
+          "C": "50%",
+          "D": "60%"
+        },
+        "correct_answer": "B",
+        "explanation": "降幅=(10-6)÷10=40%。基期是改革前的 10 个工作日。",
+        "fastest_method": "减少量 4 除以基期 10。",
+        "traps": [
+          "误用改革后的 6 作为分母"
+        ],
+        "suggested_seconds": 90,
+        "tags": [
+          "资料分析",
+          "原创",
+          "demo"
+        ],
+        "is_demo": true
+      },
+      {
+        "schema_version": "1.0.0",
+        "id": "q-2026-08-29-5",
+        "date": "2026-08-29",
+        "generated_at": "2026-08-29T07:15:00+08:00",
+        "timezone": "Asia/Shanghai",
+        "source_ids": [],
+        "content_hash": "40085d23ea8987a46f24c98a746d9a0e32ffd965cf7bf5b3cc9bdf9facaa2634",
+        "generation_status": "demo",
+        "validation_errors": [],
+        "source_type": "original_demo",
+        "source_name": "知势原创 demo",
+        "year": 2026,
+        "region": "通用",
+        "exam_type": "国考/江西省考能力训练",
+        "question_type": "常识判断",
+        "difficulty": "中等",
+        "stem": "下列哪项最能体现依法行政中的程序正当？",
+        "material": null,
+        "options": {
+          "A": "只追求办理速度",
+          "B": "重大决策履行公众参与和合法性审查",
+          "C": "以内部口头通知替代公开规则",
+          "D": "对同类事项随意采用不同标准"
+        },
+        "correct_answer": "B",
+        "explanation": "公众参与、专家论证、风险评估和合法性审查是重大行政决策程序的重要组成。",
+        "fastest_method": "识别公开、参与、审查、留痕等程序关键词。",
+        "traps": [
+          "把效率等同于程序正当"
+        ],
+        "suggested_seconds": 60,
+        "tags": [
+          "常识判断",
+          "原创",
+          "demo"
+        ],
+        "is_demo": true
+      },
+      {
+        "schema_version": "1.0.0",
+        "id": "q-2026-08-29-6",
+        "date": "2026-08-29",
+        "generated_at": "2026-08-29T07:15:00+08:00",
+        "timezone": "Asia/Shanghai",
+        "source_ids": [],
+        "content_hash": "921361b80b67e97f97b19afa538d5b1dcdf0c595520f7c462f5239291f6820f5",
+        "generation_status": "demo",
+        "validation_errors": [],
+        "source_type": "original_demo",
+        "source_name": "知势原创 demo",
+        "year": 2026,
+        "region": "通用",
+        "exam_type": "国考/江西省考能力训练",
+        "question_type": "判断推理",
+        "difficulty": "中等",
+        "stem": "如果行业需求改善且公司现金流同步改善，则研究逻辑增强。现只知道行业需求改善，可以判断什么？",
+        "material": null,
+        "options": {
+          "A": "逻辑必然增强",
+          "B": "公司现金流必然改善",
+          "C": "条件尚不充分，需要继续核验现金流",
+          "D": "逻辑必然失效"
+        },
+        "correct_answer": "C",
+        "explanation": "原命题要求两个条件同时满足，当前只满足其中一个，不能推出结论。",
+        "fastest_method": "把‘且’拆成两个必须同时核验的条件。",
+        "traps": [
+          "忽略合取条件中的第二项"
+        ],
+        "suggested_seconds": 60,
+        "tags": [
+          "判断推理",
+          "原创",
+          "demo"
+        ],
+        "is_demo": true
+      },
+      {
+        "schema_version": "1.0.0",
+        "id": "q-2026-08-29-7",
+        "date": "2026-08-29",
+        "generated_at": "2026-08-29T07:15:00+08:00",
+        "timezone": "Asia/Shanghai",
+        "source_ids": [],
+        "content_hash": "2dd4e3f41824f2e520f754b0627ccfe5a82d2cacebb556623835bc993c25926a",
+        "generation_status": "demo",
+        "validation_errors": [],
+        "source_type": "original_demo",
+        "source_name": "知势原创 demo",
+        "year": 2026,
+        "region": "通用",
+        "exam_type": "国考/江西省考能力训练",
+        "question_type": "言语理解",
+        "difficulty": "基础",
+        "stem": "治理数字化不是简单把线下流程搬到线上，而是要以群众需求为起点重塑流程。该句主要强调什么？",
+        "material": null,
+        "options": {
+          "A": "增加线上入口数量",
+          "B": "数字化应推动以需求为导向的流程再造",
+          "C": "所有线下服务都应取消",
+          "D": "技术投入越多越好"
+        },
+        "correct_answer": "B",
+        "explanation": "转折后的‘以群众需求为起点重塑流程’是主旨。",
+        "fastest_method": "抓住‘不是……而是……’后的重点。",
+        "traps": [
+          "只复述前半句"
+        ],
+        "suggested_seconds": 60,
+        "tags": [
+          "言语理解",
+          "原创",
+          "demo"
+        ],
+        "is_demo": true
+      },
+      {
+        "schema_version": "1.0.0",
+        "id": "q-2026-08-29-8",
+        "date": "2026-08-29",
+        "generated_at": "2026-08-29T07:15:00+08:00",
+        "timezone": "Asia/Shanghai",
+        "source_ids": [],
+        "content_hash": "bfe42eb6ee6831658c2b76debd090a3c774df785aaea59c69c18f4a22671cfd1",
+        "generation_status": "demo",
+        "validation_errors": [],
+        "source_type": "original_demo",
+        "source_name": "知势原创 demo",
+        "year": 2026,
+        "region": "通用",
+        "exam_type": "国考/江西省考能力训练",
+        "question_type": "数量关系",
+        "difficulty": "中等",
+        "stem": "某项目三阶段权重为 20%、30%、50%，得分分别为 80、90、70，综合得分是多少？",
+        "material": null,
+        "options": {
+          "A": "76",
+          "B": "77",
+          "C": "78",
+          "D": "79"
+        },
+        "correct_answer": "C",
+        "explanation": "80×20%+90×30%+70×50%=16+27+35=78。",
+        "fastest_method": "分项得分乘权重后相加。",
+        "traps": [
+          "直接计算三个分数的算术平均"
+        ],
+        "suggested_seconds": 90,
+        "tags": [
+          "数量关系",
+          "原创",
+          "demo"
+        ],
+        "is_demo": true
+      }
+    ],
+    "shenlun": {
+      "schema_version": "1.0.0",
+      "id": "shenlun-2026-08-29",
+      "date": "2026-08-29",
+      "generated_at": "2026-08-29T07:15:00+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [
+        "demo-nanchang"
+      ],
+      "content_hash": "dbdbf2a19d61afc61aa88719937fa3b058fb0bfa727d82c98796c766bef34ed0",
+      "generation_status": "demo",
+      "validation_errors": [],
+      "current_affairs": [
+        {
+          "title": "数字政府的服务闭环",
+          "event_summary": "原创 demo：某地整合分散事项并建立反馈回访。",
+          "policy_background": "推进政务服务标准化、规范化、便利化。",
+          "theme": "数字政府",
+          "arguments": [
+            "技术赋能必须服务群众需求",
+            "数据共享要与安全责任同步"
+          ],
+          "case": "虚构案例，仅用于答题结构训练。",
+          "suitable_questions": [
+            "概括题",
+            "对策题"
+          ]
+        },
+        {
+          "title": "青年就业的能力与岗位匹配",
+          "event_summary": "原创 demo：高校、园区和企业共建实训清单。",
+          "policy_background": "就业优先与人才强省。",
+          "theme": "青年就业",
+          "arguments": [
+            "提高人才培养与产业需求的适配度",
+            "完善从实训到就业的服务链"
+          ],
+          "case": "虚构案例，仅用于答题结构训练。",
+          "suitable_questions": [
+            "分析题",
+            "综合题"
+          ]
+        },
+        {
+          "title": "县域产业数字化",
+          "event_summary": "原创 demo：为中小企业提供低门槛数字工具。",
+          "policy_background": "数字经济与实体经济深度融合。",
+          "theme": "江西发展",
+          "arguments": [
+            "降低中小企业转型门槛",
+            "以场景牵引技术落地"
+          ],
+          "case": "虚构案例，仅用于答题结构训练。",
+          "suitable_questions": [
+            "对策题",
+            "公文写作"
+          ]
+        }
+      ],
+      "golden_sentences": [
+        {
+          "type": "系统原创总结句",
+          "text": "治理的温度，体现在群众少跑的一段路、少填的一张表和更快得到的一次回应。"
+        },
+        {
+          "type": "政策规范表达",
+          "text": "以需求牵引场景开放，以场景促进技术迭代，以制度保障规范发展。"
+        },
+        {
+          "type": "系统原创总结句",
+          "text": "数字化不是给旧流程加一块屏幕，而是用公共价值重新审视每一个环节。"
+        }
+      ],
+      "standard_expressions": [
+        {
+          "plain": "大家办事比较麻烦",
+          "formal": "公共服务流程仍有优化空间",
+          "scenario": "政务服务、营商环境",
+          "example": "应围绕高频事项再造流程，减少重复提交和多头跑动。"
+        },
+        {
+          "plain": "部门之间数据对不上",
+          "formal": "跨部门数据标准与协同机制尚不健全",
+          "scenario": "数字政府、基层治理",
+          "example": "统一数据口径、责任边界和更新频率，提升协同治理能力。"
+        },
+        {
+          "plain": "年轻人找工作和企业招人都难",
+          "formal": "人才供给与产业需求存在结构性错配",
+          "scenario": "青年就业、先进制造",
+          "example": "推动课程、实训和岗位标准衔接，提高人岗匹配效率。"
+        }
+      ],
+      "case_material": {
+        "name": "南昌便民服务闭环（原创 demo）",
+        "time_place": "虚构时间，江西南昌",
+        "practice": "整合高频事项、建立一次告知和办后回访。",
+        "problem": "材料重复、跨部门协同慢。",
+        "result": "不提供虚构成效数字，仅演示案例字段。",
+        "lesson": "流程再造、数据协同和反馈纠偏缺一不可。",
+        "themes": [
+          "数字政府",
+          "营商环境",
+          "江西发展"
+        ],
+        "limitation": "非真实案例，不得作为事实引用。",
+        "source": {
+          "source_id": "demo-nanchang",
+          "source_name": "南昌市人民政府（结构演示）",
+          "url": "https://www.nc.gov.cn/",
+          "title": "官方站点主页（仅演示来源字段）",
+          "note": "案例内容为原创 demo，不对应具体项目"
+        }
+      },
+      "micro_practice": {
+        "type": "对策题",
+        "material": "某地上线多个政务小程序，但群众仍需反复提交同一材料；基层工作人员还要把线上数据手工录入不同系统。部分老年人不会使用智能手机，线下窗口却被大幅压缩。",
+        "requirement": "请概括问题并提出有针对性的改进建议。",
+        "word_limit": 300,
+        "reference_answer": "问题在于平台分散、数据标准不一、线上线下流程割裂以及特殊群体服务不足。应统一入口与数据标准，明确共享责任，推动后台系统互联和业务流程再造；保留必要线下窗口与帮办服务；建立群众反馈、运行监测和定期评估机制，持续纠偏。",
+        "scoring_points": [
+          "平台整合",
+          "数据共享",
+          "流程再造",
+          "特殊群体服务",
+          "反馈评估"
+        ],
+        "common_mistakes": [
+          "只提增加技术投入",
+          "对策与问题不对应",
+          "忽略线下兜底"
+        ],
+        "strong_expressions": [
+          "推动数据通、业务通、服务通",
+          "坚持线上提效与线下兜底并重"
+        ]
+      },
+      "weekly_essay": null,
+      "is_demo": true
+    },
+    "is_demo": true
+  }
+}
