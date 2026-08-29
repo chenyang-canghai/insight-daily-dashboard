@@ -3,6 +3,7 @@ from decimal import Decimal
 from pathlib import Path
 
 from insight_dashboard.exam import spaced_review_days, validate_numeric_answer, validate_question
+from insight_dashboard.live_exam import generate_exam
 from insight_dashboard.models import Question
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -18,8 +19,9 @@ def test_all_demo_questions_have_unique_answers() -> None:
 
 
 def test_numeric_question_is_recalculated() -> None:
-    numeric = next(item for item in questions() if item.stem.startswith("某服务事项"))
-    assert validate_numeric_answer(numeric, Decimal("40"))
+    payload = generate_exam("2026-08-29")
+    numeric = Question.model_validate(next(item for item in payload["questions"] if "办理时间" in item["stem"]))
+    assert validate_numeric_answer(numeric, Decimal("25"))
 
 
 def test_spaced_review_schedule() -> None:

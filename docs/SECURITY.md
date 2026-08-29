@@ -4,11 +4,11 @@
 
 - GitHub 仓库：只保存公开日报、来源登记和构建产物输入。
 - IndexedDB：保存收藏、备注、答题记录、错题和用户设置；默认不上传。
-- GitHub Secrets：只供 Actions 中的 Python 生成任务使用，不得以 `NEXT_PUBLIC_` 前缀暴露。
+- GitHub Secrets：当前生产来源不需要 Secret；未来用户自有密钥只供 Actions 后端任务使用，不得以 `NEXT_PUBLIC_` 前缀暴露。
 
 ## 控制措施
 
-- 外部 URL 只接受 `https:`，渲染外链时使用 `rel="noopener noreferrer"`。
+- 外部 URL 只接受 `http:`/`https:`；优先 HTTPS，个别政府旧 RSS 仅作元数据入口且不绕过其访问控制。渲染外链时使用 `rel="noopener noreferrer"`。
 - Markdown 默认按纯文本或受控组件渲染；不使用未经清洗的 `dangerouslySetInnerHTML`。
 - LLM 只接收已采集证据，输出经 Pydantic 验证并最多修复两次；失败内容不发布。
 - 日报检查未来时间、空字段、重复事件、禁用投资措辞、来源存在性和疑似密钥。

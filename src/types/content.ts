@@ -165,7 +165,7 @@ export interface MarketDaily extends BaseMeta {
 }
 
 export interface Question extends BaseMeta {
-  source_type: "original_demo" | "official" | "licensed";
+  source_type: "original" | "original_demo" | "official" | "licensed";
   source_name: string;
   year: number;
   region: string;

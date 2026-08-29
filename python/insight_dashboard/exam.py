@@ -7,7 +7,7 @@ from .models import Question
 
 def validate_question(question: Question) -> list[str]:
     errors: list[str] = []
-    if question.source_type not in {"official", "licensed", "original_demo"}:
+    if question.source_type not in {"official", "licensed", "original", "original_demo"}:
         errors.append("unapproved question source")
     if question.correct_answer not in question.options:
         errors.append("correct answer missing from options")

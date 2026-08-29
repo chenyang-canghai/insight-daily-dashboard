@@ -5,6 +5,8 @@ description = "知势日报的数据采集、校验与生成层"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+  "beautifulsoup4>=4.14.2,<5",
+  "feedparser>=6.0.12,<7",
   "httpx>=0.28.1,<1",
   "pydantic>=2.12.5,<3",
   "pyyaml>=6.0.3,<7",

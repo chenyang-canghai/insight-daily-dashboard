@@ -207,7 +207,7 @@ class MarketDaily(BaseRecord):
 
 
 class Question(BaseRecord):
-    source_type: Literal["original_demo", "official", "licensed"]
+    source_type: Literal["original", "original_demo", "official", "licensed"]
     source_name: str
     year: int
     region: str

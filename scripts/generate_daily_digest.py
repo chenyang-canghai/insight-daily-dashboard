@@ -2,11 +2,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from datetime import date
 from pathlib import Path
 
 from insight_dashboard.demo import load_demo
-from insight_dashboard.market import is_a_share_trading_day
+from insight_dashboard.live_common import publish_module
+from insight_dashboard.live_exam import generate_exam
+from insight_dashboard.live_market import generate_market
+from insight_dashboard.live_news import generate_news
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,15 +26,39 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    if not args.demo:
-        raise SystemExit("实时生成需要单独配置来源；首版请使用 --demo，禁止在证据不足时伪造内容。")
-    payload = load_demo(ROOT, args.date)
-    if args.module == "market":
-        requested = date.fromisoformat(args.date)
-        if not is_a_share_trading_day(requested):
-            print(json.dumps({"status": "closed", "date": args.date, "message": "非交易日，不生成当日行情"}, ensure_ascii=False))
-            return 0
-    summary = {"status": "validated", "mode": "demo", "date": args.date, "module": args.module, "dry_run": args.dry_run, "news": len(payload["news"]), "questions": len(payload["exam"]["questions"])}
+    date.fromisoformat(args.date)
+    if args.demo:
+        payload = load_demo(ROOT, args.date)
+        summary = {"status": "validated", "mode": "demo", "date": args.date, "module": args.module, "dry_run": args.dry_run, "news": len(payload["news"]), "questions": len(payload["exam"]["questions"])}
+        print(json.dumps(summary, ensure_ascii=False))
+        return 0
+
+    modules = ["exam", "news", "market"] if args.module == "all" else [args.module]
+    diagnostics: dict[str, list[str]] = {}
+    payload = None
+    for module in modules:
+        if module == "exam":
+            value = generate_exam(args.date)
+            failures: list[str] = []
+        elif module == "news":
+            lookback = int(os.environ.get("NEWS_LOOKBACK_DAYS", "7"))
+            value, failures = generate_news(ROOT, args.date, lookback)
+        else:
+            value, failures = generate_market(args.date, os.environ.get("MARKET_PROVIDER", "akshare"))
+        payload = publish_module(ROOT, args.date, module, value, dry_run=args.dry_run, base_payload=payload if args.dry_run else None)
+        diagnostics[module] = failures
+    assert payload is not None
+    summary = {
+        "status": "validated" if args.dry_run else "published",
+        "mode": "live",
+        "date": args.date,
+        "module": args.module,
+        "dry_run": args.dry_run,
+        "generation_status": payload["generation_status"],
+        "news": len(payload["news"]),
+        "questions": len(payload["exam"]["questions"]),
+        "diagnostics": diagnostics,
+    }
     print(json.dumps(summary, ensure_ascii=False))
     return 0
 

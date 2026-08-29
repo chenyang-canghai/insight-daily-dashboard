@@ -288,6 +288,11 @@ textarea:focus-visible {
   background: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
+.status-dot.demo,
+.status-dot.stale {
+  background: var(--subtle);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--subtle) 18%, transparent);
+}
 .status-result {
   margin-left: auto;
   display: flex;

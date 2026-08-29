@@ -1,25 +1,83 @@
 schema_version: "1.0.0"
 sources:
+  - id: nbs-latest
+    name: 国家统计局-最新发布
+    type: official_rss
+    url: https://www.stats.gov.cn/sj/zxfb/rss.xml
+    priority: 5
+    enabled: true
+    topics: [宏观经济, 中国政策]
+    allowed_fields: [title, url, published_at, description]
+    note: 仅采集公开 RSS 元数据，事实以原文为准。
+  - id: nbs-interpretation
+    name: 国家统计局-数据解读
+    type: official_rss
+    url: https://www.stats.gov.cn/sj/sjjd/rss.xml
+    priority: 6
+    enabled: true
+    topics: [宏观经济, 中国政策]
+    allowed_fields: [title, url, published_at, description]
+  - id: mohrss-news
+    name: 人力资源社会保障部-新闻
+    type: official_rss
+    url: http://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/SYtupianxinwen/rss.xml
+    priority: 8
+    enabled: true
+    topics: [青年就业, 中国政策]
+    allowed_fields: [title, url, published_at, description]
+  - id: mohrss-policy
+    name: 人力资源社会保障部-政策解读
+    type: official_rss
+    url: http://www.mohrss.gov.cn/gkml/zcjd/rss.xml
+    priority: 8
+    enabled: true
+    topics: [青年就业, 中国政策]
+    allowed_fields: [title, url, published_at, description]
+  - id: ndrc-news
+    name: 国家发展改革委-新闻发布
+    type: official_html_list
+    url: https://www.ndrc.gov.cn/xwdt/xwfb/
+    priority: 5
+    enabled: true
+    topics: [宏观经济, 中国政策, 绿色发展, 营商环境]
+    allowed_fields: [title, url, published_at]
+  - id: nda-digital-economy
+    name: 国家数据局-数字经济
+    type: official_html_list
+    url: https://www.nda.gov.cn/sjj/ywpd/szjj/list/index_pc_1.html
+    priority: 5
+    enabled: true
+    topics: [数字经济, 数据要素, 数字政府]
+    allowed_fields: [title, url, published_at]
+  - id: cac-policy
+    name: 国家互联网信息办公室-政策法规
+    type: official_html_list
+    url: https://www.cac.gov.cn/wxzw/sjzl/zcfg/A09370805index_1.htm
+    priority: 6
+    enabled: true
+    topics: [人工智能, 数字经济, 中国政策]
+    allowed_fields: [title, url, published_at]
   - id: akshare
     name: AKShare
     type: market_aggregator
     url: https://akshare.akfamily.xyz/
     priority: 20
-    enabled: false
-    allowed_fields: [index_daily, market_breadth, sector_snapshot, public_financials]
-    note: Optional. Software is MIT; upstream data terms still apply.
+    enabled: true
+    allowed_fields: [index_spot, market_breadth, sector_snapshot, public_financials]
+    note: 软件为 MIT；上游数据条款仍需遵守，本站仅保留聚合指标和来源链接。
   - id: baostock
     name: BaoStock
     type: market_provider
     url: http://baostock.com/
     priority: 30
-    enabled: false
-    allowed_fields: [daily_prices, financials]
+    enabled: true
+    allowed_fields: [index_daily]
+    note: AKShare 不可用时仅作为指数数据降级来源。
   - id: demo-generator
     name: 知势 demo 生成器
     type: demo
     url: https://github.com/
     priority: 999
-    enabled: true
+    enabled: false
     allowed_fields: [demo_only]
-    note: Never treated as real-world evidence.
+    note: 仅供本地显式 --demo 使用，绝不作为真实世界证据。

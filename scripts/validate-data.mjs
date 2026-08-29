@@ -28,18 +28,26 @@ for (const entry of archive.entries ?? []) {
   if (new Set(ids).size !== ids.length)
     errors.push(`${entry.date}: duplicate news ids`);
   for (const item of digest.news) {
-    if (!item.is_demo || item.generation_status !== "demo")
-      errors.push(`${item.id}: demo flag missing`);
-    if (!/^https:\/\//.test(item.source_url))
-      errors.push(`${item.id}: source URL must use https`);
+    if (item.is_demo !== (item.generation_status === "demo"))
+      errors.push(`${item.id}: demo flag and generation status disagree`);
+    if (
+      !item.is_demo &&
+      (!item.citations?.length || item.reliability === "demo")
+    )
+      errors.push(`${item.id}: live item lacks verifiable citation`);
+    if (!/^https?:\/\//.test(item.source_url))
+      errors.push(`${item.id}: source URL must use HTTP(S)`);
     if (item.importance_score < 0 || item.importance_score > 100)
       errors.push(`${item.id}: invalid importance score`);
   }
   for (const question of digest.exam.questions) {
     if (!Object.hasOwn(question.options, question.correct_answer))
       errors.push(`${question.id}: answer not found in options`);
-    if (question.source_type !== "original_demo")
-      errors.push(`${question.id}: unlicensed demo question source`);
+    const approvedSources = question.is_demo
+      ? ["original_demo"]
+      : ["original", "official", "licensed"];
+    if (!approvedSources.includes(question.source_type))
+      errors.push(`${question.id}: unapproved question source`);
   }
   const candidate = digest.market.research_candidate;
   if (!codePattern.test(candidate.code))
@@ -62,4 +70,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Validated ${archive.entries.length} demo digests without errors.`);
+console.log(`Validated ${archive.entries.length} digests without errors.`);

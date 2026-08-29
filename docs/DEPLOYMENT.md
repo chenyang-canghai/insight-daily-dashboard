@@ -18,9 +18,12 @@
 
 ## Secrets
 
-- 必需：无。
-- 可选 Secrets：`LLM_API_KEY`、`TUSHARE_TOKEN`。
-- 可选 Variables：`LLM_BASE_URL`、`LLM_MODEL`、`LLM_TIMEOUT`、`LLM_MAX_RETRIES`、`LLM_TEMPERATURE`。
+- 当前必需 Secrets：**无**。不要创建空值或示例密钥。
+- 生产 Variables：`NEXT_PUBLIC_SITE_MODE=live`、`NEWS_LOOKBACK_DAYS=7`、`MARKET_PROVIDER=akshare`。
+- `GITHUB_TOKEN` 由 Actions 自动生成，只赋予工作流声明的 `contents: write` 与 `actions: write`；不需要手工保存为 Secret。
+- 可选增强 Secrets：用户以后自行提供的 `LLM_API_KEY`、`TUSHARE_TOKEN`。当前工作流不读取它们。
+
+数据任务通过内置 `GITHUB_TOKEN` 提交日报后，会显式触发 Pages 部署。Actions 使用自身 Token 的提交不会自动触发另一个 push 工作流，因此该显式触发不能删除。
 
 不要把 Key 设置为 `NEXT_PUBLIC_*`。GitHub Pages 是公开静态文件，任何进入前端包的值都可被访客读取。
 

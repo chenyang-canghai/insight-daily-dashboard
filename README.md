@@ -2,7 +2,7 @@
 
 > Insight Daily Dashboard：面向数字经济专业研究生的新闻研判、A 股复盘和国考 / 江西省考学习系统。
 
-当前仓库默认运行在 **DEMO 模式**。demo 数据只用于展示结构、交互和测试，不是实时新闻或真实行情，不构成投资建议。
+生产部署默认运行在 **真实来源模式**：新闻只采集官方公开 RSS/列表页元数据，A 股优先 AKShare、失败时降级到 BaoStock，公考题为系统原创并逐题校验。`--demo` 仍可用于离线展示；任何模式均不构成投资建议。
 
 ## 1. 项目介绍
 
@@ -94,11 +94,11 @@ make check           # 全量质量检查
 
 ## 7. 环境变量
 
-复制 `.env.example` 为 `.env.local`（前端）或在 Actions Secrets/Variables 中配置。没有任何 Key 时，demo、收藏、答题、归档、测试和构建均可运行。
+复制 `.env.example` 为 `.env.local`（前端）或在 Actions Variables 中配置。当前官方新闻来源、AKShare、BaoStock 和原创公考生成均不需要 API Key。
 
 必需环境变量：**无**。
 
-可选 LLM：`LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL`、`LLM_TIMEOUT`、`LLM_MAX_RETRIES`、`LLM_TEMPERATURE`。
+当前生产流水线不调用 LLM；摘要严格限定为标题与发布时间的来源索引。未来若接入自有 OpenAI-Compatible 服务，可再增加 `LLM_API_KEY` 等配置并完成单独审计。
 
 可选行情：`TUSHARE_TOKEN`。AKShare / BaoStock 默认不需要 Key，但必须遵守上游条款和频率限制。
 
@@ -130,13 +130,13 @@ Actions 页面选择对应 workflow，点击 **Run workflow**，填写：
 
 - `date`：`YYYY-MM-DD`；留空使用北京时间当日。
 - `dry_run`：只采集和校验，不提交。
-- `module`：`all`、`news`、`market` 或 `exam`。
-- `demo`：没有实时来源时使用仓库 demo。
+- `mode`：`live` 或 `demo`。
 
 本地示例：
 
 ```bash
 uv run python scripts/generate_daily_digest.py --date 2026-08-29 --module all --demo --dry-run
+uv run python scripts/generate_daily_digest.py --date 2026-08-29 --module news --dry-run
 ```
 
 ## 12. GitHub Pages 部署
@@ -206,16 +206,16 @@ pnpm exec playwright test
 
 ## 20. 路线图
 
-1. 接入经过条款审计的实时新闻 RSS / 官方 API 和双源事实核验。
-2. 完善中国法定节假日和交易所休市日历。
-3. 接入 AKShare / BaoStock 并做冷启动、限流、冲突和字段契约测试。
-4. 接入官方或已授权公考题源和数值题程序复核。
-5. 可选 Supabase 登录、RLS 与跨设备同步。
-6. PWA 离线壳、安装图标和后台更新提示。
+1. 对正文级事实增加第二独立来源交叉核验；当前只发布官方标题元数据索引。
+2. 增加交易所原始行情/公告接口，进一步减少聚合源依赖。
+3. 在获得明确许可后接入官方或已授权真题；当前只发布系统原创训练题。
+4. 可选 Supabase 登录、RLS 与跨设备同步。
+5. PWA 离线壳、安装图标和后台更新提示。
 
 ## 已知限制
 
-- 当前 demo 不包含实时事实、真实行情和真实个股研究数据。
+- 新闻卡片不复制网页正文；自动摘要只确认来源、标题与发布日期，深度卡片是研读框架而非事实扩写。
+- 免费行情接口可能延迟或临时不可用；降级数据缺失时不形成个股研究结论。
 - 申论答题框内容尚未持久化，刷新页面会丢失；收藏、行测答题和错题已持久化。
 - 本地搜索当前使用构建时扁平索引；数据量增长后启用 FlexSearch 持久索引。
 - GitHub 定时任务可能延迟，页面以数据时间和任务状态为准，不能只看计划时间。

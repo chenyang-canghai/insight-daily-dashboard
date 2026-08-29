@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def test_latest_json_contract() -> None:
     payload = json.loads((ROOT / "data/manifests/latest.json").read_text(encoding="utf-8"))
-    assert validate_digest(payload).is_demo
+    assert validate_digest(payload).date == payload["date"]
 
 
 def test_forbidden_investment_language_and_secret_scan() -> None:
