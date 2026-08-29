@@ -2,21 +2,18 @@
   "schema_version": "1.0.0",
   "id": "daily-2026-08-29",
   "date": "2026-08-29",
-  "generated_at": "2026-08-29T18:59:58+08:00",
+  "generated_at": "2026-08-29T19:01:12+08:00",
   "timezone": "Asia/Shanghai",
   "source_ids": [
-    "demo-cac",
-    "demo-csrc",
-    "demo-ecb",
-    "demo-gov",
-    "demo-imf",
+    "cac-policy",
     "demo-market",
-    "demo-miit",
-    "demo-nanchang",
-    "demo-ndrc",
+    "nbs-interpretation",
+    "nbs-latest",
+    "nda-digital-economy",
+    "ndrc-news",
     "system-original"
   ],
-  "content_hash": "c662e15e2f9a734b8db41e79efacf55b8452fbae628a736374dff96c31044b25",
+  "content_hash": "a15e9f30e99797b1e875658daf30b160991bbb858f5d8f6ff2171a2a6bd7edc8",
   "generation_status": "partial",
   "validation_errors": [],
   "title": "2026-08-29 每日研判与公考学习看板",
@@ -34,10 +31,10 @@
     {
       "module": "news",
       "scheduled_time": "07:15",
-      "last_run": "2026-08-29T07:15:00+08:00",
-      "status": "demo",
-      "freshness": "demo",
-      "message": "结构演示内容，不是实时新闻"
+      "last_run": "2026-08-29T19:01:12+08:00",
+      "status": "success",
+      "freshness": "fresh",
+      "message": "官方公开来源已更新"
     },
     {
       "module": "market",
@@ -53,412 +50,401 @@
       "schema_version": "1.0.0",
       "id": "news-2026-08-29-01",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-imf"
+        "nda-digital-economy"
       ],
-      "content_hash": "04c0c1908d12b4f990389e94e2fe41a5aafaef5c5e29f4bd68ce03f7b33a1c75",
-      "generation_status": "demo",
+      "content_hash": "a0900dc545fd9ddcabb24ca2139a331563089026b9188d813084ce84c4dc69ef",
+      "generation_status": "success",
       "validation_errors": [],
-      "title": "演示议题｜宏观政策如何通过预期与需求传导",
-      "category": "宏观经济",
+      "title": "数字科技和基础设施",
+      "category": "数字经济",
       "regions": [
-        "全球",
         "中国"
       ],
-      "published_at": "2026-08-29T06:05:00+08:00",
-      "collected_at": "2026-08-29T07:00:00+08:00",
-      "source_name": "国际货币基金组织（结构演示）",
-      "source_url": "https://www.imf.org/en/News",
-      "summary": "这是一条结构演示议题，用于展示如何把宏观政策拆成需求、预期、就业和市场反馈。它不对应某一篇实时新闻，也不引用具体经济数据；正式运行时必须由原始统计或政策文件替换。",
-      "why_it_matters": "训练从政策工具到居民和企业行为的完整推理链，避免只记结论。",
-      "importance_score": 80,
-      "reliability": "demo",
+      "published_at": "2026-08-29T09:00:00+08:00",
+      "collected_at": "2026-08-29T19:01:12+08:00",
+      "source_name": "国家数据局-数字经济",
+      "source_url": "https://www.nda.gov.cn/sjj/ywpd/szkjyjcss/list/index_pc_1.html",
+      "summary": "国家数据局-数字经济于 2026-08-29 发布《数字科技和基础设施》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
+      "why_it_matters": "该条目与“数字经济”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
+      "importance_score": 86,
+      "reliability": "A",
       "tags": [
-        "宏观经济",
-        "政策传导",
-        "demo"
+        "数字经济",
+        "官方来源",
+        "元数据索引"
       ],
       "facts": [
-        "这是结构与交互演示内容，不陈述当日真实事件。"
+        "国家数据局-数字经济的公开页面列出了题为《数字科技和基础设施》的条目。"
       ],
       "inferences": [
-        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+        "标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"
       ],
       "citations": [
         {
-          "source_id": "demo-imf",
-          "source_name": "国际货币基金组织（结构演示）",
-          "url": "https://www.imf.org/en/News",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "nda-digital-economy",
+          "source_name": "国家数据局-数字经济",
+          "url": "https://www.nda.gov.cn/sjj/ywpd/szkjyjcss/list/index_pc_1.html",
+          "title": "数字科技和基础设施",
+          "published_at": "2026-08-29T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
       "related_items": [],
       "reading_minutes": 3,
-      "is_demo": true
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "news-2026-08-29-02",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-cac"
+        "cac-policy"
       ],
-      "content_hash": "8dbfd498c24eafcb318c25e88e3da1deeded88a8353764ef1c25573f75886118",
-      "generation_status": "demo",
+      "content_hash": "01cab7991726947c232f544369e301685d9298925fa6817fe73ddbc05ef2c25a",
+      "generation_status": "success",
       "validation_errors": [],
-      "title": "演示议题｜人工智能治理如何兼顾创新、安全与普惠",
+      "title": "数据出境安全评估",
       "category": "人工智能",
       "regions": [
-        "中国",
-        "全球"
+        "中国"
       ],
-      "published_at": "2026-08-29T07:09:00+08:00",
-      "collected_at": "2026-08-29T07:00:00+08:00",
-      "source_name": "国家互联网信息办公室（结构演示）",
-      "source_url": "https://www.cac.gov.cn/",
-      "summary": "本条用于演示人工智能治理分析框架：既关注技术扩散和产业效率，也审视数据、算法、就业和公共服务风险。内容为原创示例，不代表监管部门发布了新的政策文件。",
-      "why_it_matters": "与数字经济研究、公务员申论和产业观察三条学习主线同时相关。",
-      "importance_score": 81,
-      "reliability": "demo",
+      "published_at": "2026-08-29T09:00:00+08:00",
+      "collected_at": "2026-08-29T19:01:12+08:00",
+      "source_name": "国家互联网信息办公室-政策法规",
+      "source_url": "https://www.cac.gov.cn/wxzw/sjzl/sjcjaqpg/A09370801index_1.htm",
+      "summary": "国家互联网信息办公室-政策法规于 2026-08-29 发布《数据出境安全评估》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
+      "why_it_matters": "该条目与“人工智能”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
+      "importance_score": 84,
+      "reliability": "A",
       "tags": [
         "人工智能",
-        "平台治理",
-        "安全",
-        "demo"
+        "官方来源",
+        "元数据索引"
       ],
       "facts": [
-        "这是结构与交互演示内容，不陈述当日真实事件。"
+        "国家互联网信息办公室-政策法规的公开页面列出了题为《数据出境安全评估》的条目。"
       ],
       "inferences": [
-        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+        "标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"
       ],
       "citations": [
         {
-          "source_id": "demo-cac",
-          "source_name": "国家互联网信息办公室（结构演示）",
-          "url": "https://www.cac.gov.cn/",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "cac-policy",
+          "source_name": "国家互联网信息办公室-政策法规",
+          "url": "https://www.cac.gov.cn/wxzw/sjzl/sjcjaqpg/A09370801index_1.htm",
+          "title": "数据出境安全评估",
+          "published_at": "2026-08-29T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
       "related_items": [],
-      "reading_minutes": 4,
-      "is_demo": true
+      "reading_minutes": 3,
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "news-2026-08-29-03",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-miit"
+        "ndrc-news"
       ],
-      "content_hash": "651b6825c74d02d8d7b0bf8748920da0273e03c710aded49444c2b750d4ba0fa",
-      "generation_status": "demo",
+      "content_hash": "da23ed1b3a2452e401b681c87b92fb26738dccc2c773f9984051c10f208bcb14",
+      "generation_status": "success",
       "validation_errors": [],
-      "title": "演示议题｜半导体产业链韧性应如何观察",
-      "category": "半导体",
+      "title": "国家发展改革委召开全国投资工作推进会议",
+      "category": "宏观经济",
       "regions": [
-        "中国",
-        "东亚"
+        "中国"
       ],
-      "published_at": "2026-08-29T06:13:00+08:00",
-      "collected_at": "2026-08-29T07:00:00+08:00",
-      "source_name": "工业和信息化部（结构演示）",
-      "source_url": "https://www.miit.gov.cn/",
-      "summary": "本条用设备、材料、设计、制造、封测和下游需求六个环节演示产业链分析。所有企业与行情信息均被省略，正式内容必须使用公告、财报或主管部门材料核验。",
-      "why_it_matters": "帮助区分长期能力建设、短期订单变化和市场情绪三种不同信号。",
-      "importance_score": 82,
-      "reliability": "demo",
+      "published_at": "2026-08-28T09:00:00+08:00",
+      "collected_at": "2026-08-29T19:01:12+08:00",
+      "source_name": "国家发展改革委-新闻发布",
+      "source_url": "https://www.ndrc.gov.cn/xwdt/xwfb/202608/t20260828_1407266.html",
+      "summary": "国家发展改革委-新闻发布于 2026-08-28 发布《国家发展改革委召开全国投资工作推进会议》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
+      "why_it_matters": "该条目与“宏观经济”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
+      "importance_score": 84,
+      "reliability": "A",
       "tags": [
-        "半导体",
-        "先进制造",
-        "产业链",
-        "demo"
+        "宏观经济",
+        "官方来源",
+        "元数据索引"
       ],
       "facts": [
-        "这是结构与交互演示内容，不陈述当日真实事件。"
+        "国家发展改革委-新闻发布的公开页面列出了题为《国家发展改革委召开全国投资工作推进会议》的条目。"
       ],
       "inferences": [
-        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+        "标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"
       ],
       "citations": [
         {
-          "source_id": "demo-miit",
-          "source_name": "工业和信息化部（结构演示）",
-          "url": "https://www.miit.gov.cn/",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "ndrc-news",
+          "source_name": "国家发展改革委-新闻发布",
+          "url": "https://www.ndrc.gov.cn/xwdt/xwfb/202608/t20260828_1407266.html",
+          "title": "国家发展改革委召开全国投资工作推进会议",
+          "published_at": "2026-08-28T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
       "related_items": [],
-      "reading_minutes": 5,
-      "is_demo": true
+      "reading_minutes": 3,
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "news-2026-08-29-04",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-ndrc"
+        "nbs-latest"
       ],
-      "content_hash": "0eb8f80fbc06648515bad04f5e346538c6f97dc9b4985fe1568c8d402a1b47fe",
-      "generation_status": "demo",
+      "content_hash": "229868ecdf6c9871a3d0661face23d2e3e946f06ba907bdc53ef16ceb744428a",
+      "generation_status": "success",
       "validation_errors": [],
-      "title": "演示议题｜数据要素从资源到生产要素需要哪些制度条件",
-      "category": "数字经济",
+      "title": "2025年经济发展新动能指数增长12.5%",
+      "category": "宏观经济",
       "regions": [
         "中国"
       ],
-      "published_at": "2026-08-29T07:17:00+08:00",
-      "collected_at": "2026-08-29T07:00:00+08:00",
-      "source_name": "国家发展和改革委员会（结构演示）",
-      "source_url": "https://www.ndrc.gov.cn/",
-      "summary": "这是一条制度分析示例，围绕确权授权、合规流通、收益分配、安全治理和公共数据开发展开。示例不声称存在新的政策变动，正式日报需引用具体文件条款。",
-      "why_it_matters": "该主题既是数字经济专业核心问题，也是数字政府和营商环境常见申论方向。",
+      "published_at": "2026-08-27T09:00:00+08:00",
+      "collected_at": "2026-08-29T19:01:12+08:00",
+      "source_name": "国家统计局-最新发布",
+      "source_url": "https://www.stats.gov.cn/sj/zxfb/202608/t20260827_1965129.html",
+      "summary": "国家统计局-最新发布于 2026-08-27 发布《2025年经济发展新动能指数增长12.5%》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
+      "why_it_matters": "该条目与“宏观经济”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
       "importance_score": 83,
-      "reliability": "demo",
+      "reliability": "A",
       "tags": [
-        "数据要素",
-        "数字经济",
-        "制度建设",
-        "demo"
+        "宏观经济",
+        "官方来源",
+        "元数据索引"
       ],
       "facts": [
-        "这是结构与交互演示内容，不陈述当日真实事件。"
+        "国家统计局-最新发布的公开页面列出了题为《2025年经济发展新动能指数增长12.5%》的条目。"
       ],
       "inferences": [
-        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+        "标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"
       ],
       "citations": [
         {
-          "source_id": "demo-ndrc",
-          "source_name": "国家发展和改革委员会（结构演示）",
-          "url": "https://www.ndrc.gov.cn/",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "nbs-latest",
+          "source_name": "国家统计局-最新发布",
+          "url": "https://www.stats.gov.cn/sj/zxfb/202608/t20260827_1965129.html",
+          "title": "2025年经济发展新动能指数增长12.5%",
+          "published_at": "2026-08-27T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
       "related_items": [],
       "reading_minutes": 3,
-      "is_demo": true
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "news-2026-08-29-05",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-gov"
+        "nbs-interpretation"
       ],
-      "content_hash": "b6404966a219754c2e7713c10609ae669325cff57654a7779a9cdcea8c17c3b7",
-      "generation_status": "demo",
+      "content_hash": "e9c2295f1f8806fb44fffddbc2237a785361cb53f7cd8ddcfe29c5eca059060a",
+      "generation_status": "success",
       "validation_errors": [],
-      "title": "演示议题｜政策落地为何需要目标、工具与反馈闭环",
-      "category": "中国政策",
+      "title": "国家统计局统计科学研究所所长闾海琪解读2025年我国经济发展新动能指数",
+      "category": "宏观经济",
       "regions": [
         "中国"
       ],
-      "published_at": "2026-08-29T06:21:00+08:00",
-      "collected_at": "2026-08-29T07:00:00+08:00",
-      "source_name": "中国政府网（结构演示）",
-      "source_url": "https://www.gov.cn/zhengce/",
-      "summary": "本条演示政策解读时应区分目标、执行主体、政策工具、资金来源、评价指标和纠偏机制。它不对应特定会议或文件，不能作为现实政策事实引用。",
-      "why_it_matters": "把政策语言转成可观察指标，有助于申论论证和实际治理分析。",
-      "importance_score": 84,
-      "reliability": "demo",
+      "published_at": "2026-08-27T09:00:00+08:00",
+      "collected_at": "2026-08-29T19:01:12+08:00",
+      "source_name": "国家统计局-数据解读",
+      "source_url": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965130.html",
+      "summary": "国家统计局-数据解读于 2026-08-27 发布《国家统计局统计科学研究所所长闾海琪解读2025年我国经济发展新动能指数》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
+      "why_it_matters": "该条目与“宏观经济”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
+      "importance_score": 81,
+      "reliability": "A",
       "tags": [
-        "政策执行",
-        "公共治理",
-        "demo"
+        "宏观经济",
+        "官方来源",
+        "元数据索引"
       ],
       "facts": [
-        "这是结构与交互演示内容，不陈述当日真实事件。"
+        "国家统计局-数据解读的公开页面列出了题为《国家统计局统计科学研究所所长闾海琪解读2025年我国经济发展新动能指数》的条目。"
       ],
       "inferences": [
-        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+        "标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"
       ],
       "citations": [
         {
-          "source_id": "demo-gov",
-          "source_name": "中国政府网（结构演示）",
-          "url": "https://www.gov.cn/zhengce/",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "nbs-interpretation",
+          "source_name": "国家统计局-数据解读",
+          "url": "https://www.stats.gov.cn/sj/sjjd/202608/t20260827_1965130.html",
+          "title": "国家统计局统计科学研究所所长闾海琪解读2025年我国经济发展新动能指数",
+          "published_at": "2026-08-27T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
       "related_items": [],
-      "reading_minutes": 4,
-      "is_demo": true
+      "reading_minutes": 3,
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "news-2026-08-29-06",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-nanchang"
+        "nda-digital-economy"
       ],
-      "content_hash": "1472fe5ccc74f18c1193d26302439bb5721fcb9acd83889a01026cd235ff5fa6",
-      "generation_status": "demo",
+      "content_hash": "dfb999bb39dc9c71cf81f6dfa1087bb3e0962ff3d30a952f4d9ef4343bf547dc",
+      "generation_status": "success",
       "validation_errors": [],
-      "title": "演示议题｜南昌数字产业与公共服务如何形成协同",
-      "category": "江西发展",
+      "title": "刘烈宏局长主持召开数字经济民营企业座谈会听取企业意见建议",
+      "category": "数字经济",
       "regions": [
-        "江西",
-        "南昌"
+        "中国"
       ],
-      "published_at": "2026-08-29T07:25:00+08:00",
-      "collected_at": "2026-08-29T07:00:00+08:00",
-      "source_name": "南昌市人民政府（结构演示）",
-      "source_url": "https://www.nc.gov.cn/",
-      "summary": "本条是本地化申论案例结构示例，围绕产业生态、人才服务、政务数据和中小企业数字化展开。没有使用真实项目名称、投资额或成效数字，正式内容必须逐项核验。",
-      "why_it_matters": "直接服务江西省考、南昌求职与区域数字经济研究。",
-      "importance_score": 85,
-      "reliability": "demo",
+      "published_at": "2026-08-29T09:00:00+08:00",
+      "collected_at": "2026-08-29T19:01:12+08:00",
+      "source_name": "国家数据局-数字经济",
+      "source_url": "https://www.nda.gov.cn/sjj/ywpd/szjj/0829/20260829150219449533485_pc.html",
+      "summary": "国家数据局-数字经济于 2026-08-29 发布《刘烈宏局长主持召开数字经济民营企业座谈会听取企业意见建议》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
+      "why_it_matters": "该条目与“数字经济”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
+      "importance_score": 81,
+      "reliability": "A",
       "tags": [
-        "江西发展",
-        "南昌",
-        "数字政府",
-        "demo"
+        "数字经济",
+        "官方来源",
+        "元数据索引"
       ],
       "facts": [
-        "这是结构与交互演示内容，不陈述当日真实事件。"
+        "国家数据局-数字经济的公开页面列出了题为《刘烈宏局长主持召开数字经济民营企业座谈会听取企业意见建议》的条目。"
       ],
       "inferences": [
-        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+        "标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"
       ],
       "citations": [
         {
-          "source_id": "demo-nanchang",
-          "source_name": "南昌市人民政府（结构演示）",
-          "url": "https://www.nc.gov.cn/",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "nda-digital-economy",
+          "source_name": "国家数据局-数字经济",
+          "url": "https://www.nda.gov.cn/sjj/ywpd/szjj/0829/20260829150219449533485_pc.html",
+          "title": "刘烈宏局长主持召开数字经济民营企业座谈会听取企业意见建议",
+          "published_at": "2026-08-29T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
       "related_items": [],
-      "reading_minutes": 5,
-      "is_demo": true
+      "reading_minutes": 3,
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "news-2026-08-29-07",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-ecb"
+        "cac-policy"
       ],
-      "content_hash": "dd269c142674d7b126ea35f5255407d4ba10cb27c904374e5a6b4087e1120180",
-      "generation_status": "demo",
+      "content_hash": "69ee2e90539aad52015730f263a2f17976032cac77a9504ea6f7314c04511317",
+      "generation_status": "success",
       "validation_errors": [],
-      "title": "演示议题｜国际政策变化如何影响贸易与企业预期",
-      "category": "国际时政",
+      "title": "个人信息出境标准合同",
+      "category": "人工智能",
       "regions": [
-        "欧洲",
-        "全球"
+        "中国"
       ],
-      "published_at": "2026-08-29T06:29:00+08:00",
-      "collected_at": "2026-08-29T07:00:00+08:00",
-      "source_name": "欧洲中央银行（结构演示）",
-      "source_url": "https://www.ecb.europa.eu/press/html/index.en.html",
-      "summary": "本条用于演示国际政策事件的传导分析，依次观察汇率、融资成本、贸易订单、产业链调整和风险偏好。示例不包含任何现实政策决定或市场报价。",
-      "why_it_matters": "形成从国际事件到中国行业和普通就业者的多层影响意识。",
-      "importance_score": 86,
-      "reliability": "demo",
+      "published_at": "2026-08-29T09:00:00+08:00",
+      "collected_at": "2026-08-29T19:01:12+08:00",
+      "source_name": "国家互联网信息办公室-政策法规",
+      "source_url": "https://www.cac.gov.cn/wxzw/sjzl/grxxcjbzht/A09370802index_1.htm",
+      "summary": "国家互联网信息办公室-政策法规于 2026-08-29 发布《个人信息出境标准合同》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
+      "why_it_matters": "该条目与“人工智能”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
+      "importance_score": 79,
+      "reliability": "A",
       "tags": [
-        "国际时政",
-        "贸易",
-        "预期",
-        "demo"
+        "人工智能",
+        "官方来源",
+        "元数据索引"
       ],
       "facts": [
-        "这是结构与交互演示内容，不陈述当日真实事件。"
+        "国家互联网信息办公室-政策法规的公开页面列出了题为《个人信息出境标准合同》的条目。"
       ],
       "inferences": [
-        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+        "标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"
       ],
       "citations": [
         {
-          "source_id": "demo-ecb",
-          "source_name": "欧洲中央银行（结构演示）",
-          "url": "https://www.ecb.europa.eu/press/html/index.en.html",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "cac-policy",
+          "source_name": "国家互联网信息办公室-政策法规",
+          "url": "https://www.cac.gov.cn/wxzw/sjzl/grxxcjbzht/A09370802index_1.htm",
+          "title": "个人信息出境标准合同",
+          "published_at": "2026-08-29T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
       "related_items": [],
       "reading_minutes": 3,
-      "is_demo": true
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "news-2026-08-29-08",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-csrc"
+        "cac-policy"
       ],
-      "content_hash": "3a47b839b506fed6c4f824de7f97c9b71ed3eff6cd41da3d3e6d437db463c4fe",
-      "generation_status": "demo",
+      "content_hash": "e409c03ecd37b3555cd2c435ffe81ea4ab939dceb3bc5bba24f478fd529e9fa4",
+      "generation_status": "success",
       "validation_errors": [],
-      "title": "演示议题｜资本市场信息质量为何比短期预测更重要",
-      "category": "资本市场",
+      "title": "个人信息出境认证",
+      "category": "人工智能",
       "regions": [
         "中国"
       ],
-      "published_at": "2026-08-29T07:33:00+08:00",
-      "collected_at": "2026-08-29T07:00:00+08:00",
-      "source_name": "中国证券监督管理委员会（结构演示）",
-      "source_url": "https://www.csrc.gov.cn/",
-      "summary": "本条说明研究应优先核对公告、财务口径、数据日期与风险事项，而不是依赖传闻和价格预测。示例不评价任何真实证券，也不构成投资建议。",
-      "why_it_matters": "建立以基本面、行业逻辑、信息质量和证伪条件为中心的研究习惯。",
-      "importance_score": 87,
-      "reliability": "demo",
+      "published_at": "2026-08-29T09:00:00+08:00",
+      "collected_at": "2026-08-29T19:01:12+08:00",
+      "source_name": "国家互联网信息办公室-政策法规",
+      "source_url": "https://www.cac.gov.cn/wxzw/sjzl/grxxcjrz/A09370803index_1.htm",
+      "summary": "国家互联网信息办公室-政策法规于 2026-08-29 发布《个人信息出境认证》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
+      "why_it_matters": "该条目与“人工智能”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
+      "importance_score": 78,
+      "reliability": "A",
       "tags": [
-        "A股",
-        "信息披露",
-        "风险识别",
-        "demo"
+        "人工智能",
+        "官方来源",
+        "元数据索引"
       ],
       "facts": [
-        "这是结构与交互演示内容，不陈述当日真实事件。"
+        "国家互联网信息办公室-政策法规的公开页面列出了题为《个人信息出境认证》的条目。"
       ],
       "inferences": [
-        "正式分析需以至少一个原始来源和另一个独立来源交叉核验。"
+        "标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"
       ],
       "citations": [
         {
-          "source_id": "demo-csrc",
-          "source_name": "中国证券监督管理委员会（结构演示）",
-          "url": "https://www.csrc.gov.cn/",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "cac-policy",
+          "source_name": "国家互联网信息办公室-政策法规",
+          "url": "https://www.cac.gov.cn/wxzw/sjzl/grxxcjrz/A09370803index_1.htm",
+          "title": "个人信息出境认证",
+          "published_at": "2026-08-29T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
       "related_items": [],
-      "reading_minutes": 4,
-      "is_demo": true
+      "reading_minutes": 3,
+      "is_demo": false
     }
   ],
   "deep_dives": [
@@ -466,280 +452,280 @@
       "schema_version": "1.0.0",
       "id": "deep-2026-08-29-1",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-imf"
+        "nda-digital-economy"
       ],
-      "content_hash": "0c2979a78ceda4f1cd07a93a57661ae728965f813483796cf50aff1b510557c6",
-      "generation_status": "demo",
+      "content_hash": "28a805b3bcf593cd5abfc35f1e127220cdf53f80981a27b2dcc4e7bc3a1d1fee",
+      "generation_status": "success",
       "validation_errors": [],
       "news_ids": [
         "news-2026-08-29-01"
       ],
-      "title": "深度拆解｜宏观政策如何通过预期与需求传导",
-      "one_sentence": "用证据链理解“宏观政策如何通过预期与需求传导”，先确认事实，再讨论传导和边界。",
-      "background": "复杂公共议题通常由制度、技术、周期和参与者行为共同塑造，不应把单日变化解释成单一原因。此处只演示分析结构。",
+      "title": "研读框架｜数字科技和基础设施",
+      "one_sentence": "先核对原文中的政策对象、工具和时间边界，再用执行指标检验标题所代表的信号。",
+      "background": "本分析只提供阅读框架，不代替原文，也不把标题扩写成未经证实的事实。",
       "timeline": [
         {
-          "time": "长期背景",
-          "label": "制度与产业条件逐步形成",
+          "time": "2026-08-29",
+          "label": "官方页面发布该条目",
+          "status": "confirmed"
+        },
+        {
+          "time": "当前",
+          "label": "核对原文的对象、范围、工具与口径",
           "status": "context"
         },
         {
-          "time": "当前观察",
-          "label": "等待可核验的政策、数据或公告",
-          "status": "demo"
-        },
-        {
-          "time": "后续变量",
-          "label": "用执行指标和结果数据检验判断",
+          "time": "后续",
+          "label": "观察配套文件、执行进度与结果指标",
           "status": "watch"
         }
       ],
       "stakeholders": [
-        "政府部门",
-        "市场主体",
-        "研究机构",
-        "普通居民"
+        "政策制定与执行部门",
+        "相关市场主体",
+        "公共服务对象",
+        "研究与监督机构"
       ],
-      "mechanism": "先识别政策或技术改变了谁的成本与约束，再观察主体行为、行业扩散、金融定价和社会反馈；每一层都需要独立证据。",
+      "mechanism": "政策或信息信号先改变规则与预期，再通过主体响应影响资源配置；是否产生实际成效，需要执行数据和结果数据验证。",
       "impact_chain": [
-        "事件或政策信号",
-        "主体成本与预期变化",
-        "行业供需重新配置",
-        "市场与公共服务反馈",
-        "对中国与普通人的潜在影响"
+        "官方信息发布",
+        "主体理解与预期调整",
+        "执行行为变化",
+        "投入与产出变化",
+        "公共价值或产业结果"
       ],
       "beneficiaries": [
-        "具备合规能力和长期投入能力的组织",
-        "能获得更高质量公共服务的群体"
+        "能准确理解规则并完成合规调整的主体",
+        "获得更清晰公共服务信息的群体"
       ],
       "pressured_groups": [
-        "依赖单一短期红利的主体",
-        "数据与治理基础薄弱的组织"
+        "信息获取和合规能力较弱的主体",
+        "依赖模糊口径或短期预期的主体"
       ],
-      "short_term": "关注政策文本、公告口径和首批执行信号，避免用价格波动替代事实。",
-      "medium_term": "观察投入是否转化为订单、效率、就业和公共服务改善。",
-      "long_term": "判断制度能力、人才结构和产业生态是否形成可持续积累。",
+      "short_term": "确认原文发布主体、适用范围、时间和关键动词。",
+      "medium_term": "跟踪配套制度、预算、项目、企业响应和服务流程变化。",
+      "long_term": "以效率、就业、创新、民生或治理结果检验长期效果。",
       "unknowns": [
-        "现实事件尚未接入",
-        "关键量化指标尚未采集",
-        "参与方执行差异未知"
+        "原文细节尚未在本卡片中全文解析",
+        "执行尺度与地区差异未知",
+        "尚无结果数据支持因果判断"
       ],
-      "confidence": "demo",
+      "confidence": "中",
       "student_insights": [
-        "把专业概念翻译成可观察指标",
-        "区分事实、机制推断与价值判断",
-        "为申论积累问题—原因—对策结构"
+        "区分已确认发布事实与机制推断",
+        "把政策语言转成可观察指标",
+        "申论中坚持问题、原因、对策和评价闭环"
       ],
       "shenlun_material": {
-        "theme": "宏观经济",
+        "theme": "数字经济",
         "expressions": [
-          "坚持发展和规范并重",
-          "以制度供给提升治理效能",
-          "形成目标明确、执行有力、反馈及时的工作闭环"
+          "坚持目标导向和问题导向相统一",
+          "健全执行、反馈与评估闭环",
+          "以可核验结果提升治理效能"
         ],
-        "case": "本卡片为原创结构示例，正式案例需补充真实时间、地点、做法、成效和来源。",
-        "argument": "新技术或新制度只有转化为可感知的公共价值，才能实现发展质量与治理效能的统一。"
+        "case": "可将该官方条目作为线索；正式作答前须阅读原文，补齐时间、对象、做法与成效。",
+        "argument": "政策价值不仅在于发布，更在于形成权责清晰、执行有力、反馈及时的闭环。"
       },
       "citations": [
         {
-          "source_id": "demo-imf",
-          "source_name": "国际货币基金组织（结构演示）",
-          "url": "https://www.imf.org/en/News",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "nda-digital-economy",
+          "source_name": "国家数据局-数字经济",
+          "url": "https://www.nda.gov.cn/sjj/ywpd/szkjyjcss/list/index_pc_1.html",
+          "title": "数字科技和基础设施",
+          "published_at": "2026-08-29T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
-      "is_demo": true
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "deep-2026-08-29-2",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-cac"
+        "cac-policy"
       ],
-      "content_hash": "4241eaaee3c827d1ed57b7cbe02770d1da4caaa3e2d110477dd3ed1200874aec",
-      "generation_status": "demo",
+      "content_hash": "471c337ef549302081106169ab1b49a9092e27529563e649681bda746bdf2f8e",
+      "generation_status": "success",
       "validation_errors": [],
       "news_ids": [
         "news-2026-08-29-02"
       ],
-      "title": "深度拆解｜人工智能治理如何兼顾创新、安全与普惠",
-      "one_sentence": "用证据链理解“人工智能治理如何兼顾创新、安全与普惠”，先确认事实，再讨论传导和边界。",
-      "background": "复杂公共议题通常由制度、技术、周期和参与者行为共同塑造，不应把单日变化解释成单一原因。此处只演示分析结构。",
+      "title": "研读框架｜数据出境安全评估",
+      "one_sentence": "先核对原文中的政策对象、工具和时间边界，再用执行指标检验标题所代表的信号。",
+      "background": "本分析只提供阅读框架，不代替原文，也不把标题扩写成未经证实的事实。",
       "timeline": [
         {
-          "time": "长期背景",
-          "label": "制度与产业条件逐步形成",
+          "time": "2026-08-29",
+          "label": "官方页面发布该条目",
+          "status": "confirmed"
+        },
+        {
+          "time": "当前",
+          "label": "核对原文的对象、范围、工具与口径",
           "status": "context"
         },
         {
-          "time": "当前观察",
-          "label": "等待可核验的政策、数据或公告",
-          "status": "demo"
-        },
-        {
-          "time": "后续变量",
-          "label": "用执行指标和结果数据检验判断",
+          "time": "后续",
+          "label": "观察配套文件、执行进度与结果指标",
           "status": "watch"
         }
       ],
       "stakeholders": [
-        "政府部门",
-        "市场主体",
-        "研究机构",
-        "普通居民"
+        "政策制定与执行部门",
+        "相关市场主体",
+        "公共服务对象",
+        "研究与监督机构"
       ],
-      "mechanism": "先识别政策或技术改变了谁的成本与约束，再观察主体行为、行业扩散、金融定价和社会反馈；每一层都需要独立证据。",
+      "mechanism": "政策或信息信号先改变规则与预期，再通过主体响应影响资源配置；是否产生实际成效，需要执行数据和结果数据验证。",
       "impact_chain": [
-        "事件或政策信号",
-        "主体成本与预期变化",
-        "行业供需重新配置",
-        "市场与公共服务反馈",
-        "对中国与普通人的潜在影响"
+        "官方信息发布",
+        "主体理解与预期调整",
+        "执行行为变化",
+        "投入与产出变化",
+        "公共价值或产业结果"
       ],
       "beneficiaries": [
-        "具备合规能力和长期投入能力的组织",
-        "能获得更高质量公共服务的群体"
+        "能准确理解规则并完成合规调整的主体",
+        "获得更清晰公共服务信息的群体"
       ],
       "pressured_groups": [
-        "依赖单一短期红利的主体",
-        "数据与治理基础薄弱的组织"
+        "信息获取和合规能力较弱的主体",
+        "依赖模糊口径或短期预期的主体"
       ],
-      "short_term": "关注政策文本、公告口径和首批执行信号，避免用价格波动替代事实。",
-      "medium_term": "观察投入是否转化为订单、效率、就业和公共服务改善。",
-      "long_term": "判断制度能力、人才结构和产业生态是否形成可持续积累。",
+      "short_term": "确认原文发布主体、适用范围、时间和关键动词。",
+      "medium_term": "跟踪配套制度、预算、项目、企业响应和服务流程变化。",
+      "long_term": "以效率、就业、创新、民生或治理结果检验长期效果。",
       "unknowns": [
-        "现实事件尚未接入",
-        "关键量化指标尚未采集",
-        "参与方执行差异未知"
+        "原文细节尚未在本卡片中全文解析",
+        "执行尺度与地区差异未知",
+        "尚无结果数据支持因果判断"
       ],
-      "confidence": "demo",
+      "confidence": "中",
       "student_insights": [
-        "把专业概念翻译成可观察指标",
-        "区分事实、机制推断与价值判断",
-        "为申论积累问题—原因—对策结构"
+        "区分已确认发布事实与机制推断",
+        "把政策语言转成可观察指标",
+        "申论中坚持问题、原因、对策和评价闭环"
       ],
       "shenlun_material": {
         "theme": "人工智能",
         "expressions": [
-          "坚持发展和规范并重",
-          "以制度供给提升治理效能",
-          "形成目标明确、执行有力、反馈及时的工作闭环"
+          "坚持目标导向和问题导向相统一",
+          "健全执行、反馈与评估闭环",
+          "以可核验结果提升治理效能"
         ],
-        "case": "本卡片为原创结构示例，正式案例需补充真实时间、地点、做法、成效和来源。",
-        "argument": "新技术或新制度只有转化为可感知的公共价值，才能实现发展质量与治理效能的统一。"
+        "case": "可将该官方条目作为线索；正式作答前须阅读原文，补齐时间、对象、做法与成效。",
+        "argument": "政策价值不仅在于发布，更在于形成权责清晰、执行有力、反馈及时的闭环。"
       },
       "citations": [
         {
-          "source_id": "demo-cac",
-          "source_name": "国家互联网信息办公室（结构演示）",
-          "url": "https://www.cac.gov.cn/",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "cac-policy",
+          "source_name": "国家互联网信息办公室-政策法规",
+          "url": "https://www.cac.gov.cn/wxzw/sjzl/sjcjaqpg/A09370801index_1.htm",
+          "title": "数据出境安全评估",
+          "published_at": "2026-08-29T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
-      "is_demo": true
+      "is_demo": false
     },
     {
       "schema_version": "1.0.0",
       "id": "deep-2026-08-29-3",
       "date": "2026-08-29",
-      "generated_at": "2026-08-29T07:15:00+08:00",
+      "generated_at": "2026-08-29T19:01:12+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
-        "demo-miit"
+        "ndrc-news"
       ],
-      "content_hash": "f54018c180a7622c807b51f60e393e0f3da01c717544e9029b30b877f55ecdda",
-      "generation_status": "demo",
+      "content_hash": "3df5391a153317da9cfe4678c5894b2af3aa1482ab27feedb62e38f8a603cd89",
+      "generation_status": "success",
       "validation_errors": [],
       "news_ids": [
         "news-2026-08-29-03"
       ],
-      "title": "深度拆解｜半导体产业链韧性应如何观察",
-      "one_sentence": "用证据链理解“半导体产业链韧性应如何观察”，先确认事实，再讨论传导和边界。",
-      "background": "复杂公共议题通常由制度、技术、周期和参与者行为共同塑造，不应把单日变化解释成单一原因。此处只演示分析结构。",
+      "title": "研读框架｜国家发展改革委召开全国投资工作推进会议",
+      "one_sentence": "先核对原文中的政策对象、工具和时间边界，再用执行指标检验标题所代表的信号。",
+      "background": "本分析只提供阅读框架，不代替原文，也不把标题扩写成未经证实的事实。",
       "timeline": [
         {
-          "time": "长期背景",
-          "label": "制度与产业条件逐步形成",
+          "time": "2026-08-28",
+          "label": "官方页面发布该条目",
+          "status": "confirmed"
+        },
+        {
+          "time": "当前",
+          "label": "核对原文的对象、范围、工具与口径",
           "status": "context"
         },
         {
-          "time": "当前观察",
-          "label": "等待可核验的政策、数据或公告",
-          "status": "demo"
-        },
-        {
-          "time": "后续变量",
-          "label": "用执行指标和结果数据检验判断",
+          "time": "后续",
+          "label": "观察配套文件、执行进度与结果指标",
           "status": "watch"
         }
       ],
       "stakeholders": [
-        "政府部门",
-        "市场主体",
-        "研究机构",
-        "普通居民"
+        "政策制定与执行部门",
+        "相关市场主体",
+        "公共服务对象",
+        "研究与监督机构"
       ],
-      "mechanism": "先识别政策或技术改变了谁的成本与约束，再观察主体行为、行业扩散、金融定价和社会反馈；每一层都需要独立证据。",
+      "mechanism": "政策或信息信号先改变规则与预期，再通过主体响应影响资源配置；是否产生实际成效，需要执行数据和结果数据验证。",
       "impact_chain": [
-        "事件或政策信号",
-        "主体成本与预期变化",
-        "行业供需重新配置",
-        "市场与公共服务反馈",
-        "对中国与普通人的潜在影响"
+        "官方信息发布",
+        "主体理解与预期调整",
+        "执行行为变化",
+        "投入与产出变化",
+        "公共价值或产业结果"
       ],
       "beneficiaries": [
-        "具备合规能力和长期投入能力的组织",
-        "能获得更高质量公共服务的群体"
+        "能准确理解规则并完成合规调整的主体",
+        "获得更清晰公共服务信息的群体"
       ],
       "pressured_groups": [
-        "依赖单一短期红利的主体",
-        "数据与治理基础薄弱的组织"
+        "信息获取和合规能力较弱的主体",
+        "依赖模糊口径或短期预期的主体"
       ],
-      "short_term": "关注政策文本、公告口径和首批执行信号，避免用价格波动替代事实。",
-      "medium_term": "观察投入是否转化为订单、效率、就业和公共服务改善。",
-      "long_term": "判断制度能力、人才结构和产业生态是否形成可持续积累。",
+      "short_term": "确认原文发布主体、适用范围、时间和关键动词。",
+      "medium_term": "跟踪配套制度、预算、项目、企业响应和服务流程变化。",
+      "long_term": "以效率、就业、创新、民生或治理结果检验长期效果。",
       "unknowns": [
-        "现实事件尚未接入",
-        "关键量化指标尚未采集",
-        "参与方执行差异未知"
+        "原文细节尚未在本卡片中全文解析",
+        "执行尺度与地区差异未知",
+        "尚无结果数据支持因果判断"
       ],
-      "confidence": "demo",
+      "confidence": "中",
       "student_insights": [
-        "把专业概念翻译成可观察指标",
-        "区分事实、机制推断与价值判断",
-        "为申论积累问题—原因—对策结构"
+        "区分已确认发布事实与机制推断",
+        "把政策语言转成可观察指标",
+        "申论中坚持问题、原因、对策和评价闭环"
       ],
       "shenlun_material": {
-        "theme": "半导体",
+        "theme": "宏观经济",
         "expressions": [
-          "坚持发展和规范并重",
-          "以制度供给提升治理效能",
-          "形成目标明确、执行有力、反馈及时的工作闭环"
+          "坚持目标导向和问题导向相统一",
+          "健全执行、反馈与评估闭环",
+          "以可核验结果提升治理效能"
         ],
-        "case": "本卡片为原创结构示例，正式案例需补充真实时间、地点、做法、成效和来源。",
-        "argument": "新技术或新制度只有转化为可感知的公共价值，才能实现发展质量与治理效能的统一。"
+        "case": "可将该官方条目作为线索；正式作答前须阅读原文，补齐时间、对象、做法与成效。",
+        "argument": "政策价值不仅在于发布，更在于形成权责清晰、执行有力、反馈及时的闭环。"
       },
       "citations": [
         {
-          "source_id": "demo-miit",
-          "source_name": "工业和信息化部（结构演示）",
-          "url": "https://www.miit.gov.cn/",
-          "title": "官方站点主页（仅用于演示来源字段）",
-          "published_at": "2026-08-29T06:30:00+08:00",
-          "note": "demo：不对应具体报道，不可作为现实事实引用"
+          "source_id": "ndrc-news",
+          "source_name": "国家发展改革委-新闻发布",
+          "url": "https://www.ndrc.gov.cn/xwdt/xwfb/202608/t20260828_1407266.html",
+          "title": "国家发展改革委召开全国投资工作推进会议",
+          "published_at": "2026-08-28T09:00:00+08:00",
+          "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。"
         }
       ],
-      "is_demo": true
+      "is_demo": false
     }
   ],
   "market": {
