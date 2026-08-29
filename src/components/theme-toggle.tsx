@@ -21,13 +21,13 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("insight-theme") as Theme | null;
     const initial = order.includes(stored as Theme)
       ? (stored as Theme)
-      : "system";
+      : "light";
     const stateTimer = window.setTimeout(() => setTheme(initial), 0);
     applyTheme(initial);
     const media = window.matchMedia("(prefers-color-scheme: dark)");

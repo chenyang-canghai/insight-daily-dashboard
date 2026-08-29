@@ -46,6 +46,7 @@
 - Pass 1, medium: the next-step, row-arrow, and prompt icons diverged from the reference. Fixed with the closest matching Lucide check-circle, chevron, and notebook icons.
 - Pass 2, medium: the account popover remained open in the capture. Fixed by closing it before the final light screenshot; menu position was separately checked on mobile.
 - Pass 2, low: header clock and utility icons were undersized. Fixed with a minute-level Beijing date/time format and reference-proportioned icons.
+- Production check, high: a first visit on a dark operating-system theme opened in dark mode, which did not match the selected light reference. Fixed by making light the first-visit default while retaining explicit light, dark, and system controls.
 
 ## Functional and browser checks
 
