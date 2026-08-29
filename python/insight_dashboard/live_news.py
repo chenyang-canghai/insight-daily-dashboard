@@ -40,13 +40,15 @@ class RawArticle:
     topics: list[str]
 
 
-def _parse_date(text: str, default: date) -> datetime:
+def _parse_date(text: str) -> datetime | None:
     match = DATE_PATTERN.search(text)
-    parsed = date(*(int(value) for value in match.groups())) if match else default
+    if not match:
+        return None
+    parsed = date(*(int(value) for value in match.groups()))
     return datetime.combine(parsed, time(9), BEIJING)
 
 
-def _published(entry: Any, default: date) -> datetime:
+def _published(entry: Any) -> datetime | None:
     for key in ("published", "updated", "created"):
         value = entry.get(key)
         if not value:
@@ -57,35 +59,39 @@ def _published(entry: Any, default: date) -> datetime:
                 parsed = parsed.replace(tzinfo=BEIJING)
             return parsed.astimezone(BEIJING)
         except (TypeError, ValueError, OverflowError):
-            candidate = _parse_date(str(value), default)
-            if candidate.date() != default or DATE_PATTERN.search(str(value)):
+            candidate = _parse_date(str(value))
+            if candidate:
                 return candidate
-    return _parse_date(str(entry), default)
+    return _parse_date(str(entry))
 
 
-def _fetch_rss(client: httpx.Client, source: dict[str, Any], default: date) -> list[RawArticle]:
+def _fetch_rss(client: httpx.Client, source: dict[str, Any]) -> list[RawArticle]:
     response = client.get(source["url"])
     response.raise_for_status()
     parsed = feedparser.parse(response.content)
     if parsed.bozo and not parsed.entries:
         raise ValueError(f"invalid RSS: {parsed.bozo_exception}")
-    return [
-        RawArticle(
-            source_id=source["id"],
-            source_name=source["name"],
-            source_url=source["url"],
-            title=BeautifulSoup(str(entry.get("title", "")), "html.parser").get_text(" ", strip=True),
-            url=urljoin(source["url"], str(entry.get("link", ""))),
-            published_at=_published(entry, default),
-            priority=int(source["priority"]),
-            topics=list(source.get("topics", [])),
+    results: list[RawArticle] = []
+    for entry in parsed.entries:
+        published = _published(entry)
+        if not entry.get("title") or not entry.get("link") or published is None:
+            continue
+        results.append(
+            RawArticle(
+                source_id=source["id"],
+                source_name=source["name"],
+                source_url=source["url"],
+                title=BeautifulSoup(str(entry.get("title", "")), "html.parser").get_text(" ", strip=True),
+                url=urljoin(source["url"], str(entry.get("link", ""))),
+                published_at=published,
+                priority=int(source["priority"]),
+                topics=list(source.get("topics", [])),
+            )
         )
-        for entry in parsed.entries
-        if entry.get("title") and entry.get("link")
-    ]
+    return results
 
 
-def _fetch_html(client: httpx.Client, source: dict[str, Any], default: date) -> list[RawArticle]:
+def _fetch_html(client: httpx.Client, source: dict[str, Any]) -> list[RawArticle]:
     response = client.get(source["url"])
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
@@ -97,11 +103,19 @@ def _fetch_html(client: httpx.Client, source: dict[str, Any], default: date) -> 
         href = urljoin(source["url"], str(anchor.get("href")))
         if not href.startswith(("http://", "https://")):
             continue
-        context = anchor.parent.get_text(" ", strip=True) if anchor.parent else title
-        published = _parse_date(context, default)
-        if published.date() == default and not DATE_PATTERN.search(context):
-            grandparent = anchor.parent.parent if anchor.parent else None
-            published = _parse_date(grandparent.get_text(" ", strip=True), default) if grandparent else published
+        published = None
+        container = anchor.parent
+        for _ in range(3):
+            if container is None:
+                break
+            context = container.get_text(" ", strip=True)
+            if len(context) <= 500:
+                published = _parse_date(context)
+            if published is not None:
+                break
+            container = container.parent
+        if published is None:
+            continue
         results.append(
             RawArticle(source["id"], source["name"], source["url"], title, href, published, int(source["priority"]), list(source.get("topics", [])))
         )
@@ -117,7 +131,7 @@ def collect_articles(root: Path, target_date: date, lookback_days: int = 7) -> t
         for source in sources:
             try:
                 fetcher = _fetch_rss if source["type"] == "official_rss" else _fetch_html
-                articles.extend(fetcher(client, source, target_date))
+                articles.extend(fetcher(client, source))
             except Exception as exc:
                 failures.append(f"{source['id']}: {type(exc).__name__}: {exc}")
     earliest = target_date - timedelta(days=lookback_days)

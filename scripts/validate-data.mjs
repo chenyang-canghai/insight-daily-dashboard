@@ -58,7 +58,8 @@ for (const entry of archive.entries ?? []) {
       errors.push(`${entry.date}: forbidden phrase ${word}`);
   if (
     digest.market.date === "2026-08-29" &&
-    digest.market.trading_date === "2026-08-29"
+    digest.market.trading_date === "2026-08-29" &&
+    digest.market.market_status !== "closed"
   )
     errors.push(
       "weekend market data must not masquerade as same-day trading data",

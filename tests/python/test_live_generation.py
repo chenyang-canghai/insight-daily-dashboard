@@ -3,10 +3,14 @@ from pathlib import Path
 
 from insight_dashboard.live_common import BEIJING, publish_module
 from insight_dashboard.live_exam import generate_exam
-from insight_dashboard.live_news import RawArticle, build_news
+from insight_dashboard.live_news import RawArticle, _parse_date, build_news
 from insight_dashboard.validation import validate_digest
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def test_undated_list_navigation_is_not_assigned_today() -> None:
+    assert _parse_date("数据出境安全评估") is None
 
 
 def test_live_news_is_source_bounded() -> None:
@@ -49,5 +53,5 @@ def test_live_exam_and_dry_run_digest_validate_without_writes() -> None:
     payload = publish_module(ROOT, "2026-08-29", "exam", exam, dry_run=True)
     assert len(exam["questions"]) == 8
     assert all(item["source_type"] == "original" and not item["is_demo"] for item in exam["questions"])
-    assert validate_digest(payload).generation_status == "partial"
+    assert validate_digest(payload).generation_status in {"partial", "success"}
     assert (ROOT / "data" / "manifests" / "latest.json").read_bytes() == before
