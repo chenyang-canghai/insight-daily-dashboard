@@ -14,19 +14,22 @@ SECRET_PATTERNS = (
 
 
 def scan_text(value: str) -> list[str]:
-    errors = [f"forbidden investment phrase: {phrase}" for phrase in FORBIDDEN_INVESTMENT_PHRASES if phrase in value]
+    errors = [
+        f"forbidden investment phrase: {phrase}" for phrase in FORBIDDEN_INVESTMENT_PHRASES if phrase in value
+    ]
     errors.extend("possible secret detected" for pattern in SECRET_PATTERNS if pattern.search(value))
     return errors
 
 
 def validate_digest(payload: dict[str, Any], now: datetime | None = None) -> DailyDigest:
+    news_ids = [str(item.get("id")) for item in payload.get("news", [])]
+    if len(set(news_ids)) != len(news_ids):
+        raise ValueError("duplicate news id")
     digest = DailyDigest.model_validate(payload)
     errors = scan_text(digest.model_dump_json())
     current = now or datetime.now(tz=digest.generated_at.tzinfo)
     if digest.generated_at > current and not digest.is_demo:
         errors.append("generated_at is in the future")
-    if len({item.id for item in digest.news}) != len(digest.news):
-        errors.append("duplicate news id")
     if errors:
         raise ValueError("; ".join(errors))
     return digest

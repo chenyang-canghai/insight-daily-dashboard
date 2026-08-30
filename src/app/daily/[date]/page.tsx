@@ -25,7 +25,7 @@ export default async function DailyPage({
   if (!digest) notFound();
   return (
     <>
-      <DemoBanner />
+      <DemoBanner isDemo={digest.is_demo} />
       <header className="page-hero">
         <div>
           <span className="eyebrow">Daily Archive</span>

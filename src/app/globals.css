@@ -605,6 +605,28 @@ textarea:focus-visible {
   font-weight: 700;
   letter-spacing: 0.05em;
 }
+.card-badge-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.freshness-pill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent);
+  border-radius: 999px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  font-size: 10px;
+  font-weight: 700;
+}
+.freshness-pill.follow-up {
+  border-color: var(--line-strong);
+  color: var(--muted);
+  background: var(--surface-2);
+}
 .score-pill {
   color: var(--gold);
   font-size: 11px;
@@ -863,6 +885,7 @@ textarea:focus-visible {
 }
 
 .impact-chain {
+  max-width: 100%;
   display: flex;
   align-items: stretch;
   gap: 7px;
@@ -870,12 +893,14 @@ textarea:focus-visible {
   padding: 8px 2px 14px;
 }
 .impact-step-wrap {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 7px;
   min-width: 0;
 }
 .impact-step {
+  flex: 0 0 180px;
   width: 180px;
   min-height: 94px;
   padding: 14px;
@@ -1374,11 +1399,13 @@ select {
 }
 
 .article-layout {
+  min-width: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
   gap: 36px;
 }
 .article {
+  min-width: 0;
   padding: 34px;
   border: 1px solid var(--line);
   border-radius: 22px;
@@ -1395,6 +1422,7 @@ select {
   font-size: 16px;
 }
 .article-section {
+  min-width: 0;
   margin-top: 34px;
   padding-top: 26px;
   border-top: 1px solid var(--line);
@@ -1406,6 +1434,16 @@ select {
 .article-section p,
 .article-section li {
   color: var(--muted);
+}
+.article-section .analysis-conclusion {
+  margin: 10px 0 26px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  color: var(--text);
+  background: var(--accent-soft);
+  font-size: 16px;
+  line-height: 1.8;
 }
 .article-aside {
   align-self: start;
@@ -1571,7 +1609,7 @@ select {
     grid-template-columns: repeat(2, 1fr);
   }
   .article-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .article-aside {
     position: static;
@@ -1800,6 +1838,7 @@ select {
     grid-template-columns: 1fr;
   }
   .impact-step {
+    flex-basis: 150px;
     width: 150px;
   }
 }

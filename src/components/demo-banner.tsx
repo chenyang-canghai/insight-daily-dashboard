@@ -1,7 +1,7 @@
 import { FlaskConical } from "lucide-react";
 
-export function DemoBanner() {
-  const live = process.env.NEXT_PUBLIC_SITE_MODE === "live";
+export function DemoBanner({ isDemo }: { isDemo: boolean }) {
+  const live = !isDemo;
   return (
     <aside
       className="demo-banner"

@@ -15,7 +15,7 @@ export default function MarketPage() {
   const candidate = market.research_candidate;
   return (
     <>
-      <DemoBanner />
+      <DemoBanner isDemo={latestDigest.is_demo} />
       <header className="page-hero">
         <div>
           <span className="eyebrow">A-Share · 交易日 18:25</span>

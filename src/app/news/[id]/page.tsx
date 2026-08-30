@@ -33,7 +33,7 @@ export default async function NewsDetailPage({
   const { item, deepDive, digest } = found;
   return (
     <>
-      <DemoBanner />
+      <DemoBanner isDemo={item.is_demo} />
       <div className="page-hero">
         <Link className="text-link" href="/news/">
           <ArrowLeft size={15} />
@@ -42,7 +42,14 @@ export default async function NewsDetailPage({
       </div>
       <div className="article-layout">
         <article className="article">
-          <span className="category-label">{item.category}</span>
+          <div className="card-badge-row">
+            <span className="category-label">{item.category}</span>
+            <span
+              className={`freshness-pill ${item.freshness === "follow_up" ? "follow-up" : "new"}`}
+            >
+              {item.freshness === "follow_up" ? "持续跟踪" : "本期新增"}
+            </span>
+          </div>
           <h1>{item.title}</h1>
           <div className="source-line">
             <span>
@@ -51,6 +58,9 @@ export default async function NewsDetailPage({
             </span>
             <span>预计阅读 {item.reading_minutes} 分钟</span>
             <span>可靠性 {item.reliability}</span>
+            {item.first_seen_date && (
+              <span>首次收录 {item.first_seen_date}</span>
+            )}
           </div>
           <p className="article-lead">{item.summary}</p>
           <div className="page-actions">
@@ -71,7 +81,9 @@ export default async function NewsDetailPage({
             <h3>事实与推断分开</h3>
             <ul>
               {item.facts.map((fact) => (
-                <li key={fact}>已确认/演示声明：{fact}</li>
+                <li key={fact}>
+                  {item.is_demo ? "演示声明" : "已确认事实"}：{fact}
+                </li>
               ))}
               {item.inferences.map((inference) => (
                 <li key={inference}>推断边界：{inference}</li>
@@ -80,10 +92,12 @@ export default async function NewsDetailPage({
           </div>
           {deepDive && (
             <section className="article-section" id="deep-dive">
-              <span className="eyebrow">Deep Dive</span>
-              <h2>{deepDive.one_sentence}</h2>
+              <span className="eyebrow">逻辑拆解</span>
+              <h2>一句话读懂</h2>
+              <p className="analysis-conclusion">{deepDive.one_sentence}</p>
+              <h3>第一步：确认事实边界</h3>
               <p>{deepDive.background}</p>
-              <h3>背景与时间线</h3>
+              <h3>第二步：按时间核验</h3>
               <div className="timeline">
                 {deepDive.timeline.map((entry) => (
                   <div className="timeline-item" key={entry.time}>
@@ -92,10 +106,10 @@ export default async function NewsDetailPage({
                   </div>
                 ))}
               </div>
-              <h3>运行机制</h3>
+              <h3>第三步：理解传导机制</h3>
               <p>{deepDive.mechanism}</p>
               <ImpactChain items={deepDive.impact_chain} />
-              <h3>时间维度</h3>
+              <h3>第四步：分阶段观察</h3>
               <ul>
                 <li>
                   <b>短期：</b>
@@ -110,7 +124,7 @@ export default async function NewsDetailPage({
                   {deepDive.long_term}
                 </li>
               </ul>
-              <h3>谁可能受益，谁可能承压</h3>
+              <h3>第五步：识别利益影响</h3>
               <p>
                 <b>潜在受益：</b>
                 {deepDive.beneficiaries.join("；")}
@@ -119,13 +133,13 @@ export default async function NewsDetailPage({
                 <b>潜在承压：</b>
                 {deepDive.pressured_groups.join("；")}
               </p>
-              <h3>仍然不知道什么</h3>
+              <h3>第六步：列出未知项</h3>
               <ul>
                 {deepDive.unknowns.map((unknown) => (
                   <li key={unknown}>{unknown}</li>
                 ))}
               </ul>
-              <h3>申论素材转化</h3>
+              <h3>第七步：转化为申论素材</h3>
               <p>
                 <b>主题：</b>
                 {deepDive.shenlun_material.theme}

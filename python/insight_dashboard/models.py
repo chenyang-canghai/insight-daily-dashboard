@@ -52,6 +52,8 @@ class NewsItem(BaseRecord):
     related_items: list[str]
     reading_minutes: int = Field(ge=1, le=60)
     is_demo: bool
+    freshness: Literal["new", "follow_up"] = "new"
+    first_seen_date: str | None = None
 
     @model_validator(mode="after")
     def facts_require_sources(self) -> NewsItem:
@@ -244,7 +246,7 @@ class TaskStatus(StrictModel):
 
 
 class ExamDaily(BaseRecord):
-    questions: list[Question]
+    questions: list[Question] = Field(min_length=8, max_length=8)
     shenlun: dict[str, Any]
     is_demo: bool
 
@@ -254,7 +256,7 @@ class DailyDigest(BaseRecord):
     overview: str
     is_demo: bool
     task_statuses: list[TaskStatus]
-    news: list[NewsItem]
-    deep_dives: list[DeepDive]
+    news: list[NewsItem] = Field(min_length=8, max_length=8)
+    deep_dives: list[DeepDive] = Field(min_length=3, max_length=3)
     market: MarketDaily
     exam: ExamDaily

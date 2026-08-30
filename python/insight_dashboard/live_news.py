@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta
@@ -15,6 +16,7 @@ from bs4 import BeautifulSoup
 
 from .live_common import BEIJING, record_base, seal
 from .news import canonicalize_url, title_similarity
+from .news_analysis import build_analysis
 
 USER_AGENT = "InsightDailyDashboard/1.0 (+https://github.com/chenyang-canghai/insight-daily-dashboard)"
 DATE_PATTERN = re.compile(r"(20\d{2})[年./-](\d{1,2})[月./-](\d{1,2})日?")
@@ -23,8 +25,57 @@ TOPIC_RULES = {
     "半导体": ("半导体", "集成电路", "芯片", "晶圆"),
     "数字经济": ("数字经济", "数据要素", "公共数据", "数据局", "数字化"),
     "宏观经济": ("经济", "价格", "生产", "消费", "投资", "就业", "统计"),
-    "国际时政": ("国际", "全球", "外贸", "欧盟", "美国", "联合国"),
+    "国际时政": (
+        "国际",
+        "全球",
+        "外贸",
+        "外交",
+        "中外",
+        "对外",
+        "中俄",
+        "中阿",
+        "欧盟",
+        "美国",
+        "俄罗斯",
+        "约旦",
+        "东盟",
+        "非洲",
+        "一带一路",
+        "联合国",
+        "会谈",
+        "国事访问",
+    ),
     "中国政策": ("政策", "意见", "通知", "办法", "条例", "发布会"),
+}
+SOURCE_TITLE_FILTERS = {
+    "mohrss-news": (
+        "人社",
+        "就业",
+        "招聘",
+        "人才",
+        "劳动",
+        "工资",
+        "养老",
+        "社保",
+        "社会保障",
+        "职业",
+        "技能",
+        "工伤",
+        "失业",
+        "农民工",
+        "高校毕业生",
+    ),
+    "mohrss-policy": (
+        "人社",
+        "就业",
+        "人才",
+        "劳动",
+        "养老",
+        "社保",
+        "社会保障",
+        "职业",
+        "技能",
+    ),
 }
 
 
@@ -38,6 +89,16 @@ class RawArticle:
     published_at: datetime
     priority: int
     topics: list[str]
+    description: str = ""
+
+
+@dataclass(slots=True)
+class SelectedArticle:
+    article: RawArticle
+    freshness: str
+    first_seen_date: str
+    last_seen_date: str = ""
+    appearance_count: int = 0
 
 
 def _parse_date(text: str) -> datetime | None:
@@ -46,6 +107,11 @@ def _parse_date(text: str) -> datetime | None:
         return None
     parsed = date(*(int(value) for value in match.groups()))
     return datetime.combine(parsed, time(9), BEIJING)
+
+
+def _source_relevant(article: RawArticle) -> bool:
+    keywords = SOURCE_TITLE_FILTERS.get(article.source_id)
+    return not keywords or any(keyword in article.title for keyword in keywords)
 
 
 def _published(entry: Any) -> datetime | None:
@@ -86,6 +152,14 @@ def _fetch_rss(client: httpx.Client, source: dict[str, Any]) -> list[RawArticle]
                 published_at=published,
                 priority=int(source["priority"]),
                 topics=list(source.get("topics", [])),
+                description=" ".join(
+                    BeautifulSoup(
+                        str(entry.get("summary") or entry.get("description") or ""),
+                        "html.parser",
+                    )
+                    .get_text(" ", strip=True)
+                    .split()
+                ),
             )
         )
     return results
@@ -117,14 +191,29 @@ def _fetch_html(client: httpx.Client, source: dict[str, Any]) -> list[RawArticle
         if published is None:
             continue
         results.append(
-            RawArticle(source["id"], source["name"], source["url"], title, href, published, int(source["priority"]), list(source.get("topics", [])))
+            RawArticle(
+                source["id"],
+                source["name"],
+                source["url"],
+                title,
+                href,
+                published,
+                int(source["priority"]),
+                list(source.get("topics", [])),
+            )
         )
     return results
 
 
-def collect_articles(root: Path, target_date: date, lookback_days: int = 7) -> tuple[list[RawArticle], list[str]]:
+def collect_articles(
+    root: Path, target_date: date, lookback_days: int = 7
+) -> tuple[list[RawArticle], list[str]]:
     registry = yaml.safe_load((root / "data" / "source-registry" / "sources.yml").read_text(encoding="utf-8"))
-    sources = [source for source in registry["sources"] if source.get("enabled") and source["type"] in {"official_rss", "official_html_list"}]
+    sources = [
+        source
+        for source in registry["sources"]
+        if source.get("enabled") and source["type"] in {"official_rss", "official_html_list"}
+    ]
     failures: list[str] = []
     articles: list[RawArticle] = []
     with httpx.Client(headers={"User-Agent": USER_AGENT}, timeout=20, follow_redirects=True) as client:
@@ -135,17 +224,94 @@ def collect_articles(root: Path, target_date: date, lookback_days: int = 7) -> t
             except Exception as exc:
                 failures.append(f"{source['id']}: {type(exc).__name__}: {exc}")
     earliest = target_date - timedelta(days=lookback_days)
-    return [item for item in articles if earliest <= item.published_at.date() <= target_date], failures
+    return [
+        item
+        for item in articles
+        if earliest <= item.published_at.date() <= target_date and _source_relevant(item)
+    ], failures
 
 
 def _category(article: RawArticle) -> str:
-    haystack = article.title + " " + " ".join(article.topics)
-    matches = [(topic, sum(keyword.lower() in haystack.lower() for keyword in keywords)) for topic, keywords in TOPIC_RULES.items()]
+    title_lower = article.title.lower()
+    for topic in ("人工智能", "半导体", "国际时政", "数字经济"):
+        if any(keyword.lower() in title_lower for keyword in TOPIC_RULES[topic]):
+            return topic
+    haystack = article.title + " " + article.description[:500] + " " + " ".join(article.topics)
+    matches = [
+        (topic, sum(keyword.lower() in haystack.lower() for keyword in keywords))
+        for topic, keywords in TOPIC_RULES.items()
+    ]
     topic, score = max(matches, key=lambda item: item[1])
     return topic if score else (article.topics[0] if article.topics else "中国政策")
 
 
-def _select(articles: list[RawArticle], count: int) -> list[RawArticle]:
+def _excerpt(value: str, limit: int = 260) -> str:
+    compact = " ".join(value.split())
+    search_end = min(len(compact), limit)
+    boundaries = [compact.find(mark, 20, search_end) for mark in ("。", "！", "？", ";", "；")]
+    boundary = (
+        min(position for position in boundaries if position >= 20)
+        if any(position >= 20 for position in boundaries)
+        else -1
+    )
+    if boundary >= 20:
+        return compact[: boundary + 1].rstrip()
+    if len(compact) <= limit:
+        return compact
+    return compact[:limit].rstrip() + "……"
+
+
+def _load_recent_history(root: Path, target_date: date, history_days: int = 14) -> list[dict[str, Any]]:
+    history: list[dict[str, Any]] = []
+    for offset in range(history_days, 0, -1):
+        history_date = target_date - timedelta(days=offset)
+        path = (
+            root
+            / "data"
+            / "news"
+            / f"{history_date.year:04d}"
+            / f"{history_date.month:02d}"
+            / f"{history_date.isoformat()}.json"
+        )
+        if not path.exists():
+            continue
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        history.extend(payload.get("items", []))
+    return history
+
+
+def _history_match(article: RawArticle, history: list[dict[str, Any]]) -> tuple[str, str, int] | None:
+    article_url = canonicalize_url(article.url)
+    matched_dates: list[str] = []
+    for item in history:
+        prior_url = item.get("source_url")
+        prior_title = str(item.get("title", ""))
+        same_url = bool(prior_url and canonicalize_url(str(prior_url)) == article_url)
+        same_title = bool(prior_title and title_similarity(article.title, prior_title) >= 0.9)
+        if same_url or same_title:
+            matched_dates.append(str(item.get("date")))
+            matched_dates.append(str(item.get("first_seen_date") or item.get("date")))
+    dates = [value for value in matched_dates if value and value != "None"]
+    if not dates:
+        return None
+    seen_dates = sorted(set(dates))
+    return seen_dates[0], seen_dates[-1], len(seen_dates)
+
+
+def _source_diverse(items: list[SelectedArticle]) -> list[SelectedArticle]:
+    ordered: list[SelectedArticle] = []
+    used_sources: set[str] = set()
+    for item in items:
+        if item.article.source_id not in used_sources:
+            ordered.append(item)
+            used_sources.add(item.article.source_id)
+    ordered.extend(item for item in items if item not in ordered)
+    return ordered
+
+
+def _select(
+    articles: list[RawArticle], count: int, history: list[dict[str, Any]] | None = None
+) -> list[SelectedArticle]:
     unique: list[RawArticle] = []
     urls: set[str] = set()
     for article in sorted(articles, key=lambda item: (item.published_at, -item.priority), reverse=True):
@@ -154,30 +320,56 @@ def _select(articles: list[RawArticle], count: int) -> list[RawArticle]:
             continue
         unique.append(article)
         urls.add(url)
-    selected: list[RawArticle] = []
-    used_sources: set[str] = set()
+
+    new_items: list[SelectedArticle] = []
+    follow_ups: list[SelectedArticle] = []
     for article in unique:
-        if article.source_id not in used_sources:
-            selected.append(article)
-            used_sources.add(article.source_id)
-        if len(selected) == count:
-            return selected
-    for article in unique:
-        if article not in selected:
-            selected.append(article)
-        if len(selected) == count:
-            break
-    return selected
+        match = _history_match(article, history or [])
+        selected = SelectedArticle(
+            article,
+            "follow_up" if match else "new",
+            match[0] if match else "",
+            match[1] if match else "",
+            match[2] if match else 0,
+        )
+        (follow_ups if match else new_items).append(selected)
+    for selected in new_items:
+        selected.first_seen_date = selected.first_seen_date or "pending"
+
+    follow_ups.sort(
+        key=lambda item: (
+            item.last_seen_date,
+            item.appearance_count,
+            -item.article.published_at.timestamp(),
+        )
+    )
+
+    ordered = _source_diverse(new_items) + _source_diverse(follow_ups)
+    return ordered[:count]
 
 
-def build_news(articles: list[RawArticle], date_value: str) -> dict[str, list[dict[str, Any]]]:
-    selected = _select(articles, 8)
+def build_news(
+    articles: list[RawArticle],
+    date_value: str,
+    history: list[dict[str, Any]] | None = None,
+) -> dict[str, list[dict[str, Any]]]:
+    selected = _select(articles, 8, history)
     if len(selected) < 8:
         raise ValueError(f"真实来源去重后仅 {len(selected)} 条，少于要求的 8 条；拒绝生成")
     generated_at = datetime.now(BEIJING).isoformat(timespec="seconds")
     items: list[dict[str, Any]] = []
-    for index, article in enumerate(selected, 1):
+    for index, selected_article in enumerate(selected, 1):
+        article = selected_article.article
         category = _category(article)
+        analysis = build_analysis(f"{article.title} {article.description[:300]}", category)
+        first_seen_date = (
+            date_value if selected_article.freshness == "new" else selected_article.first_seen_date
+        )
+        freshness_note = (
+            "本期首次收录。"
+            if selected_article.freshness == "new"
+            else f"该条目最早于 {first_seen_date} 收录；本期新增来源不足时作为持续跟踪项保留。"
+        )
         citation = {
             "source_id": article.source_id,
             "source_name": article.source_name,
@@ -186,6 +378,19 @@ def build_news(articles: list[RawArticle], date_value: str) -> dict[str, list[di
             "published_at": article.published_at.isoformat(),
             "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。",
         }
+        evidence_excerpt = _excerpt(article.description)
+        summary = (
+            f"发生了什么：{article.source_name}于 {article.published_at:%Y-%m-%d} 公开《{article.title}》。"
+            + (
+                f"官方 RSS 摘要显示：{evidence_excerpt}"
+                if evidence_excerpt
+                else "目前可确认的是标题、来源和发布时间，正文细节仍需回到原文核对。"
+            )
+            + freshness_note
+        )
+        facts = [f"{article.source_name}的公开页面列出了题为《{article.title}》的条目。"]
+        if evidence_excerpt:
+            facts.append(f"该官方 RSS 摘要写明：{evidence_excerpt}")
         item = record_base(f"news-{date_value}-{index:02d}", date_value, [article.source_id])
         item.update(
             {
@@ -197,52 +402,76 @@ def build_news(articles: list[RawArticle], date_value: str) -> dict[str, list[di
                 "collected_at": generated_at,
                 "source_name": article.source_name,
                 "source_url": article.url,
-                "summary": f"{article.source_name}于 {article.published_at:%Y-%m-%d} 发布《{article.title}》。本卡片仅据公开标题与元数据建立索引，不补写原文未核验的事实，具体内容以原文为准。",
-                "why_it_matters": f"该条目与“{category}”相关，可用于跟踪政策信号、执行口径和后续数据，但不能仅凭标题得出成效判断。",
+                "summary": summary,
+                "why_it_matters": f"{analysis['focus']} 对“{category}”而言，接下来重点观察{analysis['watch']}。",
                 "importance_score": max(60, 92 - article.priority - index),
                 "reliability": "A",
-                "tags": [category, "官方来源", "元数据索引"],
-                "facts": [f"{article.source_name}的公开页面列出了题为《{article.title}》的条目。"],
-                "inferences": ["标题显示其可能与所标注主题相关；影响范围、实施效果与因果关系需阅读原文并结合后续数据核验。"],
+                "tags": [
+                    category,
+                    "本期新增" if selected_article.freshness == "new" else "持续跟踪",
+                    "官方来源",
+                    "元数据索引",
+                ],
+                "facts": facts,
+                "inferences": [
+                    f"分析框架认为应关注{analysis['watch']}；这是待核验的观察方向，不是已经发生的效果。"
+                ],
                 "citations": [citation],
                 "related_items": [],
-                "reading_minutes": 3,
+                "reading_minutes": 4,
                 "is_demo": False,
+                "freshness": selected_article.freshness,
+                "first_seen_date": first_seen_date,
             }
         )
         items.append(seal(item))
 
+    deep_dive_items: list[dict[str, Any]] = []
+    used_categories: set[str] = set()
+    for item in items:
+        if item["category"] not in used_categories:
+            deep_dive_items.append(item)
+            used_categories.add(item["category"])
+        if len(deep_dive_items) == 3:
+            break
+    deep_dive_items.extend(item for item in items if item not in deep_dive_items)
+
     deep_dives: list[dict[str, Any]] = []
-    for index, item in enumerate(items[:3], 1):
+    for index, item in enumerate(deep_dive_items[:3], 1):
+        analysis = build_analysis(item["title"], item["category"])
         deep = record_base(f"deep-{date_value}-{index}", date_value, item["source_ids"])
         deep.update(
             {
                 "generated_at": generated_at,
                 "news_ids": [item["id"]],
-                "title": f"研读框架｜{item['title']}",
-                "one_sentence": "先核对原文中的政策对象、工具和时间边界，再用执行指标检验标题所代表的信号。",
-                "background": "本分析只提供阅读框架，不代替原文，也不把标题扩写成未经证实的事实。",
+                "title": f"逻辑拆解｜{item['title']}",
+                "one_sentence": f"对《{item['title']}》，{analysis['focus']}",
+                "background": f"读懂这条信息可以分三层：第一层确认谁在何时发布了什么；第二层按“{analysis['check']}”核对正文；第三层再观察“{analysis['watch']}”。这样能把事实、解释和判断分开。",
                 "timeline": [
                     {"time": item["published_at"][:10], "label": "官方页面发布该条目", "status": "confirmed"},
-                    {"time": "当前", "label": "核对原文的对象、范围、工具与口径", "status": "context"},
-                    {"time": "后续", "label": "观察配套文件、执行进度与结果指标", "status": "watch"},
+                    {"time": "当前", "label": analysis["check"], "status": "context"},
+                    {"time": "后续", "label": f"持续观察{analysis['watch']}", "status": "watch"},
                 ],
-                "stakeholders": ["政策制定与执行部门", "相关市场主体", "公共服务对象", "研究与监督机构"],
-                "mechanism": "政策或信息信号先改变规则与预期，再通过主体响应影响资源配置；是否产生实际成效，需要执行数据和结果数据验证。",
-                "impact_chain": ["官方信息发布", "主体理解与预期调整", "执行行为变化", "投入与产出变化", "公共价值或产业结果"],
-                "beneficiaries": ["能准确理解规则并完成合规调整的主体", "获得更清晰公共服务信息的群体"],
-                "pressured_groups": ["信息获取和合规能力较弱的主体", "依赖模糊口径或短期预期的主体"],
-                "short_term": "确认原文发布主体、适用范围、时间和关键动词。",
-                "medium_term": "跟踪配套制度、预算、项目、企业响应和服务流程变化。",
-                "long_term": "以效率、就业、创新、民生或治理结果检验长期效果。",
-                "unknowns": ["原文细节尚未在本卡片中全文解析", "执行尺度与地区差异未知", "尚无结果数据支持因果判断"],
+                "stakeholders": analysis["stakeholders"],
+                "mechanism": analysis["mechanism"],
+                "impact_chain": analysis["impact_chain"],
+                "beneficiaries": analysis["beneficiaries"],
+                "pressured_groups": analysis["pressured_groups"],
+                "short_term": analysis["check"],
+                "medium_term": analysis["medium_term"],
+                "long_term": analysis["long_term"],
+                "unknowns": analysis["unknowns"],
                 "confidence": "中",
-                "student_insights": ["区分已确认发布事实与机制推断", "把政策语言转成可观察指标", "申论中坚持问题、原因、对策和评价闭环"],
+                "student_insights": [
+                    "先写清已确认的发布事实，不把标题扩写成正文",
+                    f"再用“{analysis['impact_chain'][0]}—{analysis['impact_chain'][-1]}”解释可能的传导机制",
+                    f"最后用“{analysis['watch']}”设计后续验证指标",
+                ],
                 "shenlun_material": {
                     "theme": item["category"],
-                    "expressions": ["坚持目标导向和问题导向相统一", "健全执行、反馈与评估闭环", "以可核验结果提升治理效能"],
-                    "case": "可将该官方条目作为线索；正式作答前须阅读原文，补齐时间、对象、做法与成效。",
-                    "argument": "政策价值不仅在于发布，更在于形成权责清晰、执行有力、反馈及时的闭环。",
+                    "expressions": analysis["expressions"],
+                    "case": f"可把{item['source_name']}发布的《{item['title']}》作为议题线索；作答时只引用已核验的对象、做法和数据，不把分析框架当成现实成效。",
+                    "argument": analysis["argument"],
                 },
                 "citations": item["citations"],
                 "is_demo": False,
@@ -254,4 +483,5 @@ def build_news(articles: list[RawArticle], date_value: str) -> dict[str, list[di
 
 def generate_news(root: Path, date_value: str, lookback_days: int = 7) -> tuple[dict[str, Any], list[str]]:
     articles, failures = collect_articles(root, date.fromisoformat(date_value), lookback_days)
-    return build_news(articles, date_value), failures
+    history = _load_recent_history(root, date.fromisoformat(date_value))
+    return build_news(articles, date_value, history), failures

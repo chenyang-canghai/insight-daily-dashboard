@@ -10,7 +10,7 @@ export default function ArchivePage() {
   ).length;
   return (
     <>
-      <DemoBanner />
+      <DemoBanner isDemo={demoCount === archiveIndex.entries.length} />
       <header className="page-hero">
         <div>
           <span className="eyebrow">Archive</span>

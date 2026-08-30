@@ -42,6 +42,8 @@ export interface NewsItem extends BaseMeta {
   related_items: string[];
   reading_minutes: number;
   is_demo: boolean;
+  freshness?: "new" | "follow_up";
+  first_seen_date?: string | null;
 }
 
 export interface TimelineEntry {

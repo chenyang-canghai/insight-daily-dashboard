@@ -14,7 +14,14 @@ export function NewsCard({
   return (
     <article className={featured ? "news-card featured" : "news-card"}>
       <div className="card-meta-row">
-        <span className="category-label">{item.category}</span>
+        <div className="card-badge-row">
+          <span className="category-label">{item.category}</span>
+          <span
+            className={`freshness-pill ${item.freshness === "follow_up" ? "follow-up" : "new"}`}
+          >
+            {item.freshness === "follow_up" ? "持续跟踪" : "本期新增"}
+          </span>
+        </div>
         <span className="score-pill">重要性 {item.importance_score}</span>
       </div>
       <Link href={`/news/${item.id}/`} className="news-title">

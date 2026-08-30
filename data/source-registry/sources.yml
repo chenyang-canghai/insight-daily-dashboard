@@ -30,9 +30,10 @@ sources:
     type: official_rss
     url: http://www.mohrss.gov.cn/gkml/zcjd/rss.xml
     priority: 8
-    enabled: true
+    enabled: false
     topics: [青年就业, 中国政策]
     allowed_fields: [title, url, published_at, description]
+    note: 官方 RSS 当前持续返回 403；停用以避免把抓取失败误报为内容更新，恢复前需重新验证。
   - id: ndrc-news
     name: 国家发展改革委-新闻发布
     type: official_html_list

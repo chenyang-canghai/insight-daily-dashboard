@@ -10,7 +10,7 @@ export default function ExamPage() {
   const shenlun = exam.shenlun;
   return (
     <>
-      <DemoBanner />
+      <DemoBanner isDemo={latestDigest.is_demo} />
       <header className="page-hero">
         <div>
           <span className="eyebrow">国考 · 江西省考 · 06:45</span>

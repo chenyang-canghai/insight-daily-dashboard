@@ -32,6 +32,9 @@ export default function Home() {
   const { market, exam } = latestDigest;
   const lead = latestDigest.news[0];
   const signals = latestDigest.news.slice(0, 3);
+  const newSignalCount = latestDigest.news.filter(
+    (item) => item.freshness !== "follow_up",
+  ).length;
   const newsStatus = latestDigest.task_statuses.find(
     (status) => status.module === "news",
   );
@@ -56,8 +59,11 @@ export default function Home() {
             aria-label={latestDigest.is_demo ? "演示数据提示" : "真实来源提示"}
           >
             <span aria-hidden="true" />
-            {latestDigest.is_demo ? "演示数据" : "真实来源"} ·{" "}
-            {newsStatus?.scheduled_time ?? "07:15"} 更新
+            {latestDigest.is_demo ? "演示数据" : "真实来源"} · 日报
+            {latestDigest.date} · {newsStatus?.scheduled_time ?? "07:15"} 更新 ·
+            本期新增
+            {newSignalCount} 条 · 持续跟踪
+            {latestDigest.news.length - newSignalCount} 条
           </div>
 
           <section className="editorial-lead" aria-labelledby="today-judgment">
@@ -106,7 +112,12 @@ export default function Home() {
                       <Link href={`/news/${item.id}/`}>
                         <h3>{item.title}</h3>
                       </Link>
-                      <span>{item.category}</span>
+                      <span>
+                        {item.category} ·{" "}
+                        {item.freshness === "follow_up"
+                          ? "持续跟踪"
+                          : "本期新增"}
+                      </span>
                     </div>
                     <p>{item.why_it_matters}</p>
                     <small>

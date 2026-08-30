@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "全球重点新闻" };
 export default function NewsPage() {
   return (
     <>
-      <DemoBanner />
+      <DemoBanner isDemo={latestDigest.is_demo} />
       <header className="page-hero">
         <div>
           <span className="eyebrow">Global Signals · 07:15</span>

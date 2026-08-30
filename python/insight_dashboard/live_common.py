@@ -68,9 +68,30 @@ def _render_daily_markdown(payload: dict[str, Any]) -> str:
         "",
     ]
     for item in payload["news"]:
-        lines.extend([f"### {item['title']}", "", item["summary"], "", f"- 来源：[{item['source_name']}]({item['source_url']})", ""])
-    lines.extend(["## A 股", "", f"- 状态：{payload['market']['status_note']}", f"- 情绪：{payload['market']['sentiment']}", "", "## 行测", ""])
-    lines.extend(f"{index}. {question['stem']}" for index, question in enumerate(payload["exam"]["questions"], 1))
+        lines.extend(
+            [
+                f"### {item['title']}",
+                "",
+                item["summary"],
+                "",
+                f"- 来源：[{item['source_name']}]({item['source_url']})",
+                "",
+            ]
+        )
+    lines.extend(
+        [
+            "## A 股",
+            "",
+            f"- 状态：{payload['market']['status_note']}",
+            f"- 情绪：{payload['market']['sentiment']}",
+            "",
+            "## 行测",
+            "",
+        ]
+    )
+    lines.extend(
+        f"{index}. {question['stem']}" for index, question in enumerate(payload["exam"]["questions"], 1)
+    )
     lines.append("")
     return "\n".join(lines)
 
@@ -84,19 +105,38 @@ def _write_module(root: Path, date_value: str, module: str, value: Any) -> None:
     year, month, _ = date_value.split("-")
     base = root / "data" / module / year / month / date_value
     if module == "news":
-        wrapper = record_base(f"news-daily-{date_value}", date_value, sorted({source for item in value["items"] for source in item["source_ids"]}))
+        wrapper = record_base(
+            f"news-daily-{date_value}",
+            date_value,
+            sorted({source for item in value["items"] for source in item["source_ids"]}),
+        )
         wrapper.update({"items": value["items"], "deep_dives": value["deep_dives"]})
         seal(wrapper)
         markdown = "# 新闻与深度剖析\n\n" + "\n\n".join(
             f"## [{item['title']}]({item['source_url']})\n\n{item['summary']}" for item in value["items"]
         )
+        markdown += "\n\n# 三条逻辑拆解\n\n" + "\n\n".join(
+            "\n\n".join(
+                [
+                    f"## {deep['title']}",
+                    deep["one_sentence"],
+                    f"**背景**：{deep['background']}",
+                    f"**传导机制**：{deep['mechanism']}",
+                    f"**影响链**：{' → '.join(deep['impact_chain'])}",
+                    f"**仍需核验**：{'；'.join(deep['unknowns'])}",
+                ]
+            )
+            for deep in value["deep_dives"]
+        )
         value = wrapper
     elif module == "market":
         markdown = f"# A 股收盘复盘\n\n- 日期：{value['trading_date']}\n- 状态：{value['status_note']}\n- 情绪：{value['sentiment']}\n"
     else:
-        markdown = "# 公考每日训练\n\n" + "\n".join(
-            f"{index}. {item['stem']}" for index, item in enumerate(value["questions"], 1)
-        ) + "\n"
+        markdown = (
+            "# 公考每日训练\n\n"
+            + "\n".join(f"{index}. {item['stem']}" for index, item in enumerate(value["questions"], 1))
+            + "\n"
+        )
     _write_json(base.with_suffix(".json"), value)
     base.with_suffix(".md").write_text(markdown, encoding="utf-8")
 
@@ -131,19 +171,42 @@ def publish_module(
     statuses = {item["module"]: item for item in payload["task_statuses"]}
     for name, status in statuses.items():
         if name != module and status["freshness"] != "demo" and str(status["last_run"])[:10] != date_value:
-            status.update({"status": "stale", "freshness": "stale", "message": "沿用上一期数据，等待本模块更新"})
+            status.update(
+                {"status": "stale", "freshness": "stale", "message": "沿用上一期数据，等待本模块更新"}
+            )
+    module_messages = {
+        "exam": "原创练习已生成并校验",
+        "market": "公开行情已完成收盘复盘",
+    }
+    if module == "news":
+        new_count = sum(item.get("freshness", "new") == "new" for item in value["items"])
+        follow_up_count = len(value["items"]) - new_count
+        module_messages["news"] = (
+            f"本期新增 {new_count} 条，持续跟踪 {follow_up_count} 条；均来自官方公开来源"
+        )
+        payload["overview"] = (
+            f"真实公开来源日报：本期新增 {new_count} 条、持续跟踪 {follow_up_count} 条，"
+            "并提供 3 条按事实、机制、影响和申论转化展开的逻辑拆解；另含 A 股风险复盘与 8 道轮换原创练习。"
+        )
     statuses[module] = {
         "module": module,
         "scheduled_time": SCHEDULES[module],
         "last_run": timestamp,
         "status": "success",
         "freshness": "fresh",
-        "message": {"news": "官方公开来源已更新", "exam": "原创练习已生成并校验", "market": "公开行情已完成收盘复盘"}[module],
+        "message": module_messages[module],
     }
     payload["task_statuses"] = [statuses[name] for name in ("exam", "news", "market")]
-    all_fresh = all(item["freshness"] == "fresh" and str(item["last_run"])[:10] == date_value for item in payload["task_statuses"])
+    all_fresh = all(
+        item["freshness"] == "fresh" and str(item["last_run"])[:10] == date_value
+        for item in payload["task_statuses"]
+    )
     payload["generation_status"] = "success" if all_fresh else "partial"
-    payload["source_ids"] = sorted({source for item in payload["news"] for source in item["source_ids"]} | set(payload["market"]["source_ids"]) | set(payload["exam"]["source_ids"]))
+    payload["source_ids"] = sorted(
+        {source for item in payload["news"] for source in item["source_ids"]}
+        | set(payload["market"]["source_ids"])
+        | set(payload["exam"]["source_ids"])
+    )
     seal(payload)
     validate_digest(payload)
     if dry_run:
@@ -174,7 +237,11 @@ def publish_module(
         "market_status": payload["market"]["market_status"],
         "path": f"/daily/{date_value}/",
     }
-    archive["entries"] = sorted([item for item in archive["entries"] if item["date"] != date_value] + [entry], key=lambda item: item["date"], reverse=True)
+    archive["entries"] = sorted(
+        [item for item in archive["entries"] if item["date"] != date_value] + [entry],
+        key=lambda item: item["date"],
+        reverse=True,
+    )
     archive["generated_at"] = timestamp
     _write_json(archive_path, archive)
     _write_json(root / "public" / "data" / "archive-index.json", archive)

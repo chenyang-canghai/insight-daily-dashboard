@@ -29,7 +29,15 @@ def main() -> int:
     date.fromisoformat(args.date)
     if args.demo:
         payload = load_demo(ROOT, args.date)
-        summary = {"status": "validated", "mode": "demo", "date": args.date, "module": args.module, "dry_run": args.dry_run, "news": len(payload["news"]), "questions": len(payload["exam"]["questions"])}
+        summary = {
+            "status": "validated",
+            "mode": "demo",
+            "date": args.date,
+            "module": args.module,
+            "dry_run": args.dry_run,
+            "news": len(payload["news"]),
+            "questions": len(payload["exam"]["questions"]),
+        }
         print(json.dumps(summary, ensure_ascii=False))
         return 0
 
@@ -45,7 +53,14 @@ def main() -> int:
             value, failures = generate_news(ROOT, args.date, lookback)
         else:
             value, failures = generate_market(args.date, os.environ.get("MARKET_PROVIDER", "akshare"))
-        payload = publish_module(ROOT, args.date, module, value, dry_run=args.dry_run, base_payload=payload if args.dry_run else None)
+        payload = publish_module(
+            ROOT,
+            args.date,
+            module,
+            value,
+            dry_run=args.dry_run,
+            base_payload=payload if args.dry_run else None,
+        )
         diagnostics[module] = failures
     assert payload is not None
     summary = {
@@ -56,6 +71,8 @@ def main() -> int:
         "dry_run": args.dry_run,
         "generation_status": payload["generation_status"],
         "news": len(payload["news"]),
+        "news_new": sum(item.get("freshness", "new") == "new" for item in payload["news"]),
+        "news_follow_up": sum(item.get("freshness") == "follow_up" for item in payload["news"]),
         "questions": len(payload["exam"]["questions"]),
         "diagnostics": diagnostics,
     }
