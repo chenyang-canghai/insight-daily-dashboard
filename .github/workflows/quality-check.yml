@@ -45,9 +45,9 @@ jobs:
       - name: Validate demo and data
         run: |
           pnpm generate:demo
+          uv run python scripts/build_public_data.py
           pnpm validate:data
           pnpm validate:pwa
-          uv run python scripts/build_public_data.py
       - name: Frontend checks
         run: |
           pnpm format:check
