@@ -1,4 +1,18 @@
 import { expect, test } from "@playwright/test";
+import { readFileSync } from "node:fs";
+
+const archive = JSON.parse(
+  readFileSync(
+    new URL("../../data/manifests/archive-index.json", import.meta.url),
+    "utf8",
+  ),
+) as { entries: Array<{ date: string }> };
+const latest = JSON.parse(
+  readFileSync(
+    new URL("../../data/manifests/latest.json", import.meta.url),
+    "utf8",
+  ),
+) as { date: string; news: Array<{ id: string }> };
 
 test("exposes installable PWA assets", async ({ request }) => {
   const manifestResponse = await request.get("/manifest.webmanifest");
@@ -21,6 +35,15 @@ test("exposes installable PWA assets", async ({ request }) => {
   expect(workerResponse.ok()).toBe(true);
   expect(await workerResponse.text()).toContain("insight-daily-v1");
   expect((await request.get("/offline.html")).ok()).toBe(true);
+});
+
+test("publishes the latest daily and news detail routes", async ({
+  request,
+}) => {
+  expect((await request.get(`/daily/${latest.date}/`)).ok()).toBe(true);
+  for (const item of latest.news) {
+    expect((await request.get(`/news/${item.id}/`)).ok()).toBe(true);
+  }
 });
 
 test("browse, favorite, practice, market and archive", async ({ page }) => {
@@ -51,7 +74,9 @@ test("browse, favorite, practice, market and archive", async ({ page }) => {
   await expect(page.getByText(/不构成任何投资建议/)).toBeVisible();
 
   await page.goto("/archive/");
-  await expect(page.locator(".archive-card")).toHaveCount(3);
+  await expect(page.locator(".archive-card")).toHaveCount(
+    archive.entries.length,
+  );
 
   await page.goto("/favorites/");
   await expect(

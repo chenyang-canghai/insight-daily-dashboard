@@ -1,8 +1,9 @@
 import archiveJson from "../../data/manifests/archive-index.json";
+import {
+  generatedDigestDates,
+  generatedDigests,
+} from "../../data/manifests/digests.generated";
 import latestJson from "../../data/manifests/latest.json";
-import day27Json from "../../data/daily/2026/08/2026-08-27.json";
-import day28Json from "../../data/daily/2026/08/2026-08-28.json";
-import day29Json from "../../data/daily/2026/08/2026-08-29.json";
 import type {
   ArchiveIndex,
   DailyDigest,
@@ -12,11 +13,18 @@ import type {
 
 export const latestDigest = latestJson as unknown as DailyDigest;
 export const archiveIndex = archiveJson as unknown as ArchiveIndex;
-export const allDigests = [
-  day29Json,
-  day28Json,
-  day27Json,
-] as unknown as DailyDigest[];
+export const allDigests = [...generatedDigests] as unknown as DailyDigest[];
+
+const archiveDates = archiveIndex.entries.map((entry) => entry.date);
+if (
+  generatedDigestDates.length !== archiveDates.length ||
+  generatedDigestDates.some((date, index) => date !== archiveDates[index]) ||
+  !generatedDigestDates.some((date) => date === latestDigest.date)
+) {
+  throw new Error(
+    "Generated digest imports are stale. Run scripts/build_public_data.py before building.",
+  );
+}
 
 export function getDigest(date: string) {
   return allDigests.find((digest) => digest.date === date);

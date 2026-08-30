@@ -13,6 +13,21 @@ const archive = await readJson("data/manifests/archive-index.json");
 if (!Array.isArray(archive.entries) || archive.entries.length < 3)
   errors.push("archive must contain at least three days");
 
+const latest = await readJson("data/manifests/latest.json");
+const generatedImports = await readFile(
+  path.join(root, "data/manifests/digests.generated.ts"),
+  "utf8",
+);
+const generatedDates = Array.from(
+  generatedImports.matchAll(/^\s+"(\d{4}-\d{2}-\d{2})",$/gm),
+  (match) => match[1],
+);
+const archiveDates = (archive.entries ?? []).map((entry) => entry.date);
+if (JSON.stringify(generatedDates) !== JSON.stringify(archiveDates))
+  errors.push("generated digest imports do not match the archive index");
+if (archiveDates[0] !== latest.date)
+  errors.push("latest digest date must be the first archive entry");
+
 for (const entry of archive.entries ?? []) {
   const [year, month] = entry.date.split("-");
   const digest = await readJson(

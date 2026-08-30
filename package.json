@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:lan": "next dev --hostname 0.0.0.0 --port 3000",
-    "build": "next build",
+    "build": "next build && pnpm validate:routes",
     "start": "serve out",
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
@@ -18,6 +18,7 @@
     "generate:demo": "node scripts/generate-demo.mjs",
     "generate:pwa-icons": "node scripts/generate-pwa-icons.mjs",
     "validate:data": "node scripts/validate-data.mjs",
+    "validate:routes": "node scripts/validate-static-routes.mjs",
     "validate:pwa": "node scripts/validate-pwa.mjs",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm validate:data && pnpm validate:pwa && pnpm build"
   },
