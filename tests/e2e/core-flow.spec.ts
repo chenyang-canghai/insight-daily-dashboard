@@ -14,7 +14,8 @@ const latest = JSON.parse(
   ),
 ) as {
   date: string;
-  news: Array<{ id: string; evidence_level?: string }>;
+  news: Array<{ id: string }>;
+  deep_dives: Array<{ news_ids: string[] }>;
 };
 
 test("exposes installable PWA assets", async ({ request }) => {
@@ -49,14 +50,10 @@ test("publishes the latest daily and news detail routes", async ({
   }
 });
 
-test("evidence-backed detail uses the compact four-part analysis", async ({
-  page,
-}) => {
-  const evidenceItem = latest.news.find(
-    (item) => item.evidence_level && item.evidence_level !== "metadata_only",
-  );
-  expect(evidenceItem).toBeDefined();
-  await page.goto(`/news/${evidenceItem!.id}/`);
+test("deep detail uses the compact four-part analysis", async ({ page }) => {
+  const analyzedNewsId = latest.deep_dives[0]?.news_ids[0];
+  expect(analyzedNewsId).toBeDefined();
+  await page.goto(`/news/${analyzedNewsId}/`);
 
   await expect(page.getByRole("heading", { name: "核心判断" })).toBeVisible();
   await expect(page.getByText("以下是分析框架，不是已发生事实")).toBeVisible();
