@@ -444,7 +444,9 @@ def build_news(
         freshness_note = (
             "本期首次收录。"
             if selected_article.freshness == "new"
-            else f"该条目最早于 {first_seen_date} 收录；本期新增来源不足时作为持续跟踪项保留。"
+            else (
+                f"该条目最早于 {first_seen_date} 收录，本期作为持续跟踪项复看；它不是今日首次发布的新消息。"
+            )
         )
         citation_note = {
             "official_page": "官方详情页正文摘录；本站仅保留必要短摘，完整语境请查阅原文。",
@@ -526,19 +528,9 @@ def build_news(
         )
         items.append(seal(item))
 
-    deep_dive_items: list[dict[str, Any]] = []
-    used_categories: set[str] = set()
     evidence_items = [item for item in items if item["evidence_level"] != "metadata_only"]
-    for item in evidence_items:
-        if item["category"] not in used_categories:
-            deep_dive_items.append(item)
-            used_categories.add(item["category"])
-        if len(deep_dive_items) == 3:
-            break
-    deep_dive_items.extend(item for item in evidence_items if item not in deep_dive_items)
-
     deep_dives: list[dict[str, Any]] = []
-    for index, item in enumerate(deep_dive_items[:3], 1):
+    for index, item in enumerate(evidence_items, 1):
         analysis = build_analysis(item["title"], item["category"])
         deep = record_base(f"deep-{date_value}-{index}", date_value, item["source_ids"])
         deep.update(
@@ -595,4 +587,11 @@ def generate_news(root: Path, date_value: str, lookback_days: int = 7) -> tuple[
         return build_news(articles, date_value, history), failures
     with httpx.Client(headers={"User-Agent": USER_AGENT}, timeout=20, follow_redirects=True) as client:
         failures.extend(_enrich_selected_articles(client, selected))
+    missing_evidence = [
+        item.article.title for item in selected if item.article.evidence_level == "metadata_only"
+    ]
+    if missing_evidence:
+        raise ValueError(
+            f"选中的 8 条新闻中有 {len(missing_evidence)} 条未取得官方正文或摘要；拒绝发布不完整的深度剖析"
+        )
     return build_news([item.article for item in selected], date_value, history), failures

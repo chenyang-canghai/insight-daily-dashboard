@@ -35,13 +35,23 @@ for (const entry of archive.entries ?? []) {
   );
   if (digest.news.length !== 8)
     errors.push(`${entry.date}: expected 8 news items`);
-  if (digest.deep_dives.length > 3)
-    errors.push(`${entry.date}: expected at most 3 deep dives`);
+  if (digest.deep_dives.length > digest.news.length)
+    errors.push(`${entry.date}: deep dives cannot exceed news items`);
+  if (
+    entry.date === latest.date &&
+    digest.deep_dives.length !== digest.news.length
+  )
+    errors.push(`${entry.date}: every latest news item must have a deep dive`);
   if (digest.exam.questions.length !== 8)
     errors.push(`${entry.date}: expected 8 questions`);
   const ids = digest.news.map((item) => item.id);
   if (new Set(ids).size !== ids.length)
     errors.push(`${entry.date}: duplicate news ids`);
+  const analyzedIds = digest.deep_dives.flatMap((item) => item.news_ids ?? []);
+  if (new Set(analyzedIds).size !== analyzedIds.length)
+    errors.push(`${entry.date}: a news item has duplicate deep dives`);
+  if (analyzedIds.some((id) => !ids.includes(id)))
+    errors.push(`${entry.date}: deep dive points to missing news item`);
   for (const item of digest.news) {
     if (item.is_demo !== (item.generation_status === "demo"))
       errors.push(`${item.id}: demo flag and generation status disagree`);

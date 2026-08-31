@@ -13,7 +13,7 @@ def test_demo_digest_validates() -> None:
     payload = json.loads((ROOT / "data/manifests/latest.json").read_text(encoding="utf-8"))
     digest = DailyDigest.model_validate(payload)
     assert len(digest.news) == 8
-    assert len(digest.deep_dives) <= 3
+    assert len(digest.deep_dives) == len(digest.news) == 8
     assert len(digest.exam.questions) == 8
 
 

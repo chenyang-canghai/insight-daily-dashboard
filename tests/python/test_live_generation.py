@@ -109,7 +109,7 @@ def test_live_news_is_source_bounded() -> None:
     )
 
 
-def test_live_news_deep_dives_require_and_use_official_evidence() -> None:
+def test_live_news_deep_dives_cover_every_item_with_official_evidence() -> None:
     published = datetime(2026, 8, 29, 7, tzinfo=BEIJING)
     titles = [
         "数字经济试点公布",
@@ -149,6 +149,40 @@ def test_live_news_deep_dives_require_and_use_official_evidence() -> None:
     }
     assert all("已核验材料" in dive["one_sentence"] for dive in result["deep_dives"])
     assert all("不是从标题扩写" in dive["background"] for dive in result["deep_dives"])
+
+
+def test_live_news_builds_eight_deep_dives_when_all_items_have_evidence() -> None:
+    published = datetime(2026, 8, 29, 7, tzinfo=BEIJING)
+    titles = [
+        "数字经济应用场景公开",
+        "人工智能治理规则发布",
+        "工业企业利润数据更新",
+        "半导体创新支持方案",
+        "青年就业专项服务行动",
+        "绿色制造体系建设通知",
+        "营商环境改革重点任务",
+        "基层治理能力提升方案",
+    ]
+    articles = [
+        RawArticle(
+            source_id=f"official-{index % 4}",
+            source_name=f"官方来源 {index % 4}",
+            source_url="https://example.gov.cn/list/",
+            title=titles[index],
+            url=f"https://example.gov.cn/full-evidence/{index}",
+            published_at=published - timedelta(minutes=index),
+            priority=5,
+            topics=["数字经济", "中国政策"],
+            description=f"官方材料确认第 {index + 1} 项应用已经进入公开验证阶段。",
+            evidence_level="official_page",
+        )
+        for index in range(8)
+    ]
+
+    result = build_news(articles, "2026-08-29")
+
+    assert len(result["deep_dives"]) == len(result["items"]) == 8
+    assert {dive["news_ids"][0] for dive in result["deep_dives"]} == {item["id"] for item in result["items"]}
 
 
 def test_live_news_prioritizes_new_items_and_labels_follow_ups() -> None:
@@ -192,6 +226,8 @@ def test_live_news_prioritizes_new_items_and_labels_follow_ups() -> None:
     assert result["items"][-1]["freshness"] == "follow_up"
     assert result["items"][-1]["first_seen_date"] == "2026-08-28"
     assert "持续跟踪" in result["items"][-1]["tags"]
+    assert "本期作为持续跟踪项复看" in result["items"][-1]["summary"]
+    assert "新增来源不足" not in result["items"][-1]["summary"]
 
 
 def test_live_news_rotates_follow_ups_by_oldest_last_seen_date() -> None:

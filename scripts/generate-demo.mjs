@@ -260,7 +260,7 @@ function makeNews(date, dayIndex) {
 }
 
 function makeDeepDives(date, news) {
-  return news.slice(0, 3).map((item, index) => {
+  return news.map((item, index) => {
     const id = `deep-${date}-${index + 1}`;
     const topic = topics[index];
     const dive = {
@@ -711,7 +711,7 @@ function makeDigest(date, dayIndex) {
     ]),
     title: `${date} 每日研判与公考学习看板`,
     overview:
-      "今日内容为显式 demo：用 20—40 分钟完成 8 条议题浏览、3 条逻辑链拆解、A 股研究结构复盘和 8 道原创行测练习。",
+      "今日内容为显式 demo：用 20—40 分钟完成 8 条议题浏览、8 条逻辑链拆解、A 股研究结构复盘和 8 道原创行测练习。",
     is_demo: true,
     task_statuses: [
       {

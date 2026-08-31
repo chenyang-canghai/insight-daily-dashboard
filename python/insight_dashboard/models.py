@@ -258,6 +258,6 @@ class DailyDigest(BaseRecord):
     is_demo: bool
     task_statuses: list[TaskStatus]
     news: list[NewsItem] = Field(min_length=8, max_length=8)
-    deep_dives: list[DeepDive] = Field(max_length=3)
+    deep_dives: list[DeepDive] = Field(max_length=8)
     market: MarketDaily
     exam: ExamDaily

@@ -158,7 +158,7 @@ def publish_module(
             "date": date_value,
             "generated_at": timestamp,
             "title": f"{date_value} 每日研判与公考学习看板",
-            "overview": "真实公开来源日报：8 条新闻索引、3 条逻辑链拆解、A 股风险复盘与 8 道原创公考练习。",
+            "overview": "真实公开来源日报：8 条新闻索引、8 条证据驱动的逻辑拆解、A 股风险复盘与 8 道原创公考练习。",
             "is_demo": False,
         }
     )

@@ -45,8 +45,14 @@ test("publishes the latest daily and news detail routes", async ({
   request,
 }) => {
   expect((await request.get(`/daily/${latest.date}/`)).ok()).toBe(true);
+  const analyzedIds = latest.deep_dives.flatMap((item) => item.news_ids);
+  expect(new Set(analyzedIds)).toEqual(
+    new Set(latest.news.map((item) => item.id)),
+  );
   for (const item of latest.news) {
-    expect((await request.get(`/news/${item.id}/`)).ok()).toBe(true);
+    const response = await request.get(`/news/${item.id}/`);
+    expect(response.ok()).toBe(true);
+    expect(await response.text()).toContain("核心判断");
   }
 });
 
