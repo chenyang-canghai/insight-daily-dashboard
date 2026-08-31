@@ -12,7 +12,10 @@ const latest = JSON.parse(
     new URL("../../data/manifests/latest.json", import.meta.url),
     "utf8",
   ),
-) as { date: string; news: Array<{ id: string }> };
+) as {
+  date: string;
+  news: Array<{ id: string; evidence_level?: string }>;
+};
 
 test("exposes installable PWA assets", async ({ request }) => {
   const manifestResponse = await request.get("/manifest.webmanifest");
@@ -44,6 +47,25 @@ test("publishes the latest daily and news detail routes", async ({
   for (const item of latest.news) {
     expect((await request.get(`/news/${item.id}/`)).ok()).toBe(true);
   }
+});
+
+test("evidence-backed detail uses the compact four-part analysis", async ({
+  page,
+}) => {
+  const evidenceItem = latest.news.find(
+    (item) => item.evidence_level && item.evidence_level !== "metadata_only",
+  );
+  expect(evidenceItem).toBeDefined();
+  await page.goto(`/news/${evidenceItem!.id}/`);
+
+  await expect(page.getByRole("heading", { name: "核心判断" })).toBeVisible();
+  await expect(page.getByText("以下是分析框架，不是已发生事实")).toBeVisible();
+  await expect(page.getByText(/第五步：识别利益影响/)).toHaveCount(0);
+
+  const chainOverflow = await page
+    .locator(".impact-chain")
+    .evaluate((element) => element.scrollWidth > element.clientWidth);
+  expect(chainOverflow).toBe(false);
 });
 
 test("browse, favorite, practice, market and archive", async ({ page }) => {

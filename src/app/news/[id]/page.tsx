@@ -1,4 +1,11 @@
-import { ArrowLeft, Clock3, ExternalLink, ShieldQuestion } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowLeft,
+  CheckCircle2,
+  Clock3,
+  ExternalLink,
+  ShieldQuestion,
+} from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -31,6 +38,16 @@ export default async function NewsDetailPage({
   const found = getNewsItem(id);
   if (!found) notFound();
   const { item, deepDive, digest } = found;
+  const evidenceLevel =
+    item.evidence_level ??
+    (item.facts.length > 1 ? "official_summary" : "metadata_only");
+  const hasEvidence = item.is_demo || evidenceLevel !== "metadata_only";
+  const evidenceLabel =
+    evidenceLevel === "official_page"
+      ? "官方正文摘录"
+      : evidenceLevel === "official_summary"
+        ? "官方摘要"
+        : "仅标题元数据";
   return (
     <>
       <DemoBanner isDemo={item.is_demo} />
@@ -75,83 +92,75 @@ export default async function NewsDetailPage({
               sourceUrl={item.source_url}
             />
           </div>
-          <div className="article-section">
-            <h2>为什么值得关注</h2>
-            <p>{item.why_it_matters}</p>
-            <h3>事实与推断分开</h3>
-            <ul>
+          <section className="article-section evidence-section">
+            <span className="eyebrow">先看证据</span>
+            <h2>目前能确认什么</h2>
+            <div className="fact-list">
               {item.facts.map((fact) => (
-                <li key={fact}>
-                  {item.is_demo ? "演示声明" : "已确认事实"}：{fact}
-                </li>
+                <div className="fact-item" key={fact}>
+                  <CheckCircle2 aria-hidden="true" size={17} />
+                  <p>{fact}</p>
+                </div>
               ))}
-              {item.inferences.map((inference) => (
-                <li key={inference}>推断边界：{inference}</li>
-              ))}
-            </ul>
-          </div>
-          {deepDive && (
-            <section className="article-section" id="deep-dive">
-              <span className="eyebrow">逻辑拆解</span>
-              <h2>一句话读懂</h2>
-              <p className="analysis-conclusion">{deepDive.one_sentence}</p>
-              <h3>第一步：确认事实边界</h3>
-              <p>{deepDive.background}</p>
-              <h3>第二步：按时间核验</h3>
-              <div className="timeline">
-                {deepDive.timeline.map((entry) => (
-                  <div className="timeline-item" key={entry.time}>
-                    <b>{entry.time}</b>
-                    <span>{entry.label}</span>
-                  </div>
+            </div>
+            <h3>为什么值得关注</h3>
+            <p>{item.why_it_matters}</p>
+            <div className="boundary-note">
+              <AlertTriangle aria-hidden="true" size={17} />
+              <div>
+                <b>分析边界</b>
+                {item.inferences.map((inference) => (
+                  <p key={inference}>{inference}</p>
                 ))}
               </div>
-              <h3>第三步：理解传导机制</h3>
+            </div>
+          </section>
+          {deepDive && hasEvidence ? (
+            <section className="article-section" id="deep-dive">
+              <span className="eyebrow">基于已核验材料</span>
+              <h2>核心判断</h2>
+              <p className="analysis-conclusion">{deepDive.one_sentence}</p>
+              <h3>1. 证据怎样支持判断</h3>
+              <p>{deepDive.background}</p>
+              <h3>2. 可能怎样传导</h3>
+              <p className="analysis-label">以下是分析框架，不是已发生事实</p>
               <p>{deepDive.mechanism}</p>
               <ImpactChain items={deepDive.impact_chain} />
-              <h3>第四步：分阶段观察</h3>
-              <ul>
-                <li>
-                  <b>短期：</b>
-                  {deepDive.short_term}
-                </li>
-                <li>
-                  <b>中期：</b>
-                  {deepDive.medium_term}
-                </li>
-                <li>
-                  <b>长期：</b>
-                  {deepDive.long_term}
-                </li>
-              </ul>
-              <h3>第五步：识别利益影响</h3>
-              <p>
-                <b>潜在受益：</b>
-                {deepDive.beneficiaries.join("；")}
-              </p>
-              <p>
-                <b>潜在承压：</b>
-                {deepDive.pressured_groups.join("；")}
-              </p>
-              <h3>第六步：列出未知项</h3>
-              <ul>
+              <h3>3. 接下来查什么</h3>
+              <ul className="question-list">
                 {deepDive.unknowns.map((unknown) => (
                   <li key={unknown}>{unknown}</li>
                 ))}
               </ul>
-              <h3>第七步：转化为申论素材</h3>
-              <p>
-                <b>主题：</b>
-                {deepDive.shenlun_material.theme}
-              </p>
-              <p>
-                <b>规范表达：</b>
-                {deepDive.shenlun_material.expressions.join("；")}
-              </p>
-              <p>
+              <h3>4. 申论怎么用</h3>
+              <p className="shenlun-argument">
                 <b>论证角度：</b>
                 {deepDive.shenlun_material.argument}
               </p>
+              <div className="expression-list" aria-label="申论规范表达">
+                {deepDive.shenlun_material.expressions.map((expression) => (
+                  <span key={expression}>{expression}</span>
+                ))}
+              </div>
+            </section>
+          ) : (
+            <section className="article-section insufficient-evidence">
+              <AlertTriangle aria-hidden="true" size={20} />
+              <div>
+                <h2>正文证据不足，暂不做深度剖析</h2>
+                <p>
+                  当前只核验到标题、来源和发布时间。为了避免把通用模板伪装成新闻结论，本页不扩写机制、受益者和长期影响。
+                </p>
+                <a
+                  className="text-link"
+                  href={item.source_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  打开官方原文继续核验
+                  <ExternalLink size={13} />
+                </a>
+              </div>
             </section>
           )}
         </article>
@@ -179,6 +188,7 @@ export default async function NewsDetailPage({
               <ShieldQuestion size={14} /> 分析边界
             </h3>
             <p>置信度：{deepDive?.confidence ?? "未生成"}</p>
+            <p>证据层级：{evidenceLabel}</p>
             <p>日报日期：{digest.date}</p>
             <p>
               {item.is_demo

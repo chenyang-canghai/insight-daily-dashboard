@@ -77,6 +77,21 @@ SOURCE_TITLE_FILTERS = {
         "技能",
     ),
 }
+HTML_BODY_SELECTORS = {
+    "ndrc-news": (".TRS_Editor", ".article_con"),
+    "nda-digital-economy": (".article", ".detail"),
+    "cac-policy": ("#UCAP-CONTENT", ".TRS_Editor", ".article-content", ".content"),
+    "nbs-latest": (".detail-content", ".TRS_Editor"),
+    "nbs-interpretation": (".detail-content", ".TRS_Editor"),
+}
+GENERIC_BODY_SELECTORS = (
+    "article",
+    ".article-content",
+    ".article_con",
+    ".detail-content",
+    ".pages_content",
+    ".main-content",
+)
 
 
 @dataclass(slots=True)
@@ -90,6 +105,7 @@ class RawArticle:
     priority: int
     topics: list[str]
     description: str = ""
+    evidence_level: str = "metadata_only"
 
 
 @dataclass(slots=True)
@@ -142,6 +158,14 @@ def _fetch_rss(client: httpx.Client, source: dict[str, Any]) -> list[RawArticle]
         published = _published(entry)
         if not entry.get("title") or not entry.get("link") or published is None:
             continue
+        description = " ".join(
+            BeautifulSoup(
+                str(entry.get("summary") or entry.get("description") or ""),
+                "html.parser",
+            )
+            .get_text(" ", strip=True)
+            .split()
+        )
         results.append(
             RawArticle(
                 source_id=source["id"],
@@ -152,14 +176,8 @@ def _fetch_rss(client: httpx.Client, source: dict[str, Any]) -> list[RawArticle]
                 published_at=published,
                 priority=int(source["priority"]),
                 topics=list(source.get("topics", [])),
-                description=" ".join(
-                    BeautifulSoup(
-                        str(entry.get("summary") or entry.get("description") or ""),
-                        "html.parser",
-                    )
-                    .get_text(" ", strip=True)
-                    .split()
-                ),
+                description=description,
+                evidence_level="official_summary" if description else "metadata_only",
             )
         )
     return results
@@ -205,6 +223,43 @@ def _fetch_html(client: httpx.Client, source: dict[str, Any]) -> list[RawArticle
     return results
 
 
+def _extract_html_description(content: bytes, source_id: str) -> str:
+    """Extract a bounded official-page excerpt without storing the full page."""
+    soup = BeautifulSoup(content, "html.parser", from_encoding="utf-8")
+    selectors = (*HTML_BODY_SELECTORS.get(source_id, ()), *GENERIC_BODY_SELECTORS)
+    for selector in selectors:
+        node = soup.select_one(selector)
+        if node is None:
+            continue
+        for unwanted in node.select("script, style, noscript, iframe, form, nav"):
+            unwanted.decompose()
+        text = " ".join(node.get_text(" ", strip=True).split())
+        text = re.sub(r"(?:发布会实录|附件：?|打印本页|关闭窗口)\s*$", "", text).strip()
+        chinese_characters = sum("\u4e00" <= character <= "\u9fff" for character in text)
+        if len(text) >= 40 and chinese_characters >= 12 and "�" not in text:
+            return text[:1800].rstrip()
+    return ""
+
+
+def _enrich_selected_articles(client: httpx.Client, selected: list[SelectedArticle]) -> list[str]:
+    failures: list[str] = []
+    for selected_article in selected:
+        article = selected_article.article
+        if article.description:
+            continue
+        try:
+            response = client.get(article.url)
+            response.raise_for_status()
+            description = _extract_html_description(response.content, article.source_id)
+            if not description:
+                raise ValueError("no supported article-body selector matched")
+            article.description = description
+            article.evidence_level = "official_page"
+        except Exception as exc:
+            failures.append(f"detail:{article.source_id}:{type(exc).__name__}: {exc}")
+    return failures
+
+
 def collect_articles(
     root: Path, target_date: date, lookback_days: int = 7
 ) -> tuple[list[RawArticle], list[str]]:
@@ -233,10 +288,10 @@ def collect_articles(
 
 def _category(article: RawArticle) -> str:
     title_lower = article.title.lower()
-    for topic in ("人工智能", "半导体", "国际时政", "数字经济"):
+    for topic in ("人工智能", "半导体", "国际时政", "数字经济", "中国政策", "宏观经济"):
         if any(keyword.lower() in title_lower for keyword in TOPIC_RULES[topic]):
             return topic
-    haystack = article.title + " " + article.description[:500] + " " + " ".join(article.topics)
+    haystack = article.description[:500] + " " + " ".join(article.topics)
     matches = [
         (topic, sum(keyword.lower() in haystack.lower() for keyword in keywords))
         for topic, keywords in TOPIC_RULES.items()
@@ -259,6 +314,27 @@ def _excerpt(value: str, limit: int = 260) -> str:
     if len(compact) <= limit:
         return compact
     return compact[:limit].rstrip() + "……"
+
+
+def _page_excerpt(value: str, limit: int = 360) -> str:
+    compact = " ".join(value.split())
+    sentences = [
+        sentence.strip() for sentence in re.split(r"(?<=[。！？])\s*", compact) if len(sentence.strip()) >= 8
+    ]
+    selected: list[str] = []
+    for sentence in sentences[:2]:
+        if len("".join(selected)) + len(sentence) > limit:
+            break
+        selected.append(sentence)
+    if selected:
+        return "".join(selected)
+    return _excerpt(compact, limit)
+
+
+def _evidence_excerpt(article: RawArticle) -> str:
+    if article.evidence_level == "official_page":
+        return _page_excerpt(article.description)
+    return _excerpt(article.description)
 
 
 def _load_recent_history(root: Path, target_date: date, history_days: int = 14) -> list[dict[str, Any]]:
@@ -370,19 +446,30 @@ def build_news(
             if selected_article.freshness == "new"
             else f"该条目最早于 {first_seen_date} 收录；本期新增来源不足时作为持续跟踪项保留。"
         )
+        citation_note = {
+            "official_page": "官方详情页正文摘录；本站仅保留必要短摘，完整语境请查阅原文。",
+            "official_summary": "官方 RSS 摘要；正文事实与完整语境请查阅原文。",
+        }.get(
+            article.evidence_level,
+            "官方公开列表元数据；正文事实与完整语境请查阅原文。",
+        )
         citation = {
             "source_id": article.source_id,
             "source_name": article.source_name,
             "url": article.url,
             "title": article.title,
             "published_at": article.published_at.isoformat(),
-            "note": "官方公开列表或 RSS 元数据；正文事实与完整语境请查阅原文。",
+            "note": citation_note,
         }
-        evidence_excerpt = _excerpt(article.description)
+        evidence_excerpt = _evidence_excerpt(article)
+        evidence_name = {
+            "official_page": "官方正文",
+            "official_summary": "官方 RSS 摘要",
+        }.get(article.evidence_level, "官方页面")
         summary = (
-            f"发生了什么：{article.source_name}于 {article.published_at:%Y-%m-%d} 公开《{article.title}》。"
+            f"{article.source_name}于 {article.published_at:%Y-%m-%d} 公开《{article.title}》。"
             + (
-                f"官方 RSS 摘要显示：{evidence_excerpt}"
+                f"{evidence_name}显示：{evidence_excerpt}"
                 if evidence_excerpt
                 else "目前可确认的是标题、来源和发布时间，正文细节仍需回到原文核对。"
             )
@@ -390,7 +477,19 @@ def build_news(
         )
         facts = [f"{article.source_name}的公开页面列出了题为《{article.title}》的条目。"]
         if evidence_excerpt:
-            facts.append(f"该官方 RSS 摘要写明：{evidence_excerpt}")
+            facts.append(f"{evidence_name}写明：{evidence_excerpt}")
+        if evidence_excerpt:
+            why_it_matters = (
+                f"{analysis['focus']} 本条已有{evidence_name}作为证据。"
+                f"接下来应{analysis['check'].rstrip('。')}；同时观察{analysis['watch']}。"
+            )
+            inferences = [f"{analysis['mechanism']} 这是帮助理解的分析框架，不代表这些结果已经发生。"]
+        else:
+            why_it_matters = (
+                "当前材料只能证明发布动作，不能证明具体政策工具或现实成效。"
+                "在核对官方正文前，把它作为后续阅读线索即可。"
+            )
+            inferences = ["正文尚未取得，因此不扩写机制、受益者或长期影响。"]
         item = record_base(f"news-{date_value}-{index:02d}", date_value, [article.source_id])
         item.update(
             {
@@ -403,38 +502,40 @@ def build_news(
                 "source_name": article.source_name,
                 "source_url": article.url,
                 "summary": summary,
-                "why_it_matters": f"{analysis['focus']} 对“{category}”而言，接下来重点观察{analysis['watch']}。",
+                "why_it_matters": why_it_matters,
                 "importance_score": max(60, 92 - article.priority - index),
                 "reliability": "A",
                 "tags": [
                     category,
                     "本期新增" if selected_article.freshness == "new" else "持续跟踪",
                     "官方来源",
-                    "元数据索引",
+                    "正文摘录"
+                    if article.evidence_level == "official_page"
+                    else ("官方摘要" if article.evidence_level == "official_summary" else "元数据索引"),
                 ],
                 "facts": facts,
-                "inferences": [
-                    f"分析框架认为应关注{analysis['watch']}；这是待核验的观察方向，不是已经发生的效果。"
-                ],
+                "inferences": inferences,
                 "citations": [citation],
                 "related_items": [],
-                "reading_minutes": 4,
+                "reading_minutes": 5 if evidence_excerpt else 2,
                 "is_demo": False,
                 "freshness": selected_article.freshness,
                 "first_seen_date": first_seen_date,
+                "evidence_level": article.evidence_level,
             }
         )
         items.append(seal(item))
 
     deep_dive_items: list[dict[str, Any]] = []
     used_categories: set[str] = set()
-    for item in items:
+    evidence_items = [item for item in items if item["evidence_level"] != "metadata_only"]
+    for item in evidence_items:
         if item["category"] not in used_categories:
             deep_dive_items.append(item)
             used_categories.add(item["category"])
         if len(deep_dive_items) == 3:
             break
-    deep_dive_items.extend(item for item in items if item not in deep_dive_items)
+    deep_dive_items.extend(item for item in evidence_items if item not in deep_dive_items)
 
     deep_dives: list[dict[str, Any]] = []
     for index, item in enumerate(deep_dive_items[:3], 1):
@@ -444,9 +545,14 @@ def build_news(
             {
                 "generated_at": generated_at,
                 "news_ids": [item["id"]],
-                "title": f"逻辑拆解｜{item['title']}",
-                "one_sentence": f"对《{item['title']}》，{analysis['focus']}",
-                "background": f"读懂这条信息可以分三层：第一层确认谁在何时发布了什么；第二层按“{analysis['check']}”核对正文；第三层再观察“{analysis['watch']}”。这样能把事实、解释和判断分开。",
+                "title": f"深度剖析｜{item['title']}",
+                "one_sentence": (f"{analysis['focus']} 结合已核验材料，下一步重点看{analysis['watch']}。"),
+                "background": (
+                    f"本页依据{item['source_name']}的"
+                    f"{'官方正文短摘' if item['evidence_level'] == 'official_page' else '官方摘要'}，"
+                    "而不是从标题扩写。上方事实卡列出了可以确认的具体内容；"
+                    f"{analysis['unknowns'][0]}仍需继续核验。"
+                ),
                 "timeline": [
                     {"time": item["published_at"][:10], "label": "官方页面发布该条目", "status": "confirmed"},
                     {"time": "当前", "label": analysis["check"], "status": "context"},
@@ -461,7 +567,7 @@ def build_news(
                 "medium_term": analysis["medium_term"],
                 "long_term": analysis["long_term"],
                 "unknowns": analysis["unknowns"],
-                "confidence": "中",
+                "confidence": "中高" if item["evidence_level"] == "official_page" else "中",
                 "student_insights": [
                     "先写清已确认的发布事实，不把标题扩写成正文",
                     f"再用“{analysis['impact_chain'][0]}—{analysis['impact_chain'][-1]}”解释可能的传导机制",
@@ -484,4 +590,9 @@ def build_news(
 def generate_news(root: Path, date_value: str, lookback_days: int = 7) -> tuple[dict[str, Any], list[str]]:
     articles, failures = collect_articles(root, date.fromisoformat(date_value), lookback_days)
     history = _load_recent_history(root, date.fromisoformat(date_value))
-    return build_news(articles, date_value, history), failures
+    selected = _select(articles, 8, history)
+    if len(selected) < 8:
+        return build_news(articles, date_value, history), failures
+    with httpx.Client(headers={"User-Agent": USER_AGENT}, timeout=20, follow_redirects=True) as client:
+        failures.extend(_enrich_selected_articles(client, selected))
+    return build_news([item.article for item in selected], date_value, history), failures

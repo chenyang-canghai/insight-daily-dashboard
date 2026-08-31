@@ -35,8 +35,8 @@ for (const entry of archive.entries ?? []) {
   );
   if (digest.news.length !== 8)
     errors.push(`${entry.date}: expected 8 news items`);
-  if (digest.deep_dives.length !== 3)
-    errors.push(`${entry.date}: expected 3 deep dives`);
+  if (digest.deep_dives.length > 3)
+    errors.push(`${entry.date}: expected at most 3 deep dives`);
   if (digest.exam.questions.length !== 8)
     errors.push(`${entry.date}: expected 8 questions`);
   const ids = digest.news.map((item) => item.id);

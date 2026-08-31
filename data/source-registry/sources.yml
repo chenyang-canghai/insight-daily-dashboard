@@ -41,7 +41,7 @@ sources:
     priority: 5
     enabled: true
     topics: [宏观经济, 中国政策, 绿色发展, 营商环境]
-    allowed_fields: [title, url, published_at]
+    allowed_fields: [title, url, published_at, description_excerpt]
   - id: nda-digital-economy
     name: 国家数据局-数字经济
     type: official_html_list
@@ -49,7 +49,7 @@ sources:
     priority: 5
     enabled: true
     topics: [数字经济, 数据要素, 数字政府]
-    allowed_fields: [title, url, published_at]
+    allowed_fields: [title, url, published_at, description_excerpt]
   - id: cac-policy
     name: 国家互联网信息办公室-政策法规
     type: official_html_list
@@ -57,7 +57,7 @@ sources:
     priority: 6
     enabled: true
     topics: [人工智能, 数字经济, 中国政策]
-    allowed_fields: [title, url, published_at]
+    allowed_fields: [title, url, published_at, description_excerpt]
   - id: akshare
     name: AKShare
     type: market_aggregator

@@ -54,6 +54,7 @@ class NewsItem(BaseRecord):
     is_demo: bool
     freshness: Literal["new", "follow_up"] = "new"
     first_seen_date: str | None = None
+    evidence_level: Literal["metadata_only", "official_summary", "official_page"] = "metadata_only"
 
     @model_validator(mode="after")
     def facts_require_sources(self) -> NewsItem:
@@ -257,6 +258,6 @@ class DailyDigest(BaseRecord):
     is_demo: bool
     task_statuses: list[TaskStatus]
     news: list[NewsItem] = Field(min_length=8, max_length=8)
-    deep_dives: list[DeepDive] = Field(min_length=3, max_length=3)
+    deep_dives: list[DeepDive] = Field(max_length=3)
     market: MarketDaily
     exam: ExamDaily

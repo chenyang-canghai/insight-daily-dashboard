@@ -44,6 +44,7 @@ export interface NewsItem extends BaseMeta {
   is_demo: boolean;
   freshness?: "new" | "follow_up";
   first_seen_date?: string | null;
+  evidence_level?: "metadata_only" | "official_summary" | "official_page";
 }
 
 export interface TimelineEntry {

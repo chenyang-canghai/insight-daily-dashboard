@@ -146,7 +146,9 @@ def event_kind(title: str) -> str:
         return "数据"
     if any(word in title for word in ("价格调整", "调价", "价格")):
         return "价格"
-    if any(word in title for word in ("会议", "座谈", "会谈", "发布会", "论坛")):
+    if "发布会" in title:
+        return "发布会"
+    if any(word in title for word in ("会议", "座谈", "会谈", "论坛")):
         return "会议"
     if any(word in title for word in ("意见", "通知", "办法", "条例", "方案", "规划", "细则")):
         return "政策"
@@ -179,6 +181,15 @@ EVENT_GUIDES = {
             "本次调整的具体方向、幅度和生效时间",
             "不同地区、行业和群体的实际承担差异",
             "成本变化能否以及多快向下游传导",
+        ],
+    },
+    "发布会": {
+        "focus": "发布会的价值在于公开议题、口径和回应，但信息发布不等于政策已经执行，也不等于效果已经出现。",
+        "check": "核对发布主体、回应议题、引用的政策或数据，以及哪些内容是已实施措施、哪些是后续安排。",
+        "unknowns": [
+            "发布会回应中哪些内容对应正式文件或已实施措施",
+            "具体政策工具、责任主体和时间表",
+            "后续是否有执行数据验证实际效果",
         ],
     },
     "会议": {

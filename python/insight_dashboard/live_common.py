@@ -115,7 +115,7 @@ def _write_module(root: Path, date_value: str, module: str, value: Any) -> None:
         markdown = "# 新闻与深度剖析\n\n" + "\n\n".join(
             f"## [{item['title']}]({item['source_url']})\n\n{item['summary']}" for item in value["items"]
         )
-        markdown += "\n\n# 三条逻辑拆解\n\n" + "\n\n".join(
+        markdown += f"\n\n# 深度剖析（{len(value['deep_dives'])} 条）\n\n" + "\n\n".join(
             "\n\n".join(
                 [
                     f"## {deep['title']}",
@@ -181,12 +181,15 @@ def publish_module(
     if module == "news":
         new_count = sum(item.get("freshness", "new") == "new" for item in value["items"])
         follow_up_count = len(value["items"]) - new_count
+        deep_count = len(value["deep_dives"])
         module_messages["news"] = (
-            f"本期新增 {new_count} 条，持续跟踪 {follow_up_count} 条；均来自官方公开来源"
+            f"本期新增 {new_count} 条，持续跟踪 {follow_up_count} 条，"
+            f"其中 {deep_count} 条具备深度剖析证据；均来自官方公开来源"
         )
         payload["overview"] = (
             f"真实公开来源日报：本期新增 {new_count} 条、持续跟踪 {follow_up_count} 条，"
-            "并提供 3 条按事实、机制、影响和申论转化展开的逻辑拆解；另含 A 股风险复盘与 8 道轮换原创练习。"
+            f"并提供 {deep_count} 条有正文或官方摘要支撑的深度剖析；"
+            "另含 A 股风险复盘与 8 道轮换原创练习。"
         )
     statuses[module] = {
         "module": module,

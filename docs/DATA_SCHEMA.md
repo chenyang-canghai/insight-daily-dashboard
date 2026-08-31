@@ -4,7 +4,7 @@ TypeScript 契约位于 `src/types/content.ts`，Pydantic 契约位于 `python/i
 
 所有顶层记录包含 `schema_version`、`id`、`date`、`generated_at`、`timezone`、`source_ids`、`content_hash`、`generation_status` 和 `validation_errors`。
 
-- `NewsItem`：标题、类别、地区、时间、来源、摘要、重要性、可靠性、事实/推断、引用和关联。
+- `NewsItem`：标题、类别、地区、时间、来源、摘要、重要性、可靠性、事实/推断、引用、关联和证据层级（仅元数据 / 官方摘要 / 官方正文短摘）。
 - `DeepDive`：背景、时间线、利益相关方、机制、影响链、时间维度、未知信息、置信度和申论转化。
 - `MarketDaily`：交易日状态、6 个指数、广度、成交、情绪依据、行业、研究标的、来源与质量。
 - `Question`：授权类型、考试信息、题型、题干、选项、唯一答案、解析、最快方法、陷阱和建议时间。

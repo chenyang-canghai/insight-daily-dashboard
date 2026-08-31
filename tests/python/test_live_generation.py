@@ -3,7 +3,16 @@ from pathlib import Path
 
 from insight_dashboard.live_common import BEIJING, publish_module
 from insight_dashboard.live_exam import generate_exam
-from insight_dashboard.live_news import RawArticle, _excerpt, _parse_date, _source_relevant, build_news
+from insight_dashboard.live_news import (
+    RawArticle,
+    _category,
+    _excerpt,
+    _extract_html_description,
+    _parse_date,
+    _source_relevant,
+    build_news,
+)
+from insight_dashboard.news_analysis import event_kind
 from insight_dashboard.validation import validate_digest
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -27,10 +36,39 @@ def test_source_topic_filter_rejects_cross_channel_reposts() -> None:
     assert not _source_relevant(RawArticle(title="外国领导人举行会谈", **base))
 
 
+def test_title_category_prefers_specific_policy_and_international_signals() -> None:
+    base = {
+        "source_id": "ndrc-news",
+        "source_name": "国家发展改革委-新闻发布",
+        "source_url": "https://example.gov.cn/list/",
+        "url": "https://example.gov.cn/item/1",
+        "published_at": datetime(2026, 8, 30, 7, tzinfo=BEIJING),
+        "priority": 5,
+        "topics": ["宏观经济", "中国政策"],
+    }
+    assert _category(RawArticle(title="国家发展改革委举行8月份新闻发布会", **base)) == "中国政策"
+    assert _category(RawArticle(title="中阿投资合作委员会秘书处会议召开", **base)) == "国际时政"
+    assert event_kind("国家发展改革委举行8月份新闻发布会") == "发布会"
+
+
 def test_rss_excerpt_stops_before_table_like_tail() -> None:
     sentence = "监测显示，本期33种产品价格上涨，14种下降，3种持平。"
     assert _excerpt(sentence + " 产品名称单位本期价格" * 30) == sentence
     assert _excerpt(sentence + " 产品名称单位本期价格" * 3) == sentence
+
+
+def test_official_html_body_extracts_bounded_evidence() -> None:
+    html = """
+    <html><body><div class="TRS_Editor">
+      <p>国家发展改革委举行新闻发布会。</p>
+      <p>发布会介绍有效投资和物流网建设情况，并回应集成电路等问题。</p>
+      <script>ignore()</script>
+    </div><footer>不应采集的页脚</footer></body></html>
+    """.encode()
+    excerpt = _extract_html_description(html, "ndrc-news")
+    assert "有效投资和物流网建设" in excerpt
+    assert "ignore" not in excerpt
+    assert "不应采集的页脚" not in excerpt
 
 
 def test_live_news_is_source_bounded() -> None:
@@ -62,16 +100,55 @@ def test_live_news_is_source_bounded() -> None:
     ]
     result = build_news(articles, "2026-08-29")
     assert len(result["items"]) == 8
-    assert len(result["deep_dives"]) == 3
+    assert len(result["deep_dives"]) == 0
     assert all(not item["is_demo"] and item["citations"] for item in result["items"])
     assert all("正文细节仍需回到原文核对" in item["summary"] for item in result["items"])
+    assert all(item["evidence_level"] == "metadata_only" for item in result["items"])
     assert all(
         item["freshness"] == "new" and item["first_seen_date"] == "2026-08-29" for item in result["items"]
     )
-    assert len({item["one_sentence"] for item in result["deep_dives"]}) == 3
-    assert all(
-        "第一层" in item["background"] and len(item["impact_chain"]) >= 5 for item in result["deep_dives"]
-    )
+
+
+def test_live_news_deep_dives_require_and_use_official_evidence() -> None:
+    published = datetime(2026, 8, 29, 7, tzinfo=BEIJING)
+    titles = [
+        "数字经济试点公布",
+        "人工智能治理规则发布",
+        "工业企业利润数据更新",
+        "半导体创新支持方案",
+        "青年就业专项服务行动",
+        "绿色制造体系建设通知",
+        "营商环境改革重点任务",
+        "基层治理能力提升方案",
+    ]
+    articles = [
+        RawArticle(
+            source_id=f"official-{index % 4}",
+            source_name=f"官方来源 {index % 4}",
+            source_url="https://example.gov.cn/list/",
+            title=titles[index],
+            url=f"https://example.gov.cn/evidence/{index}",
+            published_at=published - timedelta(minutes=index),
+            priority=5,
+            topics=["数字经济", "中国政策"],
+            description=f"官方材料确认第 {index} 项试点已公布。后续将按公开规则推进场景验证。",
+            evidence_level="official_page" if index < 3 else "metadata_only",
+        )
+        for index in range(8)
+    ]
+    for article in articles[3:]:
+        article.description = ""
+
+    result = build_news(articles, "2026-08-29")
+
+    assert len(result["deep_dives"]) == 3
+    assert {dive["news_ids"][0] for dive in result["deep_dives"]} == {
+        "news-2026-08-29-01",
+        "news-2026-08-29-02",
+        "news-2026-08-29-03",
+    }
+    assert all("已核验材料" in dive["one_sentence"] for dive in result["deep_dives"])
+    assert all("不是从标题扩写" in dive["background"] for dive in result["deep_dives"])
 
 
 def test_live_news_prioritizes_new_items_and_labels_follow_ups() -> None:
