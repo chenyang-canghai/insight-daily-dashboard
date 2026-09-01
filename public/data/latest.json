@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "id": "daily-2026-09-01",
-  "date": "2026-09-01",
-  "generated_at": "2026-09-01T18:34:40+08:00",
+  "id": "daily-2026-09-02",
+  "date": "2026-09-02",
+  "generated_at": "2026-09-02T06:48:55+08:00",
   "timezone": "Asia/Shanghai",
   "source_ids": [
     "baostock",
@@ -12,17 +12,17 @@
     "ndrc-news",
     "system-original"
   ],
-  "content_hash": "2237157c89e0fff336d8afdad68ad40f478dd9c1ed887204989070a6473a00ec",
-  "generation_status": "success",
+  "content_hash": "06e07dbf0f0189c855daed9ba16cdcc5f91febf948f48d8c7bbd34ced53dc4e8",
+  "generation_status": "partial",
   "validation_errors": [],
-  "title": "2026-09-01 每日研判与公考学习看板",
+  "title": "2026-09-02 每日研判与公考学习看板",
   "overview": "真实公开来源日报：8 条新闻索引、8 条证据驱动的逻辑拆解、A 股风险复盘与 8 道原创公考练习。",
   "is_demo": false,
   "task_statuses": [
     {
       "module": "exam",
       "scheduled_time": "06:45",
-      "last_run": "2026-09-01T06:48:47+08:00",
+      "last_run": "2026-09-02T06:48:55+08:00",
       "status": "success",
       "freshness": "fresh",
       "message": "原创练习已生成并校验"
@@ -31,17 +31,17 @@
       "module": "news",
       "scheduled_time": "07:15",
       "last_run": "2026-09-01T07:21:31+08:00",
-      "status": "success",
-      "freshness": "fresh",
-      "message": "本期新增 1 条，持续跟踪 7 条，其中 8 条具备深度剖析证据；均来自官方公开来源"
+      "status": "stale",
+      "freshness": "stale",
+      "message": "沿用上一期数据，等待本模块更新"
     },
     {
       "module": "market",
       "scheduled_time": "18:25",
       "last_run": "2026-09-01T18:34:40+08:00",
-      "status": "success",
-      "freshness": "fresh",
-      "message": "公开行情已完成收盘复盘"
+      "status": "stale",
+      "freshness": "stale",
+      "message": "沿用上一期数据，等待本模块更新"
     }
   ],
   "news": [
@@ -1546,25 +1546,25 @@
   },
   "exam": {
     "schema_version": "1.0.0",
-    "id": "exam-2026-09-01",
-    "date": "2026-09-01",
-    "generated_at": "2026-09-01T06:48:47+08:00",
+    "id": "exam-2026-09-02",
+    "date": "2026-09-02",
+    "generated_at": "2026-09-02T06:48:55+08:00",
     "timezone": "Asia/Shanghai",
     "source_ids": [
       "system-original"
     ],
-    "content_hash": "98cba1e1ef036b9a86d2bcbded1ce873922dafe588c79feee0415c94bfdbeb10",
+    "content_hash": "37396883d458dbdb492375ce4086b7c70bcb9ed8b596f880ff4250c722cac6c7",
     "generation_status": "success",
     "validation_errors": [],
     "questions": [
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-01-1",
-        "date": "2026-09-01",
-        "generated_at": "2026-09-01T06:48:47+08:00",
+        "id": "q-2026-09-02-1",
+        "date": "2026-09-02",
+        "generated_at": "2026-09-02T06:48:55+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "1820ab83638cc869cf9bd3568c908b465eb88554aa8b9f0e679d9a351a49d82b",
+        "content_hash": "31db8aa2315fd2eb3a53443945fdb180983876fbeb44c2e88903e44a68faa3ba",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1581,29 +1581,29 @@
         "is_demo": false,
         "question_type": "言语理解",
         "difficulty": "基础",
-        "stem": "推进数字政府建设，既要打通数据壁垒，也要防止技术应用脱离群众需求。填入横线处最恰当的是：数字化转型应当____。",
+        "stem": "释放数据要素价值，既要让数据在合规前提下流动起来，也要让数据真正进入生产和治理场景。填入横线处最恰当的是：数据开发利用要____。",
         "options": {
-          "A": "唯技术投入是从",
-          "B": "以公共价值和实际需求为导向",
-          "C": "取消全部线下服务",
-          "D": "追求平台数量最大化"
+          "A": "只重数量、不问质量",
+          "B": "兼顾规范流通与场景应用",
+          "C": "完全排斥市场主体参与",
+          "D": "以重复建设扩大规模"
         },
         "correct_answer": "B",
-        "explanation": "前文同时强调数据协同和群众需求，只有 B 准确概括二者。",
-        "fastest_method": "抓住‘既要……也要……’后的共同目标。",
+        "explanation": "文段强调合规流动与实际应用两个方面，B 完整对应。",
+        "fastest_method": "把‘流动’和‘应用’两个关键词同时纳入答案。",
         "traps": [
-          "把数字化等同于单纯技术堆叠"
+          "只概括其中一个方面"
         ],
         "suggested_seconds": 60
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-01-2",
-        "date": "2026-09-01",
-        "generated_at": "2026-09-01T06:48:47+08:00",
+        "id": "q-2026-09-02-2",
+        "date": "2026-09-02",
+        "generated_at": "2026-09-02T06:48:55+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "a68ecaac82acda44c18482d4753b41100919667ca7c3712d58d7f9648c406c13",
+        "content_hash": "ee6db1b68a19ccf2dacb5ec51771ae0e0a6fe1776cdfe7ad4867170c1a422af5",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1620,16 +1620,16 @@
         "is_demo": false,
         "question_type": "判断推理",
         "difficulty": "中等",
-        "stem": "某项政策只有同时完成数据标准统一和部门职责确认，才能进入联调。现已进入联调。由此一定可以推出：",
+        "stem": "某政务应用只有同时通过个人信息保护评估和数据授权审查，才能正式上线。现该应用已正式上线。由此一定可以推出：",
         "options": {
-          "A": "只完成了数据标准统一",
-          "B": "只完成了部门职责确认",
+          "A": "只完成了个人信息保护评估",
+          "B": "只完成了数据授权审查",
           "C": "两项前置条件均已完成",
-          "D": "进入联调一定成功"
+          "D": "正式上线一定成功"
         },
         "correct_answer": "C",
-        "explanation": "‘只有 A 且 B，才 C’表示 C→A 且 B；已进入联调可推出两项前置条件均完成。",
-        "fastest_method": "把‘只有……才……’写成：进入联调→两项条件。",
+        "explanation": "‘只有 A 且 B，才 C’表示 C→A 且 B；已正式上线可推出两项前置条件均完成。",
+        "fastest_method": "把‘只有……才……’写成：正式上线→两项条件。",
         "traps": [
           "把必要条件方向写反"
         ],
@@ -1637,12 +1637,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-01-3",
-        "date": "2026-09-01",
-        "generated_at": "2026-09-01T06:48:47+08:00",
+        "id": "q-2026-09-02-3",
+        "date": "2026-09-02",
+        "generated_at": "2026-09-02T06:48:55+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "aa9b99ee5245f13a66db47fc6c8db32ec91fa4f7b10bc98ddbf1f29eb89aac81",
+        "content_hash": "dd1bbcfbf2d4b19bf548db93870f40b84aa5ae4a15184cdf2a9e29598bce95eb",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1659,15 +1659,15 @@
         "is_demo": false,
         "question_type": "数量关系",
         "difficulty": "中等",
-        "stem": "某学习小组 5 天共完成 65 道题，若每天完成题数相同，则平均每天完成多少道？",
+        "stem": "某学习小组 5 天共完成 70 道题，若每天完成题数相同，则平均每天完成多少道？",
         "options": {
-          "A": "11",
-          "B": "12",
-          "C": "13",
-          "D": "14"
+          "A": "12",
+          "B": "13",
+          "C": "14",
+          "D": "15"
         },
         "correct_answer": "C",
-        "explanation": "65÷5=13。",
+        "explanation": "70÷5=14。",
         "fastest_method": "总量直接除以天数。",
         "traps": [
           "把总量与日均量混淆"
@@ -1676,12 +1676,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-01-4",
-        "date": "2026-09-01",
-        "generated_at": "2026-09-01T06:48:47+08:00",
+        "id": "q-2026-09-02-4",
+        "date": "2026-09-02",
+        "generated_at": "2026-09-02T06:48:55+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "bf8cc573b87fb2b893ef5d6d91dd7c312781c5f441a64777a8c93f7f8001d705",
+        "content_hash": "0187782fbb129310e5422a2a1e1b77c0524808e8a54ab2f46cc573e1424629bb",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1698,7 +1698,7 @@
         "is_demo": false,
         "question_type": "资料分析",
         "difficulty": "基础",
-        "stem": "某产业数字化投入由 160 变为 200，增幅为：",
+        "stem": "某事项平均办理时间由 12 变为 9，降幅为：",
         "options": {
           "A": "20%",
           "B": "25%",
@@ -1706,7 +1706,7 @@
           "D": "35%"
         },
         "correct_answer": "B",
-        "explanation": "增幅=|200-160|÷160=25%，分母为基期值。",
+        "explanation": "降幅=|9-12|÷12=25%，分母为基期值。",
         "fastest_method": "先求变化量，再除以变化前的基期值。",
         "traps": [
           "错用报告期数值作分母"
@@ -1715,12 +1715,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-01-5",
-        "date": "2026-09-01",
-        "generated_at": "2026-09-01T06:48:47+08:00",
+        "id": "q-2026-09-02-5",
+        "date": "2026-09-02",
+        "generated_at": "2026-09-02T06:48:55+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "0a1da689f6478e6630c77138e836bd524a95b857ec49f4a1622b4d507d86bb9c",
+        "content_hash": "8bdcaed697edb65ba2fe1c37da12c39172cc85218028d20614bafebc7b72dd4c",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1737,29 +1737,29 @@
         "is_demo": false,
         "question_type": "常识判断",
         "difficulty": "中等",
-        "stem": "下列做法中，最能体现基层治理中的全过程人民参与的是：",
+        "stem": "下列做法中，最有利于增强乡村产业内生发展能力的是：",
         "options": {
-          "A": "方案确定后仅发布结果",
-          "B": "由单一部门内部决定全部事项",
-          "C": "议题征集、协商论证、结果反馈和效果评估形成闭环",
-          "D": "以网络投票代替所有法定程序"
+          "A": "长期依赖一次性补贴",
+          "B": "只建设展示项目",
+          "C": "培育本地人才并完善利益联结机制",
+          "D": "照搬其他地区产业模式"
         },
         "correct_answer": "C",
-        "explanation": "全过程参与强调从议题形成到实施评估的持续参与，同时不能取代法定程序。",
-        "fastest_method": "识别征集、协商、反馈、评估四个连续环节。",
+        "explanation": "内生能力来自本地人才、组织和可持续利益机制，而不是短期外部投入。",
+        "fastest_method": "抓住‘内生’对应本地能力和长效机制。",
         "traps": [
-          "把一次性表达等同于全过程参与"
+          "把外部输血当成持续造血"
         ],
         "suggested_seconds": 60
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-01-6",
-        "date": "2026-09-01",
-        "generated_at": "2026-09-01T06:48:47+08:00",
+        "id": "q-2026-09-02-6",
+        "date": "2026-09-02",
+        "generated_at": "2026-09-02T06:48:55+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "344d6eed5ad1f323125c1328ae5f9c8258d5dedd59d16383dd94b1442ec7f026",
+        "content_hash": "720cec69a6e2639aceed9ab3ffe38be45a943c62caa378479eac3f9cafa8dcf4",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1776,12 +1776,12 @@
         "is_demo": false,
         "question_type": "判断推理",
         "difficulty": "进阶",
-        "stem": "如果企业数字化投入有效，则生产效率提高或服务质量改善。现观察到生产效率未提高且服务质量未改善，可以推出：",
+        "stem": "如果数据治理措施有效，则重复填报减少或数据准确率提高。现观察到重复填报未减少且数据准确率未提高，可以推出：",
         "options": {
-          "A": "数字化投入一定很多",
-          "B": "数字化投入未产生题干所定义的有效结果",
-          "C": "企业没有使用数字技术",
-          "D": "服务质量一定下降"
+          "A": "数据治理措施一定很多",
+          "B": "数据治理措施未产生题干所定义的有效结果",
+          "C": "部门没有采集数据",
+          "D": "数据准确率一定下降"
         },
         "correct_answer": "B",
         "explanation": "前件有效可推出两个结果至少一个成立；两个结果均被否定，可通过逆否命题否定‘有效’。",
@@ -1793,12 +1793,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-01-7",
-        "date": "2026-09-01",
-        "generated_at": "2026-09-01T06:48:47+08:00",
+        "id": "q-2026-09-02-7",
+        "date": "2026-09-02",
+        "generated_at": "2026-09-02T06:48:55+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "2fbef6c6ae3af1ecec6e3fde20fbd935335c6569bce83258fc3b05fd53349663",
+        "content_hash": "4e55b8a74ec68249d803d2db4682cebd10605456cf6d44bdc7a395803a9a825e",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1815,12 +1815,12 @@
         "is_demo": false,
         "question_type": "言语理解",
         "difficulty": "中等",
-        "stem": "产业升级不是简单增加设备，而是要让技术、人才、制度和市场彼此衔接。该句主要强调：",
+        "stem": "数字政府不能只把线下流程搬到网上，还要围绕群众需求重塑事项、材料和部门协同。该句主要强调：",
         "options": {
-          "A": "设备投资应全部停止",
-          "B": "产业升级需要多要素协同",
-          "C": "人才比市场更重要",
-          "D": "制度可以代替技术"
+          "A": "所有线下服务都应取消",
+          "B": "数字政府建设要以需求推动流程再造",
+          "C": "平台数量决定服务水平",
+          "D": "技术采购可以代替部门协同"
         },
         "correct_answer": "B",
         "explanation": "文段通过转折或递进指出，解决问题不能依靠单一投入，而要形成需求、要素和流程之间的协同。",
@@ -1832,12 +1832,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-01-8",
-        "date": "2026-09-01",
-        "generated_at": "2026-09-01T06:48:47+08:00",
+        "id": "q-2026-09-02-8",
+        "date": "2026-09-02",
+        "generated_at": "2026-09-02T06:48:55+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "dcc37f5b55c40668f1a33b8cadaed5caf826f82d893c140bd901fb33407bec1e",
+        "content_hash": "f6ceaa08526bd33ae37e9fdb4c59af3d88c3d60bb0c35975e5186b61c7f5060c",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1854,15 +1854,15 @@
         "is_demo": false,
         "question_type": "数量关系",
         "difficulty": "中等",
-        "stem": "某项目三个指标权重分别为 20%、30%、50%，得分分别为 90、80、70，综合得分为：",
+        "stem": "某项目三个指标权重分别为 30%、30%、40%，得分分别为 80、90、75，综合得分为：",
         "options": {
-          "A": "75",
-          "B": "76",
-          "C": "77",
-          "D": "78"
+          "A": "79",
+          "B": "80",
+          "C": "81",
+          "D": "82"
         },
         "correct_answer": "C",
-        "explanation": "90×20%+80×30%+70×50%=77。",
+        "explanation": "80×30%+90×30%+75×40%=81。",
         "fastest_method": "各项分数乘权重后相加。",
         "traps": [
           "直接计算算术平均数"
@@ -1872,14 +1872,14 @@
     ],
     "shenlun": {
       "schema_version": "1.0.0",
-      "id": "shenlun-2026-09-01",
-      "date": "2026-09-01",
-      "generated_at": "2026-09-01T06:48:47+08:00",
+      "id": "shenlun-2026-09-02",
+      "date": "2026-09-02",
+      "generated_at": "2026-09-02T06:48:55+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
         "system-original"
       ],
-      "content_hash": "5329c92738ba5bc3037aab65b06c3c924f080749310eec8510a76026b7bdaf87",
+      "content_hash": "5840fdbbc5e54c15ab1dde3a7505dd6c0eb4b8e6aa7323ae09d502c0947e990e",
       "generation_status": "success",
       "validation_errors": [],
       "current_affairs": [
