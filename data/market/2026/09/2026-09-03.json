@@ -1,0 +1,312 @@
+{
+  "schema_version": "1.0.0",
+  "id": "market-2026-09-03",
+  "date": "2026-09-03",
+  "generated_at": "2026-09-03T18:32:18+08:00",
+  "timezone": "Asia/Shanghai",
+  "source_ids": [
+    "baostock"
+  ],
+  "content_hash": "069106aa95c070fb99ddb688e28d73bb6d3ba56ffb7d48cf7885ebfbb0ced0e8",
+  "generation_status": "success",
+  "validation_errors": [],
+  "trading_date": "2026-09-03",
+  "market_status": "closed",
+  "status_note": "2026-09-03 收盘数据；AKShare 不可用，已降级到 BaoStock。",
+  "indices": [
+    {
+      "code": "000001",
+      "name": "上证指数",
+      "close": {
+        "value": 3942.0879,
+        "unit": "点",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.017803,
+        "unit": "%",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 8198.82350383,
+        "unit": "亿元",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        3942.0879
+      ]
+    },
+    {
+      "code": "399001",
+      "name": "深证成指",
+      "close": {
+        "value": 13625.1217,
+        "unit": "点",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.099728,
+        "unit": "%",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 9390.33973419688,
+        "unit": "亿元",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        13625.1217
+      ]
+    },
+    {
+      "code": "399006",
+      "name": "创业板指",
+      "close": {
+        "value": 3312.5411,
+        "unit": "点",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.008994,
+        "unit": "%",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 4337.8891385148,
+        "unit": "亿元",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        3312.5411
+      ]
+    },
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "close": {
+        "value": 4552.5784,
+        "unit": "点",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.101639,
+        "unit": "%",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 4399.406765454,
+        "unit": "亿元",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        4552.5784
+      ]
+    },
+    {
+      "code": "000905",
+      "name": "中证500",
+      "close": {
+        "value": 7755.3612,
+        "unit": "点",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.338041,
+        "unit": "%",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 2994.2629990640003,
+        "unit": "亿元",
+        "source": "BaoStock",
+        "data_time": "2026-09-03T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        7755.3612
+      ]
+    }
+  ],
+  "market_breadth": {
+    "up": null,
+    "down": null,
+    "flat": null,
+    "limit_up": null,
+    "limit_down": null,
+    "median_change_pct": null
+  },
+  "turnover": {
+    "value": null,
+    "unit": "亿元",
+    "source": "BaoStock",
+    "data_time": "2026-09-03T15:00:00+08:00",
+    "adjusted": false,
+    "realtime": false,
+    "estimated": false,
+    "missing": true,
+    "note": "降级来源缺少全市场成交额"
+  },
+  "sentiment": "中性",
+  "sentiment_basis": [
+    "降级数据不足，不判断全市场情绪"
+  ],
+  "sectors": [],
+  "research_candidate": {
+    "code": "000000",
+    "name": "本期不选股",
+    "industry": "A 股全市场",
+    "selected": false,
+    "no_selection_reason": "免费公开数据不足以完成财务、估值与公告口径的双源验证。",
+    "score": null,
+    "score_breakdown": {},
+    "business_model": "未选择具体公司，不作未经核验的商业模式概括。",
+    "selection_reason": "坚持基本面与证据优先；仅有价格和板块热度时不形成个股判断。",
+    "fundamentals": {
+      "状态": "未完成权威财报与公告双源核验"
+    },
+    "valuation": {
+      "状态": "未完成同口径估值与历史分位核验"
+    },
+    "technical_snapshot": {
+      "状态": "不以短线技术信号替代基本面"
+    },
+    "catalysts": [],
+    "risks": [
+      "行情聚合接口可能延迟或变更",
+      "单日涨跌不能证明行业景气",
+      "缺少财务与公告交叉验证",
+      "不构成投资建议"
+    ],
+    "scenarios": {
+      "optimistic": "待基本面与估值证据齐备后再定义。",
+      "base": "保持观察，不选择标的。",
+      "pessimistic": "数据质量下降或口径冲突时停止判断。"
+    },
+    "invalidation_conditions": [
+      "上游数据时间与目标交易日不一致",
+      "关键字段缺失或来源冲突",
+      "无法核验公告与财务口径"
+    ],
+    "conclusion": "数据不足，暂不判断",
+    "data_as_of": "2026-09-03",
+    "citations": [
+      {
+        "source_id": "baostock",
+        "source_name": "BaoStock",
+        "url": "http://baostock.com/",
+        "title": "BaoStock 证券数据平台",
+        "published_at": null,
+        "note": "降级来源仅提供部分指数日线，市场广度与行业数据缺失。"
+      }
+    ],
+    "is_demo": false
+  },
+  "data_quality": {
+    "status": "partial",
+    "completeness": 0.42,
+    "conflicts": [],
+    "notes": [
+      "仅有部分指数日线",
+      "市场广度、行业和基本面数据不可用"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "baostock",
+      "source_name": "BaoStock",
+      "url": "http://baostock.com/",
+      "title": "BaoStock 证券数据平台",
+      "published_at": null,
+      "note": "降级来源仅提供部分指数日线，市场广度与行业数据缺失。"
+    }
+  ],
+  "is_demo": false
+}
