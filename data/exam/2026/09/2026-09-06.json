@@ -1,0 +1,469 @@
+{
+  "schema_version": "1.0.0",
+  "id": "exam-2026-09-06",
+  "date": "2026-09-06",
+  "generated_at": "2026-09-06T06:48:58+08:00",
+  "timezone": "Asia/Shanghai",
+  "source_ids": [
+    "system-original"
+  ],
+  "content_hash": "ad80358b2e035a599825b59348e3705bf4c4ef7962caef4b955f46471c3cd5ee",
+  "generation_status": "success",
+  "validation_errors": [],
+  "questions": [
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-09-06-1",
+      "date": "2026-09-06",
+      "generated_at": "2026-09-06T06:48:58+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "87676b540d0bd1405e20316b996498b317b3bf1c9ab5e0aa148deb44e9a88d9a",
+      "generation_status": "success",
+      "validation_errors": [],
+      "source_type": "original",
+      "source_name": "知势原创能力训练",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "material": null,
+      "tags": [
+        "言语理解",
+        "原创",
+        "每日训练"
+      ],
+      "is_demo": false,
+      "question_type": "言语理解",
+      "difficulty": "基础",
+      "stem": "释放数据要素价值，既要让数据在合规前提下流动起来，也要让数据真正进入生产和治理场景。填入横线处最恰当的是：数据开发利用要____。",
+      "options": {
+        "A": "只重数量、不问质量",
+        "B": "兼顾规范流通与场景应用",
+        "C": "完全排斥市场主体参与",
+        "D": "以重复建设扩大规模"
+      },
+      "correct_answer": "B",
+      "explanation": "文段强调合规流动与实际应用两个方面，B 完整对应。",
+      "fastest_method": "把‘流动’和‘应用’两个关键词同时纳入答案。",
+      "traps": [
+        "只概括其中一个方面"
+      ],
+      "suggested_seconds": 60
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-09-06-2",
+      "date": "2026-09-06",
+      "generated_at": "2026-09-06T06:48:58+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "a58e23df141e566400e629d61b7957be468274eb8ce365f67c1fd979320306c4",
+      "generation_status": "success",
+      "validation_errors": [],
+      "source_type": "original",
+      "source_name": "知势原创能力训练",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "material": null,
+      "tags": [
+        "判断推理",
+        "原创",
+        "每日训练"
+      ],
+      "is_demo": false,
+      "question_type": "判断推理",
+      "difficulty": "中等",
+      "stem": "某政务应用只有同时通过个人信息保护评估和数据授权审查，才能正式上线。现该应用已正式上线。由此一定可以推出：",
+      "options": {
+        "A": "只完成了个人信息保护评估",
+        "B": "只完成了数据授权审查",
+        "C": "两项前置条件均已完成",
+        "D": "正式上线一定成功"
+      },
+      "correct_answer": "C",
+      "explanation": "‘只有 A 且 B，才 C’表示 C→A 且 B；已正式上线可推出两项前置条件均完成。",
+      "fastest_method": "把‘只有……才……’写成：正式上线→两项条件。",
+      "traps": [
+        "把必要条件方向写反"
+      ],
+      "suggested_seconds": 70
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-09-06-3",
+      "date": "2026-09-06",
+      "generated_at": "2026-09-06T06:48:58+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "d8bfcef327a074490a9f8f0fbf68f832261cf13a87434e63e27ce07566414232",
+      "generation_status": "success",
+      "validation_errors": [],
+      "source_type": "original",
+      "source_name": "知势原创能力训练",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "material": null,
+      "tags": [
+        "数量关系",
+        "原创",
+        "每日训练"
+      ],
+      "is_demo": false,
+      "question_type": "数量关系",
+      "difficulty": "中等",
+      "stem": "某学习小组 5 天共完成 90 道题，若每天完成题数相同，则平均每天完成多少道？",
+      "options": {
+        "A": "16",
+        "B": "17",
+        "C": "18",
+        "D": "19"
+      },
+      "correct_answer": "C",
+      "explanation": "90÷5=18。",
+      "fastest_method": "总量直接除以天数。",
+      "traps": [
+        "把总量与日均量混淆"
+      ],
+      "suggested_seconds": 50
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-09-06-4",
+      "date": "2026-09-06",
+      "generated_at": "2026-09-06T06:48:58+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "b6238b4962fb9469eb16626aa17ad91ad3d61fd247b469e46c200d7c0a8b37dd",
+      "generation_status": "success",
+      "validation_errors": [],
+      "source_type": "original",
+      "source_name": "知势原创能力训练",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "material": null,
+      "tags": [
+        "资料分析",
+        "原创",
+        "每日训练"
+      ],
+      "is_demo": false,
+      "question_type": "资料分析",
+      "difficulty": "基础",
+      "stem": "某事项平均办理时间由 12 变为 9，降幅为：",
+      "options": {
+        "A": "20%",
+        "B": "25%",
+        "C": "30%",
+        "D": "35%"
+      },
+      "correct_answer": "B",
+      "explanation": "降幅=|9-12|÷12=25%，分母为基期值。",
+      "fastest_method": "先求变化量，再除以变化前的基期值。",
+      "traps": [
+        "错用报告期数值作分母"
+      ],
+      "suggested_seconds": 70
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-09-06-5",
+      "date": "2026-09-06",
+      "generated_at": "2026-09-06T06:48:58+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "75bfbf07870fb70c4bc9f607405eb8e6fee267dde55b18244fa29270619e622e",
+      "generation_status": "success",
+      "validation_errors": [],
+      "source_type": "original",
+      "source_name": "知势原创能力训练",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "material": null,
+      "tags": [
+        "常识判断",
+        "原创",
+        "每日训练"
+      ],
+      "is_demo": false,
+      "question_type": "常识判断",
+      "difficulty": "中等",
+      "stem": "下列做法中，最有利于增强乡村产业内生发展能力的是：",
+      "options": {
+        "A": "长期依赖一次性补贴",
+        "B": "只建设展示项目",
+        "C": "培育本地人才并完善利益联结机制",
+        "D": "照搬其他地区产业模式"
+      },
+      "correct_answer": "C",
+      "explanation": "内生能力来自本地人才、组织和可持续利益机制，而不是短期外部投入。",
+      "fastest_method": "抓住‘内生’对应本地能力和长效机制。",
+      "traps": [
+        "把外部输血当成持续造血"
+      ],
+      "suggested_seconds": 60
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-09-06-6",
+      "date": "2026-09-06",
+      "generated_at": "2026-09-06T06:48:58+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "aa832667f266757e8406673d161a9d122d037b42ea5d2d27d7f1ec8d958c113a",
+      "generation_status": "success",
+      "validation_errors": [],
+      "source_type": "original",
+      "source_name": "知势原创能力训练",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "material": null,
+      "tags": [
+        "判断推理",
+        "原创",
+        "每日训练"
+      ],
+      "is_demo": false,
+      "question_type": "判断推理",
+      "difficulty": "进阶",
+      "stem": "如果数据治理措施有效，则重复填报减少或数据准确率提高。现观察到重复填报未减少且数据准确率未提高，可以推出：",
+      "options": {
+        "A": "数据治理措施一定很多",
+        "B": "数据治理措施未产生题干所定义的有效结果",
+        "C": "部门没有采集数据",
+        "D": "数据准确率一定下降"
+      },
+      "correct_answer": "B",
+      "explanation": "前件有效可推出两个结果至少一个成立；两个结果均被否定，可通过逆否命题否定‘有效’。",
+      "fastest_method": "同时否定‘或’的两个分支，再用逆否命题。",
+      "traps": [
+        "把效果不足偷换成完全没有投入或行动"
+      ],
+      "suggested_seconds": 80
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-09-06-7",
+      "date": "2026-09-06",
+      "generated_at": "2026-09-06T06:48:58+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "54f8443bbfff0a36fe480a04d45aef8379697e2990ede58c8b10efd1931220be",
+      "generation_status": "success",
+      "validation_errors": [],
+      "source_type": "original",
+      "source_name": "知势原创能力训练",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "material": null,
+      "tags": [
+        "言语理解",
+        "原创",
+        "每日训练"
+      ],
+      "is_demo": false,
+      "question_type": "言语理解",
+      "difficulty": "中等",
+      "stem": "数字政府不能只把线下流程搬到网上，还要围绕群众需求重塑事项、材料和部门协同。该句主要强调：",
+      "options": {
+        "A": "所有线下服务都应取消",
+        "B": "数字政府建设要以需求推动流程再造",
+        "C": "平台数量决定服务水平",
+        "D": "技术采购可以代替部门协同"
+      },
+      "correct_answer": "B",
+      "explanation": "文段通过转折或递进指出，解决问题不能依靠单一投入，而要形成需求、要素和流程之间的协同。",
+      "fastest_method": "定位转折或递进之后的总括关系。",
+      "traps": [
+        "把并列要素误读为单一要素优先"
+      ],
+      "suggested_seconds": 55
+    },
+    {
+      "schema_version": "1.0.0",
+      "id": "q-2026-09-06-8",
+      "date": "2026-09-06",
+      "generated_at": "2026-09-06T06:48:58+08:00",
+      "timezone": "Asia/Shanghai",
+      "source_ids": [],
+      "content_hash": "84d9cb33fc97dccbb765ae834f05c3c57194e28f2a123bd9ec51d143055b860d",
+      "generation_status": "success",
+      "validation_errors": [],
+      "source_type": "original",
+      "source_name": "知势原创能力训练",
+      "year": 2026,
+      "region": "通用",
+      "exam_type": "国考/江西省考能力训练",
+      "material": null,
+      "tags": [
+        "数量关系",
+        "原创",
+        "每日训练"
+      ],
+      "is_demo": false,
+      "question_type": "数量关系",
+      "difficulty": "中等",
+      "stem": "某项目三个指标权重分别为 30%、30%、40%，得分分别为 80、90、75，综合得分为：",
+      "options": {
+        "A": "79",
+        "B": "80",
+        "C": "81",
+        "D": "82"
+      },
+      "correct_answer": "C",
+      "explanation": "80×30%+90×30%+75×40%=81。",
+      "fastest_method": "各项分数乘权重后相加。",
+      "traps": [
+        "直接计算算术平均数"
+      ],
+      "suggested_seconds": 80
+    }
+  ],
+  "shenlun": {
+    "schema_version": "1.0.0",
+    "id": "shenlun-2026-09-06",
+    "date": "2026-09-06",
+    "generated_at": "2026-09-06T06:48:58+08:00",
+    "timezone": "Asia/Shanghai",
+    "source_ids": [
+      "system-original"
+    ],
+    "content_hash": "91601712d1cb89691e41573587f86697a30e9f50dc8654f6f75f93f4856b6f2b",
+    "generation_status": "success",
+    "validation_errors": [],
+    "current_affairs": [
+      {
+        "title": "数字政府中的流程再造",
+        "event_summary": "原创训练议题：从群众办事堵点反推跨部门流程优化。",
+        "policy_background": "围绕便民、高效、安全和协同建立分析框架。",
+        "theme": "数字政府",
+        "arguments": [
+          "技术应用要服务公共价值",
+          "数据共享与责任边界应同步明确"
+        ],
+        "case": "假设案例，不作为现实事实引用。",
+        "suitable_questions": [
+          "概括题",
+          "对策题"
+        ]
+      },
+      {
+        "title": "青年就业与产业需求衔接",
+        "event_summary": "原创训练议题：分析专业能力、实训内容和岗位标准之间的错配。",
+        "policy_background": "坚持就业优先，提升人才培养与产业发展的适配度。",
+        "theme": "青年就业",
+        "arguments": [
+          "完善从培养到就业的服务链",
+          "用岗位标准校准实训内容"
+        ],
+        "case": "假设案例，不作为现实事实引用。",
+        "suitable_questions": [
+          "分析题",
+          "综合题"
+        ]
+      },
+      {
+        "title": "江西制造业数字化转型",
+        "event_summary": "原创训练议题：讨论中小企业转型成本、服务供给与风险治理。",
+        "policy_background": "推动数字经济与实体经济深度融合。",
+        "theme": "江西发展",
+        "arguments": [
+          "降低中小企业转型门槛",
+          "以可复制场景带动能力沉淀"
+        ],
+        "case": "假设案例，不作为现实事实引用。",
+        "suitable_questions": [
+          "对策题",
+          "公文写作"
+        ]
+      }
+    ],
+    "golden_sentences": [
+      {
+        "type": "系统原创总结句",
+        "text": "数字化的成色，不只看平台建了多少，更要看群众少跑了多少、基层减负了多少。"
+      },
+      {
+        "type": "政策规范表达",
+        "text": "坚持需求牵引、场景驱动、规范发展和安全可控相统一。"
+      },
+      {
+        "type": "系统原创总结句",
+        "text": "产业升级既要有技术向上的高度，也要有就业稳定和公共价值的温度。"
+      }
+    ],
+    "standard_expressions": [
+      {
+        "plain": "办事来回跑",
+        "formal": "跨部门业务协同和材料共享仍有堵点",
+        "scenario": "数字政府、营商环境",
+        "example": "围绕高频事项推进材料复用和流程再造。"
+      },
+      {
+        "plain": "数据对不上",
+        "formal": "数据标准、更新频率与责任边界尚未统一",
+        "scenario": "数据要素、基层治理",
+        "example": "建立统一目录、质量规则和问题闭环。"
+      },
+      {
+        "plain": "招工求职两头难",
+        "formal": "人才供给与产业需求存在结构性错配",
+        "scenario": "青年就业、先进制造",
+        "example": "推动课程、实训和岗位标准有效衔接。"
+      }
+    ],
+    "case_material": {
+      "name": "南昌便民服务协同（原创情境）",
+      "time_place": "假设情境，江西南昌",
+      "practice": "以高频事项为切口统一材料目录、协同职责和反馈渠道。",
+      "problem": "重复提交、系统分散、特殊群体服务不足。",
+      "result": "不设置虚构成效数字，重点训练证据边界。",
+      "lesson": "流程、数据、责任和反馈需要同步再造。",
+      "themes": [
+        "数字政府",
+        "营商环境",
+        "江西发展"
+      ],
+      "limitation": "完全原创的假设材料，不得当作现实案例或政策成效引用。",
+      "source": {
+        "source_id": "system-original",
+        "source_name": "知势原创训练材料",
+        "url": "https://github.com/chenyang-canghai/insight-daily-dashboard",
+        "title": "原创、假设性申论训练材料说明",
+        "published_at": null,
+        "note": "下列案例均为假设情境，不代表现实地区或项目事实。"
+      }
+    },
+    "micro_practice": {
+      "type": "对策题",
+      "material": "某地多个政务平台功能重复，群众仍需反复提交材料；基层人员要在不同系统重复录入。部分老年人不会使用智能终端，线下帮办力量不足。",
+      "requirement": "请概括问题并提出有针对性的改进建议。",
+      "word_limit": 300,
+      "reference_answer": "问题在于平台分散、数据标准不一、线上线下流程割裂及特殊群体服务不足。应统一入口和材料目录，明确数据共享责任，推动后台互联与业务流程再造；保留必要窗口和帮办服务；建立运行监测、群众反馈和定期评估机制，及时纠偏。",
+      "scoring_points": [
+        "平台整合",
+        "数据共享",
+        "流程再造",
+        "线下兜底",
+        "反馈评估"
+      ],
+      "common_mistakes": [
+        "只提增加技术投入",
+        "对策与问题不对应",
+        "忽略特殊群体"
+      ],
+      "strong_expressions": [
+        "推动数据通、业务通、服务通",
+        "坚持线上提效与线下兜底并重"
+      ]
+    },
+    "weekly_essay": null,
+    "is_demo": false
+  },
+  "is_demo": false
+}
