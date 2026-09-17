@@ -1,8 +1,18 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-17T18:32:18+08:00",
+  "generated_at": "2026-09-18T06:48:52+08:00",
   "timezone": "Asia/Shanghai",
   "entries": [
+    {
+      "date": "2026-09-18",
+      "title": "2026-09-18 每日研判与公考学习看板",
+      "mode": "live",
+      "news_count": 8,
+      "deep_dive_count": 8,
+      "question_count": 8,
+      "market_status": "closed",
+      "path": "/daily/2026-09-18/"
+    },
     {
       "date": "2026-09-17",
       "title": "2026-09-17 每日研判与公考学习看板",
