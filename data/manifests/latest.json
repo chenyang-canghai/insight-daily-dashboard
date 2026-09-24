@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "id": "daily-2026-09-24",
   "date": "2026-09-24",
-  "generated_at": "2026-09-24T08:53:03+08:00",
+  "generated_at": "2026-09-24T23:15:04+08:00",
   "timezone": "Asia/Shanghai",
   "source_ids": [
     "baostock",
@@ -11,7 +11,7 @@
     "ndrc-news",
     "system-original"
   ],
-  "content_hash": "44c99b38c24cd2924d127323a6e8e74370445805e0a9e7645c724b43bbd2a20b",
+  "content_hash": "a8df51f1cd5336f8cd16fc3e09eb1422cf86094c813b7cc82f249dbae914f90e",
   "generation_status": "partial",
   "validation_errors": [],
   "title": "2026-09-24 每日研判与公考学习看板",
@@ -37,10 +37,10 @@
     {
       "module": "market",
       "scheduled_time": "18:25",
-      "last_run": "2026-09-23T23:05:37+08:00",
-      "status": "stale",
-      "freshness": "stale",
-      "message": "沿用上一期数据，等待本模块更新"
+      "last_run": "2026-09-24T23:15:04+08:00",
+      "status": "success",
+      "freshness": "fresh",
+      "message": "公开行情已完成收盘复盘"
     }
   ],
   "news": [
@@ -1233,28 +1233,28 @@
   ],
   "market": {
     "schema_version": "1.0.0",
-    "id": "market-2026-09-23",
-    "date": "2026-09-23",
-    "generated_at": "2026-09-23T23:05:37+08:00",
+    "id": "market-2026-09-24",
+    "date": "2026-09-24",
+    "generated_at": "2026-09-24T23:15:04+08:00",
     "timezone": "Asia/Shanghai",
     "source_ids": [
       "baostock"
     ],
-    "content_hash": "b3116f4e2fe3932f53b306cbc577821cba5ae5d9f5272d34e7f6007ecd2d6351",
+    "content_hash": "dd75904c322acfa9241a73701f1e75d2540254fae664d8e6eec0567777dcd575",
     "generation_status": "success",
     "validation_errors": [],
-    "trading_date": "2026-09-23",
+    "trading_date": "2026-09-24",
     "market_status": "closed",
-    "status_note": "2026-09-23 收盘数据；AKShare 不可用，已降级到 BaoStock。",
+    "status_note": "2026-09-24 收盘数据；AKShare 不可用，已降级到 BaoStock。",
     "indices": [
       {
         "code": "000001",
         "name": "上证指数",
         "close": {
-          "value": 3936.5199,
+          "value": 3888.3738,
           "unit": "点",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1262,10 +1262,10 @@
           "note": null
         },
         "change_pct": {
-          "value": -0.394929,
+          "value": -1.223063,
           "unit": "%",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1273,10 +1273,10 @@
           "note": null
         },
         "turnover": {
-          "value": 8341.328629852,
+          "value": 7836.130013761999,
           "unit": "亿元",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1284,17 +1284,17 @@
           "note": null
         },
         "trend": [
-          3936.5199
+          3888.3738
         ]
       },
       {
         "code": "399001",
         "name": "深证成指",
         "close": {
-          "value": 13636.0742,
+          "value": 13316.9689,
           "unit": "点",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1302,10 +1302,10 @@
           "note": null
         },
         "change_pct": {
-          "value": -0.638756,
+          "value": -2.340155,
           "unit": "%",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1313,10 +1313,10 @@
           "note": null
         },
         "turnover": {
-          "value": 9308.43553664318,
+          "value": 8697.443609643089,
           "unit": "亿元",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1324,17 +1324,17 @@
           "note": null
         },
         "trend": [
-          13636.0742
+          13316.9689
         ]
       },
       {
         "code": "399006",
         "name": "创业板指",
         "close": {
-          "value": 3379.6099,
+          "value": 3288.9476,
           "unit": "点",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1342,10 +1342,10 @@
           "note": null
         },
         "change_pct": {
-          "value": -0.597668,
+          "value": -2.682626,
           "unit": "%",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1353,10 +1353,10 @@
           "note": null
         },
         "turnover": {
-          "value": 4427.4205556155,
+          "value": 4142.1759004008,
           "unit": "亿元",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1364,17 +1364,17 @@
           "note": null
         },
         "trend": [
-          3379.6099
+          3288.9476
         ]
       },
       {
         "code": "000300",
         "name": "沪深300",
         "close": {
-          "value": 4517.2785,
+          "value": 4439.1443,
           "unit": "点",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1382,10 +1382,10 @@
           "note": null
         },
         "change_pct": {
-          "value": -0.600913,
+          "value": -1.729674,
           "unit": "%",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1393,10 +1393,10 @@
           "note": null
         },
         "turnover": {
-          "value": 3782.894171067,
+          "value": 3754.616761428,
           "unit": "亿元",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1404,17 +1404,17 @@
           "note": null
         },
         "trend": [
-          4517.2785
+          4439.1443
         ]
       },
       {
         "code": "000905",
         "name": "中证500",
         "close": {
-          "value": 7791.8165,
+          "value": 7624.0659,
           "unit": "点",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1422,10 +1422,10 @@
           "note": null
         },
         "change_pct": {
-          "value": -0.47424,
+          "value": -2.152907,
           "unit": "%",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1433,10 +1433,10 @@
           "note": null
         },
         "turnover": {
-          "value": 2735.95880952,
+          "value": 2699.225007039,
           "unit": "亿元",
           "source": "BaoStock",
-          "data_time": "2026-09-23T15:00:00+08:00",
+          "data_time": "2026-09-24T15:00:00+08:00",
           "adjusted": false,
           "realtime": false,
           "estimated": false,
@@ -1444,7 +1444,7 @@
           "note": null
         },
         "trend": [
-          7791.8165
+          7624.0659
         ]
       }
     ],
@@ -1460,7 +1460,7 @@
       "value": null,
       "unit": "亿元",
       "source": "BaoStock",
-      "data_time": "2026-09-23T15:00:00+08:00",
+      "data_time": "2026-09-24T15:00:00+08:00",
       "adjusted": false,
       "realtime": false,
       "estimated": false,
@@ -1509,7 +1509,7 @@
         "无法核验公告与财务口径"
       ],
       "conclusion": "数据不足，暂不判断",
-      "data_as_of": "2026-09-23",
+      "data_as_of": "2026-09-24",
       "citations": [
         {
           "source_id": "baostock",
