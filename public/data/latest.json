@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "id": "daily-2026-09-30",
-  "date": "2026-09-30",
-  "generated_at": "2026-09-30T09:34:25+08:00",
+  "id": "daily-2026-10-01",
+  "date": "2026-10-01",
+  "generated_at": "2026-10-01T00:26:27+08:00",
   "timezone": "Asia/Shanghai",
   "source_ids": [
     "akshare",
@@ -11,10 +11,10 @@
     "ndrc-news",
     "system-original"
   ],
-  "content_hash": "9b0ad3ffdd765ebf399501e1abe68c6049a9957754cc59a38dd2e95fc8480d36",
+  "content_hash": "9187a591c1142bb372c93c1031cd6a67c5dfa5510466a48e412fedfac0471374",
   "generation_status": "partial",
   "validation_errors": [],
-  "title": "2026-09-30 每日研判与公考学习看板",
+  "title": "2026-10-01 每日研判与公考学习看板",
   "overview": "真实公开来源日报：8 条新闻索引、8 条证据驱动的逻辑拆解、A 股风险复盘与 8 道原创公考练习。",
   "is_demo": false,
   "task_statuses": [
@@ -22,9 +22,9 @@
       "module": "exam",
       "scheduled_time": "06:45",
       "last_run": "2026-09-30T09:34:25+08:00",
-      "status": "success",
-      "freshness": "fresh",
-      "message": "原创练习已生成并校验"
+      "status": "stale",
+      "freshness": "stale",
+      "message": "沿用上一期数据，等待本模块更新"
     },
     {
       "module": "news",
@@ -37,10 +37,10 @@
     {
       "module": "market",
       "scheduled_time": "18:25",
-      "last_run": "2026-09-25T23:20:12+08:00",
-      "status": "stale",
-      "freshness": "stale",
-      "message": "沿用上一期数据，等待本模块更新"
+      "last_run": "2026-10-01T00:26:27+08:00",
+      "status": "success",
+      "freshness": "fresh",
+      "message": "公开行情已完成收盘复盘"
     }
   ],
   "news": [
@@ -1233,19 +1233,19 @@
   ],
   "market": {
     "schema_version": "1.0.0",
-    "id": "market-2026-09-25",
-    "date": "2026-09-25",
-    "generated_at": "2026-09-25T23:20:12+08:00",
+    "id": "market-2026-10-01",
+    "date": "2026-10-01",
+    "generated_at": "2026-10-01T00:26:27+08:00",
     "timezone": "Asia/Shanghai",
     "source_ids": [
       "akshare"
     ],
-    "content_hash": "b03239a422b1b0378fc205db62622558922854ac2206a21cfd822e9f05f2b23e",
+    "content_hash": "b72e94ed4b5c35ebc1a8bd13e5638cf7d6a7be9f2b28efbbc2e662646c49ca74",
     "generation_status": "success",
     "validation_errors": [],
-    "trading_date": "2026-09-25",
+    "trading_date": "2026-10-01",
     "market_status": "closed",
-    "status_note": "2026-09-25 为非交易日，不生成行情数值。",
+    "status_note": "2026-10-01 为非交易日，不生成行情数值。",
     "indices": [],
     "market_breadth": {
       "up": null,
@@ -1259,7 +1259,7 @@
       "value": null,
       "unit": "亿元",
       "source": "AKShare",
-      "data_time": "2026-09-25T18:25:00+08:00",
+      "data_time": "2026-10-01T18:25:00+08:00",
       "adjusted": false,
       "realtime": false,
       "estimated": false,
@@ -1308,7 +1308,7 @@
         "无法核验公告与财务口径"
       ],
       "conclusion": "数据不足，暂不判断",
-      "data_as_of": "2026-09-25",
+      "data_as_of": "2026-10-01",
       "citations": [
         {
           "source_id": "akshare",
