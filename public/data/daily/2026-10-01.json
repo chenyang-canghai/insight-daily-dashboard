@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "id": "daily-2026-10-01",
   "date": "2026-10-01",
-  "generated_at": "2026-10-01T00:26:27+08:00",
+  "generated_at": "2026-10-01T09:34:50+08:00",
   "timezone": "Asia/Shanghai",
   "source_ids": [
     "akshare",
@@ -11,7 +11,7 @@
     "ndrc-news",
     "system-original"
   ],
-  "content_hash": "9187a591c1142bb372c93c1031cd6a67c5dfa5510466a48e412fedfac0471374",
+  "content_hash": "03f99b926cb4049020eb09e654cd649f27c110cd3f234a0cf446ec499ca82d33",
   "generation_status": "partial",
   "validation_errors": [],
   "title": "2026-10-01 每日研判与公考学习看板",
@@ -21,10 +21,10 @@
     {
       "module": "exam",
       "scheduled_time": "06:45",
-      "last_run": "2026-09-30T09:34:25+08:00",
-      "status": "stale",
-      "freshness": "stale",
-      "message": "沿用上一期数据，等待本模块更新"
+      "last_run": "2026-10-01T09:34:50+08:00",
+      "status": "success",
+      "freshness": "fresh",
+      "message": "原创练习已生成并校验"
     },
     {
       "module": "news",
@@ -1343,25 +1343,25 @@
   },
   "exam": {
     "schema_version": "1.0.0",
-    "id": "exam-2026-09-30",
-    "date": "2026-09-30",
-    "generated_at": "2026-09-30T09:34:25+08:00",
+    "id": "exam-2026-10-01",
+    "date": "2026-10-01",
+    "generated_at": "2026-10-01T09:34:50+08:00",
     "timezone": "Asia/Shanghai",
     "source_ids": [
       "system-original"
     ],
-    "content_hash": "182ebb11e80f54bbd9817acb07d7cf18f8ac0fd5ddea8d976552f88cbf439866",
+    "content_hash": "174048ca4f429f0b15c9f1f93a65ea3cd048192a8a8c62c89b22edcb775fe567",
     "generation_status": "success",
     "validation_errors": [],
     "questions": [
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-30-1",
-        "date": "2026-09-30",
-        "generated_at": "2026-09-30T09:34:25+08:00",
+        "id": "q-2026-10-01-1",
+        "date": "2026-10-01",
+        "generated_at": "2026-10-01T09:34:50+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "cb67a30327c5ff3513eff790b48a7fd83ae0608b0865305d5275e1da8d5d4b52",
+        "content_hash": "aebb6446952ba654061cbb5888c78f6a36b4e192621816d2d6f858c3394bf593",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1378,29 +1378,29 @@
         "is_demo": false,
         "question_type": "言语理解",
         "difficulty": "基础",
-        "stem": "释放数据要素价值，既要让数据在合规前提下流动起来，也要让数据真正进入生产和治理场景。填入横线处最恰当的是：数据开发利用要____。",
+        "stem": "基层治理既要及时回应群众诉求，也要通过制度化流程避免同类问题反复发生。填入横线处最恰当的是：治理创新应当____。",
         "options": {
-          "A": "只重数量、不问质量",
-          "B": "兼顾规范流通与场景应用",
-          "C": "完全排斥市场主体参与",
-          "D": "以重复建设扩大规模"
+          "A": "重应急处置、轻制度建设",
+          "B": "把解决个案与完善机制结合起来",
+          "C": "把所有问题交由技术平台处理",
+          "D": "减少群众表达渠道"
         },
         "correct_answer": "B",
-        "explanation": "文段强调合规流动与实际应用两个方面，B 完整对应。",
-        "fastest_method": "把‘流动’和‘应用’两个关键词同时纳入答案。",
+        "explanation": "个案回应和制度化防复发分别对应治标与治本，B 兼顾两者。",
+        "fastest_method": "看到‘也要’就寻找能同时覆盖前后要求的选项。",
         "traps": [
-          "只概括其中一个方面"
+          "把及时处置与长效治理割裂"
         ],
         "suggested_seconds": 60
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-30-2",
-        "date": "2026-09-30",
-        "generated_at": "2026-09-30T09:34:25+08:00",
+        "id": "q-2026-10-01-2",
+        "date": "2026-10-01",
+        "generated_at": "2026-10-01T09:34:50+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "15f4b2be625323c69000e974cffea62fba4fb5fe326058e9c3c20598e68c8171",
+        "content_hash": "3eff81f35c549f06843ba1a430d9b4fa5015b79c0816b93b16d3bb6a05245ba1",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1417,16 +1417,16 @@
         "is_demo": false,
         "question_type": "判断推理",
         "difficulty": "中等",
-        "stem": "某政务应用只有同时通过个人信息保护评估和数据授权审查，才能正式上线。现该应用已正式上线。由此一定可以推出：",
+        "stem": "某制造项目只有同时通过环境影响评价和节能审查，才能开工建设。现该项目已经开工。由此一定可以推出：",
         "options": {
-          "A": "只完成了个人信息保护评估",
-          "B": "只完成了数据授权审查",
+          "A": "只完成了环境影响评价",
+          "B": "只完成了节能审查",
           "C": "两项前置条件均已完成",
-          "D": "正式上线一定成功"
+          "D": "开工建设一定成功"
         },
         "correct_answer": "C",
-        "explanation": "‘只有 A 且 B，才 C’表示 C→A 且 B；已正式上线可推出两项前置条件均完成。",
-        "fastest_method": "把‘只有……才……’写成：正式上线→两项条件。",
+        "explanation": "‘只有 A 且 B，才 C’表示 C→A 且 B；已开工建设可推出两项前置条件均完成。",
+        "fastest_method": "把‘只有……才……’写成：开工建设→两项条件。",
         "traps": [
           "把必要条件方向写反"
         ],
@@ -1434,12 +1434,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-30-3",
-        "date": "2026-09-30",
-        "generated_at": "2026-09-30T09:34:25+08:00",
+        "id": "q-2026-10-01-3",
+        "date": "2026-10-01",
+        "generated_at": "2026-10-01T09:34:50+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "1e972a8c9e758b67cf28b04898ba7326e46f40a0bfd5c508f3a608d05ac6d030",
+        "content_hash": "b1597ac36ead2b72ba475d6da043a7ff7e90edc4e340f320921c3895ded8deb3",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1456,15 +1456,15 @@
         "is_demo": false,
         "question_type": "数量关系",
         "difficulty": "中等",
-        "stem": "某学习小组 5 天共完成 70 道题，若每天完成题数相同，则平均每天完成多少道？",
+        "stem": "某学习小组 5 天共完成 65 道题，若每天完成题数相同，则平均每天完成多少道？",
         "options": {
-          "A": "12",
-          "B": "13",
-          "C": "14",
-          "D": "15"
+          "A": "11",
+          "B": "12",
+          "C": "13",
+          "D": "14"
         },
         "correct_answer": "C",
-        "explanation": "70÷5=14。",
+        "explanation": "65÷5=13。",
         "fastest_method": "总量直接除以天数。",
         "traps": [
           "把总量与日均量混淆"
@@ -1473,12 +1473,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-30-4",
-        "date": "2026-09-30",
-        "generated_at": "2026-09-30T09:34:25+08:00",
+        "id": "q-2026-10-01-4",
+        "date": "2026-10-01",
+        "generated_at": "2026-10-01T09:34:50+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "c4f31dbce1c4f2d75607546b55ae762d6318126322fb73e8ec95adc5860c5535",
+        "content_hash": "b9e3f1a8827a888825e1f2096283305e092a2e509c3894f5d5cc656db8101257",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1495,15 +1495,15 @@
         "is_demo": false,
         "question_type": "资料分析",
         "difficulty": "基础",
-        "stem": "某事项平均办理时间由 12 变为 9，降幅为：",
+        "stem": "某园区高新技术企业数量由 250 变为 300，增幅为：",
         "options": {
-          "A": "20%",
-          "B": "25%",
-          "C": "30%",
-          "D": "35%"
+          "A": "15%",
+          "B": "20%",
+          "C": "25%",
+          "D": "30%"
         },
         "correct_answer": "B",
-        "explanation": "降幅=|9-12|÷12=25%，分母为基期值。",
+        "explanation": "增幅=|300-250|÷250=20%，分母为基期值。",
         "fastest_method": "先求变化量，再除以变化前的基期值。",
         "traps": [
           "错用报告期数值作分母"
@@ -1512,12 +1512,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-30-5",
-        "date": "2026-09-30",
-        "generated_at": "2026-09-30T09:34:25+08:00",
+        "id": "q-2026-10-01-5",
+        "date": "2026-10-01",
+        "generated_at": "2026-10-01T09:34:50+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "23af1ba5d3bbd9edd32bd3682b507d3eb22669274f12f627f4afe1bb73a8ff48",
+        "content_hash": "4c6a9d7aaa73ef72f904fc1cad736c3f219e970673b97e209b740595f66b0034",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1534,29 +1534,29 @@
         "is_demo": false,
         "question_type": "常识判断",
         "difficulty": "中等",
-        "stem": "下列做法中，最有利于增强乡村产业内生发展能力的是：",
+        "stem": "下列营商环境改革措施中，最能体现规则公平和预期稳定的是：",
         "options": {
-          "A": "长期依赖一次性补贴",
-          "B": "只建设展示项目",
-          "C": "培育本地人才并完善利益联结机制",
-          "D": "照搬其他地区产业模式"
+          "A": "对不同所有制企业设置不同准入条件",
+          "B": "临时改变审批标准且不公开",
+          "C": "公开统一标准并保持政策连续性",
+          "D": "以运动式检查代替日常监管"
         },
         "correct_answer": "C",
-        "explanation": "内生能力来自本地人才、组织和可持续利益机制，而不是短期外部投入。",
-        "fastest_method": "抓住‘内生’对应本地能力和长效机制。",
+        "explanation": "统一、公开、连续的规则能够减少不确定性并保障公平竞争。",
+        "fastest_method": "从公平、公开、稳定三个关键词筛选。",
         "traps": [
-          "把外部输血当成持续造血"
+          "把短期便利误作制度化营商环境"
         ],
         "suggested_seconds": 60
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-30-6",
-        "date": "2026-09-30",
-        "generated_at": "2026-09-30T09:34:25+08:00",
+        "id": "q-2026-10-01-6",
+        "date": "2026-10-01",
+        "generated_at": "2026-10-01T09:34:50+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "3a77086289c48d3c7d03ef2bc9015468d25995d67f0aa0f220027fd37807b8c7",
+        "content_hash": "5daf7fb27117fc4d455e0551c4bff6dfdaff44906fddebbdb8b272f39110e978",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1573,12 +1573,12 @@
         "is_demo": false,
         "question_type": "判断推理",
         "difficulty": "进阶",
-        "stem": "如果数据治理措施有效，则重复填报减少或数据准确率提高。现观察到重复填报未减少且数据准确率未提高，可以推出：",
+        "stem": "如果绿色改造达到预期，则单位能耗下降或污染排放减少。现观察到单位能耗未下降且污染排放未减少，可以推出：",
         "options": {
-          "A": "数据治理措施一定很多",
-          "B": "数据治理措施未产生题干所定义的有效结果",
-          "C": "部门没有采集数据",
-          "D": "数据准确率一定下降"
+          "A": "绿色改造一定很多",
+          "B": "绿色改造未产生题干所定义的有效结果",
+          "C": "企业没有购置设备",
+          "D": "污染排放一定增加"
         },
         "correct_answer": "B",
         "explanation": "前件有效可推出两个结果至少一个成立；两个结果均被否定，可通过逆否命题否定‘有效’。",
@@ -1590,12 +1590,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-30-7",
-        "date": "2026-09-30",
-        "generated_at": "2026-09-30T09:34:25+08:00",
+        "id": "q-2026-10-01-7",
+        "date": "2026-10-01",
+        "generated_at": "2026-10-01T09:34:50+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "9197a580f705db5bc639b8877f54d3b2b849b147fd50785d5bc36ccb09c71058",
+        "content_hash": "e404d3c9d004d164a5526d09e26cddb7b873ed3f0036ab73bddf305c134c749b",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1612,12 +1612,12 @@
         "is_demo": false,
         "question_type": "言语理解",
         "difficulty": "中等",
-        "stem": "数字政府不能只把线下流程搬到网上，还要围绕群众需求重塑事项、材料和部门协同。该句主要强调：",
+        "stem": "乡村产业发展既需要技术和资金，也需要懂经营的人才、稳定的销售渠道和合理的利益联结。该句主要强调：",
         "options": {
-          "A": "所有线下服务都应取消",
-          "B": "数字政府建设要以需求推动流程再造",
-          "C": "平台数量决定服务水平",
-          "D": "技术采购可以代替部门协同"
+          "A": "资金投入可以解决全部问题",
+          "B": "乡村产业需要多要素形成长效机制",
+          "C": "销售渠道比人才更重要",
+          "D": "技术能够代替经营管理"
         },
         "correct_answer": "B",
         "explanation": "文段通过转折或递进指出，解决问题不能依靠单一投入，而要形成需求、要素和流程之间的协同。",
@@ -1629,12 +1629,12 @@
       },
       {
         "schema_version": "1.0.0",
-        "id": "q-2026-09-30-8",
-        "date": "2026-09-30",
-        "generated_at": "2026-09-30T09:34:25+08:00",
+        "id": "q-2026-10-01-8",
+        "date": "2026-10-01",
+        "generated_at": "2026-10-01T09:34:50+08:00",
         "timezone": "Asia/Shanghai",
         "source_ids": [],
-        "content_hash": "91e7a17740ba00739fab91251f7b45b20a3d92bfb6f4281d2247a5147864e8bb",
+        "content_hash": "c8df10089741fb4fc740b42d65f7e32126710d9c49c72344b829f1bd232daacd",
         "generation_status": "success",
         "validation_errors": [],
         "source_type": "original",
@@ -1651,15 +1651,15 @@
         "is_demo": false,
         "question_type": "数量关系",
         "difficulty": "中等",
-        "stem": "某项目三个指标权重分别为 30%、30%、40%，得分分别为 80、90、75，综合得分为：",
+        "stem": "某项目三个指标权重分别为 25%、25%、50%，得分分别为 88、76、82，综合得分为：",
         "options": {
-          "A": "79",
-          "B": "80",
-          "C": "81",
-          "D": "82"
+          "A": "80",
+          "B": "81",
+          "C": "82",
+          "D": "83"
         },
         "correct_answer": "C",
-        "explanation": "80×30%+90×30%+75×40%=81。",
+        "explanation": "88×25%+76×25%+82×50%=82。",
         "fastest_method": "各项分数乘权重后相加。",
         "traps": [
           "直接计算算术平均数"
@@ -1669,14 +1669,14 @@
     ],
     "shenlun": {
       "schema_version": "1.0.0",
-      "id": "shenlun-2026-09-30",
-      "date": "2026-09-30",
-      "generated_at": "2026-09-30T09:34:25+08:00",
+      "id": "shenlun-2026-10-01",
+      "date": "2026-10-01",
+      "generated_at": "2026-10-01T09:34:50+08:00",
       "timezone": "Asia/Shanghai",
       "source_ids": [
         "system-original"
       ],
-      "content_hash": "28046b2286cd281c991a56cd569b23b4c901692eafa96f55a20a8d550d2c36e2",
+      "content_hash": "b00f857e22f7090aaaa71ba6a814046ff7f5ab9f64cd72056a566943ddbac2c8",
       "generation_status": "success",
       "validation_errors": [],
       "current_affairs": [
