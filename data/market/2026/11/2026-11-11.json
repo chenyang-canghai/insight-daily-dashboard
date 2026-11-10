@@ -1,0 +1,333 @@
+{
+  "schema_version": "1.0.0",
+  "id": "market-2026-11-11",
+  "date": "2026-11-11",
+  "generated_at": "2026-11-11T02:00:37+08:00",
+  "timezone": "Asia/Shanghai",
+  "source_ids": [
+    "akshare"
+  ],
+  "content_hash": "5b8ba69e0791b08e4d28e91b2c23a2b67e9ad22f2810a6572022aea2253ebc50",
+  "generation_status": "success",
+  "validation_errors": [],
+  "trading_date": "2026-11-11",
+  "market_status": "closed",
+  "status_note": "2026-11-11 收盘数据；非实时，最终口径以上游市场数据为准。",
+  "indices": [
+    {
+      "code": "000001",
+      "name": "上证指数",
+      "close": {
+        "value": 3663.72,
+        "unit": "点",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.08,
+        "unit": "%",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 6739.518932403001,
+        "unit": "亿元",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        3663.72
+      ]
+    },
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "close": {
+        "value": 4059.11,
+        "unit": "点",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.07,
+        "unit": "%",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 3800.895477178,
+        "unit": "亿元",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        4059.11
+      ]
+    },
+    {
+      "code": "000905",
+      "name": "中证500",
+      "close": {
+        "value": 6645.89,
+        "unit": "点",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.91,
+        "unit": "%",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 2540.8323477970002,
+        "unit": "亿元",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        6645.89
+      ]
+    },
+    {
+      "code": "000688",
+      "name": "科创50",
+      "close": {
+        "value": 1265.02,
+        "unit": "点",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "change_pct": {
+        "value": 0.64,
+        "unit": "%",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "turnover": {
+        "value": 660.161326287,
+        "unit": "亿元",
+        "source": "AKShare / 东方财富公开行情",
+        "data_time": "2026-11-11T15:00:00+08:00",
+        "adjusted": false,
+        "realtime": false,
+        "estimated": false,
+        "missing": false,
+        "note": null
+      },
+      "trend": [
+        1265.02
+      ]
+    }
+  ],
+  "market_breadth": {
+    "up": 4273,
+    "down": 1149,
+    "flat": 155,
+    "limit_up": 135,
+    "limit_down": 2,
+    "median_change_pct": 1.31
+  },
+  "turnover": {
+    "value": 15167.58,
+    "unit": "亿元",
+    "source": "AKShare / 东方财富公开行情",
+    "data_time": "2026-11-11T15:00:00+08:00",
+    "adjusted": false,
+    "realtime": false,
+    "estimated": false,
+    "missing": false,
+    "note": null
+  },
+  "sentiment": "偏强",
+  "sentiment_basis": [
+    "上涨 4273 家、下跌 1149 家、平盘 155 家",
+    "全市场涨跌幅中位数 1.31%",
+    "涨跌停家数按涨跌幅阈值近似统计，非交易所精确口径"
+  ],
+  "sectors": [
+    {
+      "name": "其他数字媒体",
+      "change_pct": 9.8,
+      "heat_score": 75,
+      "driver_type": "情绪",
+      "catalyst": "仅确认当日板块价格表现，未把涨幅归因为未经核验的事件或政策。",
+      "chain": [
+        "公开行情",
+        "板块涨跌幅",
+        "市场关注度"
+      ],
+      "sustainability": "需结合订单、盈利、现金流与政策原文继续验证。",
+      "watch_next": "成交持续性、上涨广度及基本面信息",
+      "invalidation": "次日快速回落或缺少基本面证据",
+      "representatives": [
+        "不列个股，避免把板块热度误作推荐"
+      ],
+      "risk": "单日价格信号噪声较大"
+    },
+    {
+      "name": "文字媒体",
+      "change_pct": 9.03,
+      "heat_score": 67,
+      "driver_type": "情绪",
+      "catalyst": "仅确认当日板块价格表现，未把涨幅归因为未经核验的事件或政策。",
+      "chain": [
+        "公开行情",
+        "板块涨跌幅",
+        "市场关注度"
+      ],
+      "sustainability": "需结合订单、盈利、现金流与政策原文继续验证。",
+      "watch_next": "成交持续性、上涨广度及基本面信息",
+      "invalidation": "次日快速回落或缺少基本面证据",
+      "representatives": [
+        "不列个股，避免把板块热度误作推荐"
+      ],
+      "risk": "单日价格信号噪声较大"
+    },
+    {
+      "name": "影视动漫制作",
+      "change_pct": 8.03,
+      "heat_score": 59,
+      "driver_type": "情绪",
+      "catalyst": "仅确认当日板块价格表现，未把涨幅归因为未经核验的事件或政策。",
+      "chain": [
+        "公开行情",
+        "板块涨跌幅",
+        "市场关注度"
+      ],
+      "sustainability": "需结合订单、盈利、现金流与政策原文继续验证。",
+      "watch_next": "成交持续性、上涨广度及基本面信息",
+      "invalidation": "次日快速回落或缺少基本面证据",
+      "representatives": [
+        "不列个股，避免把板块热度误作推荐"
+      ],
+      "risk": "单日价格信号噪声较大"
+    }
+  ],
+  "research_candidate": {
+    "code": "000000",
+    "name": "本期不选股",
+    "industry": "A 股全市场",
+    "selected": false,
+    "no_selection_reason": "免费公开数据不足以完成财务、估值与公告口径的双源验证。",
+    "score": null,
+    "score_breakdown": {},
+    "business_model": "未选择具体公司，不作未经核验的商业模式概括。",
+    "selection_reason": "坚持基本面与证据优先；仅有价格和板块热度时不形成个股判断。",
+    "fundamentals": {
+      "状态": "未完成权威财报与公告双源核验"
+    },
+    "valuation": {
+      "状态": "未完成同口径估值与历史分位核验"
+    },
+    "technical_snapshot": {
+      "状态": "不以短线技术信号替代基本面"
+    },
+    "catalysts": [],
+    "risks": [
+      "行情聚合接口可能延迟或变更",
+      "单日涨跌不能证明行业景气",
+      "缺少财务与公告交叉验证",
+      "不构成投资建议"
+    ],
+    "scenarios": {
+      "optimistic": "待基本面与估值证据齐备后再定义。",
+      "base": "保持观察，不选择标的。",
+      "pessimistic": "数据质量下降或口径冲突时停止判断。"
+    },
+    "invalidation_conditions": [
+      "上游数据时间与目标交易日不一致",
+      "关键字段缺失或来源冲突",
+      "无法核验公告与财务口径"
+    ],
+    "conclusion": "数据不足，暂不判断",
+    "data_as_of": "2026-11-11",
+    "citations": [
+      {
+        "source_id": "akshare",
+        "source_name": "AKShare",
+        "url": "https://akshare.akfamily.xyz/",
+        "title": "AKShare A 股行情接口文档",
+        "published_at": null,
+        "note": "聚合公开行情，非实时；上游字段和可用性可能变化。"
+      }
+    ],
+    "is_demo": false
+  },
+  "data_quality": {
+    "status": "partial",
+    "completeness": 0.77,
+    "conflicts": [],
+    "notes": [
+      "价格与成交为聚合公开行情",
+      "涨跌停家数采用 9.5% 阈值近似，未区分 ST 和不同交易板块",
+      "未将单日表现用于短线预测"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "akshare",
+      "source_name": "AKShare",
+      "url": "https://akshare.akfamily.xyz/",
+      "title": "AKShare A 股行情接口文档",
+      "published_at": null,
+      "note": "聚合公开行情，非实时；上游字段和可用性可能变化。"
+    }
+  ],
+  "is_demo": false
+}
